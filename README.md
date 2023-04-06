@@ -6,3 +6,9 @@
 - Movie Mentors can edit user reviews/comments/personal lists to maintain the site's integrity
 - Movie Members can create their own personal reviews, comments, and lists for their own movie interests.
 
+### Contact us!
+- John Henry Cooper
+- Faith Lovell
+- Joy Mwaria
+- Katie Oates
+- Diya Shah

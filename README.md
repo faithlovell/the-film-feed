@@ -31,4 +31,4 @@
 - Faith Lovell
 - Joy Mwaria
 - Katie Oates
-- Diya Shah
+- Diya Shah (diyashah@udel.edu)

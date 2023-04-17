@@ -1,4 +1,4 @@
-# Film Feed Project
+# Film Feed Project - Team 14
 - The Film Feed is a movie review blog by John Henry Cooper, Faith Lovell, Joy Mwaria, Katie Oates, and Diya Shah.
 
 ## Who can use Film Feed?

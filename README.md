@@ -28,7 +28,7 @@
 
 ### Contact us!
 - John Henry Cooper
-- Faith Lovell
+- Faith Lovell (faithlov@udel.edu)
 - Joy Mwaria
 - Katie Oates
 - Diya Shah (diyashah@udel.edu)

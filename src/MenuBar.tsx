@@ -12,16 +12,17 @@ export function MultipleChoiceQuestion({
     }
     return (
         <div>
-            <h3>Select Role</h3>
-            <Form.Group controlId="UserSelect">
+            <h3>Multiple Choice Question</h3>
+            <Form.Group controlId="favoriteColors">
                 <Form.Select value={answer} onChange={newAnswer}>
-                    {options.map((ans) => 
+                    {options.map((ans) => (
                         <option key={ans} value={ans}>
                             {ans}
                         </option>
-                    )}
+                    ))}
                 </Form.Select>
             </Form.Group>
+            Your answer is: {answer === expectedAnswer ? "✔️" : "❌"}
         </div>
     );
 }

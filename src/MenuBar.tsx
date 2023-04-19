@@ -12,7 +12,7 @@ export function MultipleChoiceQuestion({
     }
     return (
         <div>
-            <h3>Multiple Choice Question</h3>
+            <h3>Role Selection</h3>
             <Form.Group controlId="favoriteColors">
                 <Form.Select value={answer} onChange={newAnswer}>
                     {options.map((ans) => (

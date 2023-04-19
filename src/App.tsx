@@ -5,9 +5,14 @@ import { MultipleChoiceQuestion } from "./MenuBar";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript Hello Hello
-            </header>
+            <header className="App-header">The Film Feed</header>
+            <p>Select Role: *selection here*</p>
+            <p>Movies List: *movies list (super list) here*</p>
+            <p>Your List: *user list here*</p>
+            <p>
+                Katie Oates, Diya Shah, John Henry Cooper, Faith Lovell, Joy
+                Mwaria
+            </p>
             <hr></hr>
             <MultipleChoiceQuestion
                 options={["Movie Master", "Movie Mentor", "Movie Member"]}

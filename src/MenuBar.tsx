@@ -22,7 +22,6 @@ export function MultipleChoiceQuestion({
                     ))}
                 </Form.Select>
             </Form.Group>
-            Your answer is: {answer === expectedAnswer ? "✔️" : "❌"}
         </div>
     );
 }

@@ -15,13 +15,14 @@
 
 .App-header {
     width: 100%;
-    background-color: #282c34;
+    background-color: crimson;
     min-height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    font-family: "Luminari, fantasy";
+    font-size: calc(40px + 2vmin);
     color: white;
 }
 

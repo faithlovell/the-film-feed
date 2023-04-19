@@ -15,11 +15,11 @@ export function MultipleChoiceQuestion({
             <h3>Select Role</h3>
             <Form.Group controlId="UserSelect">
                 <Form.Select value={answer} onChange={newAnswer}>
-                    {options.map((ans) => (
+                    {options.map((ans) => 
                         <option key={ans} value={ans}>
                             {ans}
                         </option>
-                    ))}
+                    )}
                 </Form.Select>
             </Form.Group>
         </div>

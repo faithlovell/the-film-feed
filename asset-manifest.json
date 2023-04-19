@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/the-film-feed/static/css/main.9081fcb2.css",
-    "main.js": "/the-film-feed/static/js/main.a541eb0d.js",
+    "main.js": "/the-film-feed/static/js/main.f7fdcb6e.js",
     "static/js/787.4ef7427d.chunk.js": "/the-film-feed/static/js/787.4ef7427d.chunk.js",
     "index.html": "/the-film-feed/index.html",
     "main.9081fcb2.css.map": "/the-film-feed/static/css/main.9081fcb2.css.map",
-    "main.a541eb0d.js.map": "/the-film-feed/static/js/main.a541eb0d.js.map",
+    "main.f7fdcb6e.js.map": "/the-film-feed/static/js/main.f7fdcb6e.js.map",
     "787.4ef7427d.chunk.js.map": "/the-film-feed/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9081fcb2.css",
-    "static/js/main.a541eb0d.js"
+    "static/js/main.f7fdcb6e.js"
   ]
 }

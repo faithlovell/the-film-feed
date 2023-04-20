@@ -6,7 +6,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (49 ms)
+  ✕ renders the course name somewhere (59 ms)
 
   ● renders the course name somewhere
 
@@ -25,11 +25,38 @@ FAIL src/App.test.tsx
               [33malt[39m=[32m"logo"[39m
               [33msrc[39m=[32m"ff-logo.png"[39m
             [36m/>[39m
-            [0m [0m
+            [36m<div>[39m
+              [0m [0m
+              [36m<div>[39m
+                [36m<h3>[39m
+                  [0mRole Selection[0m
+                [36m</h3>[39m
+                [36m<div>[39m
+                  [36m<select[39m
+                    [33mclass[39m=[32m"form-select"[39m
+                    [33mid[39m=[32m"favoriteColors"[39m
+                  [36m>[39m
+                    [36m<option[39m
+                      [33mvalue[39m=[32m"Movie Master"[39m
+                    [36m>[39m
+                      [0mMovie Master[0m
+                    [36m</option>[39m
+                    [36m<option[39m
+                      [33mvalue[39m=[32m"Movie Mentor"[39m
+                    [36m>[39m
+                      [0mMovie Mentor[0m
+                    [36m</option>[39m
+                    [36m<option[39m
+                      [33mvalue[39m=[32m"Movie Member"[39m
+                    [36m>[39m
+                      [0mMovie Member[0m
+                    [36m</option>[39m
+                  [36m</select>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [0m [0m
+            [36m</div>[39m
           [36m</header>[39m
-          [36m<p>[39m
-            [0mSelect Role: *selection here*[0m
-          [36m</p>[39m
           [36m<p>[39m
             [0mMovies List: *movies list (super list) here*[0m
           [36m</p>[39m
@@ -39,36 +66,6 @@ FAIL src/App.test.tsx
           [36m<p>[39m
             [0mKatie Oates, Diya Shah, John Henry Cooper, Faith Lovell, Joy Mwaria[0m
           [36m</p>[39m
-          [36m<hr />[39m
-          [36m<div>[39m
-            [36m<h3>[39m
-              [0mRole Selection[0m
-            [36m</h3>[39m
-            [36m<div>[39m
-              [36m<select[39m
-                [33mclass[39m=[32m"form-select"[39m
-                [33mid[39m=[32m"favoriteColors"[39m
-              [36m>[39m
-                [36m<option[39m
-                  [33mvalue[39m=[32m"Movie Master"[39m
-                [36m>[39m
-                  [0mMovie Master[0m
-                [36m</option>[39m
-                [36m<option[39m
-                  [33mvalue[39m=[32m"Movie Mentor"[39m
-                [36m>[39m
-                  [0mMovie Mentor[0m
-                [36m</option>[39m
-                [36m<option[39m
-                  [33mvalue[39m=[32m"Movie Member"[39m
-                [36m>[39m
-                  [0mMovie Member[0m
-                [36m</option>[39m
-              [36m</select>[39m
-            [36m</div>[39m
-          [36m</div>[39m
-          [0m [0m
-          [36m<hr />[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -101,5 +98,5 @@ All files    |      80 |      100 |      75 |      80 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.728 s
+Time:        2.121 s
 Ran all test suites.

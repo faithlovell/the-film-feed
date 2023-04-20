@@ -4,9 +4,9 @@ import React, { useState } from "react";
 export function MovieMaster(): JSX.Element {
     const [movie, setMovie] = useState<string>("Your Name");
 
-    function updateMovie() {
-        setMovie(movie);
-    }
+    // function updateMovie() {
+    //     setMovie(movie);
+    // }
 
     // This is the View
     return (

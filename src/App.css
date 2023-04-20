@@ -16,13 +16,13 @@
 .App-header {
     width: 100%;
     background-color: bisque;
-    min-height: 20vh;
+    min-height: 25vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: "Luminari, fantasy";
-    font-size: calc(40px + 2vmin);
+    font-family: "" Monaco ", monospace";
+    font-size: calc(30px + 2vmin);
     color: white;
 }
 

@@ -20,11 +20,11 @@ function App(): JSX.Element {
                     ></RoleSelect>{" "}
                 </div>
             </header>
-            
+
             <hr></hr>
             <MovieMaster></MovieMaster>
             <hr></hr>
-            
+
             <p>Movies List: *movies list (super list) here*</p>
             <p>Your List: *user list here*</p>
             <p>
@@ -36,7 +36,6 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
-
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { MovieMaster } from "./MovieMaster";
 
 function App(): JSX.Element {
     return (
@@ -11,6 +12,11 @@ function App(): JSX.Element {
                 Katie Oates, Diya Shah, John Henry Cooper, Faith Lovell, Joy
                 Mwaria
             </p>
+
+            <hr></hr>
+            <MovieMaster></MovieMaster>
+            <hr></hr>
+
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.

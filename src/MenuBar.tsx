@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
-export function MultipleChoiceQuestion({
+export function RoleSelect({
     options
 }: {
     options: ["Movie Master", "Movie Mentor", "Movie Member"];

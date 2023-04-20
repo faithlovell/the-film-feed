@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
 import { MultipleChoiceQuestion } from "./MenuBar";
+import logo from "./assets/ff-logo.png";
 
 function App(): JSX.Element {
     return (
         <div className="App">
-            <header className="App-header">The Film Feed</header>
+            <header className="App-header">
+                <img src={logo} alt="logo" />{" "}
+            </header>
             <p>Select Role: *selection here*</p>
             <p>Movies List: *movies list (super list) here*</p>
             <p>Your List: *user list here*</p>

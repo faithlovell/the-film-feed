@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { RoleSelect } from "./MenuBar";
 import logo from "./assets/ff-logo.png";
+import HungerGames from "./Movies_images.jpg";
 
 function App(): JSX.Element {
     return (
@@ -25,6 +26,11 @@ function App(): JSX.Element {
                 Katie Oates, Diya Shah, John Henry Cooper, Faith Lovell, Joy
                 Mwaria
             </p>
+            <li>
+                <a href="http://google.com">
+                    <img src="HungerGames" alt="The Hunger Games"></img>
+                </a>
+            </li>
         </div>
     );
 }

@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/the-film-feed/static/css/main.69a3888f.css",
-    "main.js": "/the-film-feed/static/js/main.c8d33710.js",
+    "main.css": "/the-film-feed/static/css/main.770c7f43.css",
+    "main.js": "/the-film-feed/static/js/main.dcd70c20.js",
     "static/js/787.4ef7427d.chunk.js": "/the-film-feed/static/js/787.4ef7427d.chunk.js",
     "static/media/ff-logo.png": "/the-film-feed/static/media/ff-logo.6c590311af3488f90718.png",
     "index.html": "/the-film-feed/index.html",
-    "main.69a3888f.css.map": "/the-film-feed/static/css/main.69a3888f.css.map",
-    "main.c8d33710.js.map": "/the-film-feed/static/js/main.c8d33710.js.map",
+    "main.770c7f43.css.map": "/the-film-feed/static/css/main.770c7f43.css.map",
+    "main.dcd70c20.js.map": "/the-film-feed/static/js/main.dcd70c20.js.map",
     "787.4ef7427d.chunk.js.map": "/the-film-feed/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.69a3888f.css",
-    "static/js/main.c8d33710.js"
+    "static/css/main.770c7f43.css",
+    "static/js/main.dcd70c20.js"
   ]
 }

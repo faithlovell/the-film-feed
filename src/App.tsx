@@ -22,7 +22,7 @@ function App(): JSX.Element {
                     </div>
                 </header>
                 <p>Movies List: *movies list (super list) here*</p>
-                <p>Your List: *user list here*</p>
+                <p>Your List: * user list here*</p>
                 <DragLists></DragLists>
 
                 <p>

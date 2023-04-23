@@ -3,6 +3,7 @@ import "./App.css";
 import { MovieMaster } from "./MovieMaster";
 import { RoleSelect } from "./MenuBar";
 import logo from "./assets/ff-logo.png";
+import { DragLists } from "./DragList";
 
 function App(): JSX.Element {
     return (
@@ -20,6 +21,7 @@ function App(): JSX.Element {
                     ></RoleSelect>{" "}
                 </div>
             </header>
+            <DragLists></DragLists>
 
             <hr></hr>
             <MovieMaster></MovieMaster>

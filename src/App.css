@@ -6,6 +6,45 @@
     height: 40vmin;
     pointer-events: none;
 }
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.dropped-widget {
+  background-color: #f2f2f2;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.list1 {
+    flex-basis: 50%;
+
+    width: 300px;
+    height: 300px;
+    border: 2px dashed gray;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.list2 {
+    flex-basis: 50%;
+    width: 300px;
+    height: 300px;
+    border: 2px dashed gray;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+
+.page.dragging {
+  background-color: #f5f5f5;
+}
 
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
@@ -38,3 +77,4 @@
         transform: rotate(360deg);
     }
 }
+

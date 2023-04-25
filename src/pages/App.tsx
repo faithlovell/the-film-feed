@@ -16,20 +16,22 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                <img
-                    style={{ width: 342, height: 295 }}
-                    src={logo}
-                    alt="logo"
-                />
-                <div>
-                    {" "}
-                    <RoleSelect
-                        options={[
-                            "Movie Master",
-                            "Movie Mentor",
-                            "Movie Member"
-                        ]}
-                    ></RoleSelect>{" "}
+                <div className="container">
+                    <img
+                        style={{ width: 280, height: 241 }}
+                        src={logo}
+                        alt="logo"
+                    />
+                    <div>
+                        {" "}
+                        <RoleSelect
+                            options={[
+                                "Movie Master",
+                                "Movie Mentor",
+                                "Movie Member"
+                            ]}
+                        ></RoleSelect>{" "}
+                    </div>
                 </div>
             </header>
             <DragLists></DragLists>

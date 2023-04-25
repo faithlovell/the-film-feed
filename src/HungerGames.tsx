@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import HungerGames from "Hunger_Games.png";
+//import HungerGames from "Hunger_Games.png";
 
 function App(): JSX.Element {
     return (

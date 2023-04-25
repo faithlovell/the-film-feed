@@ -13,19 +13,28 @@ export function DragLists() {
     function handleOnDropSuper(e: React.DragEvent) {
         const widgetType = e.dataTransfer.getData("widgetType") as string;
         console.log("widgetType", widgetType);
-        setSuperWidgets([...superWidgets, widgetType]);
+        if (!superWidgets.includes(widgetType)) {
+            setSuperWidgets([...superWidgets, widgetType]);
+            if (!adminWidgets.includes(widgetType)) {
+                setAdminWidgets([...adminWidgets, widgetType]);
+            }
+        }
     }
 
     function handleOnDropAdmin(e: React.DragEvent) {
         const widgetType = e.dataTransfer.getData("widgetType") as string;
         console.log("widgetType", widgetType);
-        setAdminWidgets([...adminWidgets, widgetType]);
+        if (!adminWidgets.includes(widgetType)) {
+            setAdminWidgets([...adminWidgets, widgetType]);
+        }
     }
 
     function handleOnDropUser(e: React.DragEvent) {
         const widgetType = e.dataTransfer.getData("widgetType") as string;
         console.log("widgetType", widgetType);
-        setUserWidgets([...userWidgets, widgetType]);
+        if (!userWidgets.includes(widgetType)) {
+            setUserWidgets([...userWidgets, widgetType]);
+        }
     }
 
     function handleDragOver(e: React.DragEvent) {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import "./Form.css";
 
 export function RoleSelect({
     options
@@ -12,7 +13,7 @@ export function RoleSelect({
     }
     return (
         <div>
-            <h3>Role Selection</h3>
+            <h3 style={{ color: "#FFF5EE" }}>Role Selection</h3>
             <Form.Group controlId="favoriteColors">
                 <Form.Select value={answer} onChange={newAnswer}>
                     {options.map((ans) => (

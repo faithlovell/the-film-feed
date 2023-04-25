@@ -1,31 +1,36 @@
 import React from "react";
-import "./App.css";
-import { MovieMaster } from "./MovieMaster";
-import { RoleSelect } from "./MenuBar";
-import logo from "./assets/ff-logo.png";
-import HarryPotter1 from "./Movies_images/HarryPotter1.png";
-import HungerGames from "./Movies_images/Hunger_Games.png";
-import Aladdin from "./Movies_images/Aladdin.png";
-import Avatar from "./Movies_images/Avatar.png";
-import Avengers from "./Movies_images/Avengers.png";
-import { DragLists } from "./DragList";
-import "./styles.css";
-import { Stack } from "react-bootstrap";
+import "../App.css";
+import { MovieMaster } from "../MovieMaster";
+import { RoleSelect } from "../MenuBar";
+import logo from "../assets/ff-logo.png";
+import HarryPotter1 from "../Movies_images/HarryPotter1.png";
+import HungerGames from "../Movies_images/Hunger_Games.png";
+import Aladdin from "../Movies_images/Aladdin.png";
+import Avatar from "../Movies_images/Avatar.png";
+import Avengers from "../Movies_images/Avengers.png";
+import { DragLists } from "../DragList";
+import "../styles.css";
 
 function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} alt="logo" />
-                <div>
-                    {" "}
-                    <RoleSelect
-                        options={[
-                            "Movie Master",
-                            "Movie Mentor",
-                            "Movie Member"
-                        ]}
-                    ></RoleSelect>{" "}
+                <div className="container">
+                    <img
+                        style={{ width: 280, height: 241 }}
+                        src={logo}
+                        alt="logo"
+                    />
+                    <div>
+                        {" "}
+                        <RoleSelect
+                            options={[
+                                "Movie Master",
+                                "Movie Mentor",
+                                "Movie Member"
+                            ]}
+                        ></RoleSelect>{" "}
+                    </div>
                 </div>
             </header>
             <DragLists></DragLists>
@@ -77,7 +82,6 @@ function App(): JSX.Element {
                     </a>
                 </li>
             </p>
-            <p>Your List: *user list here*</p>
             <p>
                 Katie Oates, Diya Shah, John Henry Cooper, Faith Lovell, Joy
                 Mwaria

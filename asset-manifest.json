@@ -1,16 +1,21 @@
 {
   "files": {
-    "main.css": "/the-film-feed/static/css/main.770c7f43.css",
-    "main.js": "/the-film-feed/static/js/main.dcd70c20.js",
+    "main.css": "/the-film-feed/static/css/main.bb3f6b34.css",
+    "main.js": "/the-film-feed/static/js/main.ce55414a.js",
     "static/js/787.4ef7427d.chunk.js": "/the-film-feed/static/js/787.4ef7427d.chunk.js",
-    "static/media/ff-logo.png": "/the-film-feed/static/media/ff-logo.6c590311af3488f90718.png",
+    "static/media/Avengers.png": "/the-film-feed/static/media/Avengers.6165ca2b06f628f6210a.png",
+    "static/media/HarryPotter1.png": "/the-film-feed/static/media/HarryPotter1.d73c8b1f25143a3c047b.png",
+    "static/media/Aladdin.png": "/the-film-feed/static/media/Aladdin.61e18dc616273f92e992.png",
+    "static/media/Hunger_Games.png": "/the-film-feed/static/media/Hunger_Games.1abebd4f6ddb941ed649.png",
+    "static/media/Avatar.png": "/the-film-feed/static/media/Avatar.bc4f0432dfff34ad1ec5.png",
+    "static/media/ff-logo.png": "/the-film-feed/static/media/ff-logo.652bdc971f02b9793116.png",
     "index.html": "/the-film-feed/index.html",
-    "main.770c7f43.css.map": "/the-film-feed/static/css/main.770c7f43.css.map",
-    "main.dcd70c20.js.map": "/the-film-feed/static/js/main.dcd70c20.js.map",
+    "main.bb3f6b34.css.map": "/the-film-feed/static/css/main.bb3f6b34.css.map",
+    "main.ce55414a.js.map": "/the-film-feed/static/js/main.ce55414a.js.map",
     "787.4ef7427d.chunk.js.map": "/the-film-feed/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.770c7f43.css",
-    "static/js/main.dcd70c20.js"
+    "static/css/main.bb3f6b34.css",
+    "static/js/main.ce55414a.js"
   ]
 }

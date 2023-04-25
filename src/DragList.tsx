@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import { RoleSelect } from "./MenuBar";
 
 export function DragLists() {
+    const [superWidgets, setSuperWidgets] = useState<string[]>([]);
     const [adminWidgets, setAdminWidgets] = useState<string[]>([]);
     const [userWidgets, setUserWidgets] = useState<string[]>([]);
 
     function handleOnDrag(e: React.DragEvent, widgetType: string) {
         e.dataTransfer.setData("widgetType", widgetType);
+    }
+
+    function handleOnDropSuper(e: React.DragEvent) {
+        const widgetType = e.dataTransfer.getData("widgetType") as string;
+        console.log("widgetType", widgetType);
+        setSuperWidgets([...superWidgets, widgetType]);
     }
 
     function handleOnDropAdmin(e: React.DragEvent) {
@@ -49,7 +57,21 @@ export function DragLists() {
                     Movie 3
                 </div>
             </div>
+
             <div className="container">
+                <div className="list0-label">Super List</div>
+                <div
+                    className="list0"
+                    onDrop={handleOnDropSuper}
+                    onDragOver={handleDragOver}
+                >
+                    {superWidgets.map((widget, index) => (
+                        <div className="dropped-widget" key={index}>
+                            {widget}
+                        </div>
+                    ))}
+                </div>
+
                 <div className="list1-label">Admin List</div>
                 <div
                     className="list1"

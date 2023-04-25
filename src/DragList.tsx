@@ -32,9 +32,7 @@ export function DragLists() {
     function handleOnDropUser(e: React.DragEvent) {
         const widgetType = e.dataTransfer.getData("widgetType") as string;
         console.log("widgetType", widgetType);
-        if (!userWidgets.includes(widgetType)) {
-            setUserWidgets([...userWidgets, widgetType]);
-        }
+        setUserWidgets([...userWidgets, widgetType]);
     }
 
     function handleDragOver(e: React.DragEvent) {

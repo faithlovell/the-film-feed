@@ -10,7 +10,6 @@ import Avatar from "../Movies_images/Avatar.png";
 import Avengers from "../Movies_images/Avengers.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
-import { Stack } from "react-bootstrap";
 
 function App(): JSX.Element {
     return (

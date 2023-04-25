@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/the-film-feed/static/css/main.aa586ddf.css",
-    "main.js": "/the-film-feed/static/js/main.61c4c063.js",
+    "main.js": "/the-film-feed/static/js/main.a318ce64.js",
     "static/js/787.4ef7427d.chunk.js": "/the-film-feed/static/js/787.4ef7427d.chunk.js",
     "static/media/Avengers.png": "/the-film-feed/static/media/Avengers.6165ca2b06f628f6210a.png",
     "static/media/HarryPotter1.png": "/the-film-feed/static/media/HarryPotter1.d73c8b1f25143a3c047b.png",
@@ -11,11 +11,11 @@
     "static/media/ff-logo.png": "/the-film-feed/static/media/ff-logo.652bdc971f02b9793116.png",
     "index.html": "/the-film-feed/index.html",
     "main.aa586ddf.css.map": "/the-film-feed/static/css/main.aa586ddf.css.map",
-    "main.61c4c063.js.map": "/the-film-feed/static/js/main.61c4c063.js.map",
+    "main.a318ce64.js.map": "/the-film-feed/static/js/main.a318ce64.js.map",
     "787.4ef7427d.chunk.js.map": "/the-film-feed/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aa586ddf.css",
-    "static/js/main.61c4c063.js"
+    "static/js/main.a318ce64.js"
   ]
 }

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 // import { RoleSelect } from "./MenuBar";
 
-export function DragLists() {
+interface DragListsProps {
+    role: string;
+}
+
+export function DragLists({ role }: DragListsProps) {
     const [superWidgets, setSuperWidgets] = useState<string[]>([]);
     const [adminWidgets, setAdminWidgets] = useState<string[]>([]);
     const [userWidgets, setUserWidgets] = useState<string[]>([]);
@@ -57,45 +61,57 @@ export function DragLists() {
                     Movie 3
                 </div>
             </div>
-
             <div className="container">
-                <div className="list0-label">Super List</div>
-                <div
-                    className="list0"
-                    onDrop={handleOnDropSuper}
-                    onDragOver={handleDragOver}
-                >
-                    {superWidgets.map((widget, index) => (
-                        <div className="dropped-widget" key={index}>
-                            {widget}
+                {role === "Movie Master" && (
+                    <>
+                        <div className="list0-label">Super List</div>
+                        <div
+                            className="list0"
+                            onDrop={handleOnDropSuper}
+                            onDragOver={handleDragOver}
+                        >
+                            {superWidgets.map((widget, index) => (
+                                <div className="dropped-widget" key={index}>
+                                    {widget}
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+                    </>
+                )}
 
-                <div className="list1-label">Admin List</div>
-                <div
-                    className="list1"
-                    onDrop={handleOnDropAdmin}
-                    onDragOver={handleDragOver}
-                >
-                    {adminWidgets.map((widget, index) => (
-                        <div className="dropped-widget" key={index}>
-                            {widget}
+                {role === "Movie Mentor" && (
+                    <>
+                        <div className="list1-label">Admin List</div>
+                        <div
+                            className="list1"
+                            onDrop={handleOnDropAdmin}
+                            onDragOver={handleDragOver}
+                        >
+                            {adminWidgets.map((widget, index) => (
+                                <div className="dropped-widget" key={index}>
+                                    {widget}
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-                <div className="list1-label">User List</div>
-                <div
-                    className="list2"
-                    onDrop={handleOnDropUser}
-                    onDragOver={handleDragOver}
-                >
-                    {userWidgets.map((widget, index) => (
-                        <div className="dropped-widget" key={index}>
-                            {widget}
+                    </>
+                )}
+
+                {role === "Movie Member" && (
+                    <>
+                        <div className="list1-label">User List</div>
+                        <div
+                            className="list2"
+                            onDrop={handleOnDropUser}
+                            onDragOver={handleDragOver}
+                        >
+                            {userWidgets.map((widget, index) => (
+                                <div className="dropped-widget" key={index}>
+                                    {widget}
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+                    </>
+                )}
             </div>
         </div>
     );

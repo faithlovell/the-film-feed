@@ -2,24 +2,25 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import "./Form.css";
 
-// interface RoleSelectProps {
-//     answer: string;
-// }
+interface RoleSelectProps {
+    role: string;
+    setRole: (newRole: string) => void;
+    options: string[];
+}
 
 export function RoleSelect({
+    role,
+    setRole,
     options
-}: {
-    options: ["Movie Master", "Movie Mentor", "Movie Member"];
-}): JSX.Element {
-    const [answer, setAnswer] = useState<string>(options[0]);
+}: RoleSelectProps): JSX.Element {
     function newAnswer(event: React.ChangeEvent<HTMLSelectElement>) {
-        setAnswer(event.target.value);
+        setRole(event.target.value);
     }
     return (
         <div>
             <h3 style={{ color: "#FFF5EE" }}>Role Selection</h3>
             <Form.Group controlId="favoriteColors">
-                <Form.Select id="dropDown" value={answer} onChange={newAnswer}>
+                <Form.Select id="dropDown" value={role} onChange={newAnswer}>
                     {options.map((ans) => (
                         <option key={ans} value={ans}>
                             {ans}

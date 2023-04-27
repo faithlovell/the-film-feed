@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 import { MovieMaster } from "../MovieMaster";
 import { RoleSelect } from "../MenuBar";
@@ -12,6 +12,7 @@ import { DragLists } from "../DragList";
 import "../styles.css";
 
 function App(): JSX.Element {
+    const [role, setRole] = useState<string>("Movie Master");
     return (
         <div className="App">
             <header className="App-header">
@@ -29,11 +30,13 @@ function App(): JSX.Element {
                                 "Movie Mentor",
                                 "Movie Member"
                             ]}
+                            role={role}
+                            setRole={setRole}
                         ></RoleSelect>{" "}
                     </div>
                 </div>
             </header>
-            <DragLists></DragLists>
+            <DragLists role={role}></DragLists>
 
             <hr></hr>
             <MovieMaster></MovieMaster>

@@ -10,6 +10,8 @@ import Avatar from "../Movies_images/Avatar.png";
 import Avengers from "../Movies_images/Avengers.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
+import "../style.css"
+import SliderParent from "../script.jsx"
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
@@ -41,6 +43,7 @@ function App(): JSX.Element {
             <hr></hr>
             <MovieMaster></MovieMaster>
             <hr></hr>
+            <SliderParent></SliderParent>
             <p>
                 Movies List:
                 <li>

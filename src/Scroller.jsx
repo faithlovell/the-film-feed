@@ -1,4 +1,4 @@
-import './style.css'
+import './Scroller.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
 

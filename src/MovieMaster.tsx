@@ -20,7 +20,7 @@ export function MovieMaster(): JSX.Element {
     const Hunger_Games = {
         image: HungerGames,
         title: "Hunger Games",
-        cast: "",
+        cast: "Jennifer Lawrence, Josh Hutcherson, Liam Hemsworth, Donald Sutherland",
         rating: "PG-13",
         inTheatres: false
     };

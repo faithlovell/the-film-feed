@@ -53,13 +53,7 @@ export function MovieMaster(): JSX.Element {
         inTheatres: false
     };
 
-    const [movieList, setMovieList] = useState<Movie[]>([
-        Hunger_Games,
-        Harry_Potter,
-        Aladdin,
-        Avatar,
-        Avengers
-    ]);
+    const [movieList, setMovieList] = useState<Movie[]>([]);
 
     // state is list of movies and set list adds movie to list
     function updateMovie(event: React.ChangeEvent<HTMLInputElement>) {

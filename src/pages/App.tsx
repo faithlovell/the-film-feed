@@ -10,8 +10,9 @@ import Avatar from "../Movies_images/Avatar.png";
 import Avengers from "../Movies_images/Avengers.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
-import "../style.css"
-import SliderParent from "../script.jsx"
+import "../style.css";
+import ReviewApp from "../ReviewBox";
+// import SliderParent from "../script.jsx";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
@@ -39,11 +40,12 @@ function App(): JSX.Element {
                 </div>
             </header>
             <DragLists role={role}></DragLists>
-
+            <ReviewApp></ReviewApp>
             <hr></hr>
             <MovieMaster></MovieMaster>
             <hr></hr>
-            <SliderParent></SliderParent>
+            {/* <SliderParent></SliderParent> */}
+
             <p>
                 Movies List:
                 <li>

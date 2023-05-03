@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import MovieList, { MovieItem } from "../MovieMaster";
+import { MovieItem } from "../MovieMaster";
 import { RoleSelect } from "../MenuBar";
 import logo from "../assets/ff-logo.png";
 import HarryPotter1 from "../Movies_images/HarryPotter1.png";
@@ -19,6 +19,7 @@ function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
     const movies = [
         {
+            id: 1,
             title: "Movie 1",
             cast: ["Actor 1", "Actor 2"],
             rating: "PG",
@@ -26,6 +27,7 @@ function App(): JSX.Element {
             image: HarryPotter1
         },
         {
+            id: 2,
             title: "Movie 2",
             cast: ["Actor 3", "Actor 4"],
             rating: "R",
@@ -33,6 +35,7 @@ function App(): JSX.Element {
             image: Aladdin
         },
         {
+            id: 3,
             title: "Movie 1",
             cast: ["Actor 1", "Actor 2"],
             rating: "PG",
@@ -40,6 +43,7 @@ function App(): JSX.Element {
             image: Avatar
         },
         {
+            id: 4,
             title: "Movie 2",
             cast: ["Actor 3", "Actor 4"],
             rating: "R",
@@ -47,6 +51,7 @@ function App(): JSX.Element {
             image: Avengers
         },
         {
+            id: 5,
             title: "Movie 1",
             cast: ["Actor 1", "Actor 2"],
             rating: "PG",
@@ -54,6 +59,7 @@ function App(): JSX.Element {
             image: HungerGames
         },
         {
+            id: 6,
             title: "Movie 2",
             cast: ["Actor 3", "Actor 4"],
             rating: "R",
@@ -91,7 +97,6 @@ function App(): JSX.Element {
             <SliderParent></SliderParent>
             <hr></hr>
             <MovieItem movie={movies[0]}></MovieItem>
-            <MovieList movies={movies}></MovieList>
             <hr></hr>
             <p>
                 Movies List:

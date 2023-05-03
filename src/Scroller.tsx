@@ -95,6 +95,7 @@ class SliderParent extends Component {
     public render() {
         const movies = [
             {
+                id: 1,
                 title: "Movie 1",
                 cast: ["Actor 1", "Actor 2"],
                 rating: "PG",
@@ -102,6 +103,7 @@ class SliderParent extends Component {
                 image: HarryPotter1
             },
             {
+                id: 2,
                 title: "Movie 2",
                 cast: ["Actor 3", "Actor 4"],
                 rating: "R",
@@ -109,6 +111,7 @@ class SliderParent extends Component {
                 image: Aladdin
             },
             {
+                id: 3,
                 title: "Movie 1",
                 cast: ["Actor 1", "Actor 2"],
                 rating: "PG",
@@ -116,6 +119,7 @@ class SliderParent extends Component {
                 image: Avatar
             },
             {
+                id: 4,
                 title: "Movie 2",
                 cast: ["Actor 3", "Actor 4"],
                 rating: "R",
@@ -123,6 +127,7 @@ class SliderParent extends Component {
                 image: Avengers
             },
             {
+                id: 5,
                 title: "Movie 1",
                 cast: ["Actor 1", "Actor 2"],
                 rating: "PG",
@@ -130,6 +135,7 @@ class SliderParent extends Component {
                 image: HungerGames
             },
             {
+                id: 6,
                 title: "Movie 2",
                 cast: ["Actor 3", "Actor 4"],
                 rating: "R",

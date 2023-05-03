@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import { MovieMaster } from "../MovieMaster";
+import MovieList, { MovieItem } from "../MovieMaster";
 import { RoleSelect } from "../MenuBar";
 import logo from "../assets/ff-logo.png";
 import HarryPotter1 from "../Movies_images/HarryPotter1.png";
@@ -10,13 +10,59 @@ import Avatar from "../Movies_images/Avatar.png";
 import Avengers from "../Movies_images/Avengers.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
-import "../style.css";
+import "../Scroller.css";
+import SliderParent from "../Scroller";
+import "../App.css";
 import ReviewApp from "../ReviewBox";
-import SliderParent from "../script.jsx";
 import "../MovieMaster";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
+    const movies = [
+        {
+            title: "Movie 1",
+            cast: ["Actor 1", "Actor 2"],
+            rating: "PG",
+            inTheaters: true,
+            image: HarryPotter1
+        },
+        {
+            title: "Movie 2",
+            cast: ["Actor 3", "Actor 4"],
+            rating: "R",
+            inTheaters: false,
+            image: Aladdin
+        },
+        {
+            title: "Movie 1",
+            cast: ["Actor 1", "Actor 2"],
+            rating: "PG",
+            inTheaters: true,
+            image: Avatar
+        },
+        {
+            title: "Movie 2",
+            cast: ["Actor 3", "Actor 4"],
+            rating: "R",
+            inTheaters: false,
+            image: Avengers
+        },
+        {
+            title: "Movie 1",
+            cast: ["Actor 1", "Actor 2"],
+            rating: "PG",
+            inTheaters: true,
+            image: HungerGames
+        },
+        {
+            title: "Movie 2",
+            cast: ["Actor 3", "Actor 4"],
+            rating: "R",
+            inTheaters: false,
+            image: Aladdin
+        }
+    ];
+
     return (
         <div className="App">
             <header className="App-header">
@@ -41,54 +87,18 @@ function App(): JSX.Element {
                 </div>
             </header>
             <DragLists role={role}></DragLists>
+
             <ReviewApp></ReviewApp>
             <SliderParent></SliderParent>
             <hr></hr>
-            <MovieMaster></MovieMaster>
+            <MovieItem movie={movies[0]}></MovieItem>
+            <MovieList movies={movies}></MovieList>
             <hr></hr>
             <p>
                 Movies List:
-                <li>
-                    <a href="http://google.com">
-                        <img
-                            src={HarryPotter1}
-                            alt="Harry Potter"
-                            className="photo"
-                        ></img>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://google.com">
-                        <img
-                            src={HungerGames}
-                            alt="The Hunger Games"
-                            className="photo"
-                        ></img>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://google.com">
-                        <img
-                            src={Aladdin}
-                            alt="Aladdin"
-                            className="photo"
-                        ></img>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://google.com">
-                        <img src={Avatar} alt="Avatar" className="photo"></img>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://google.com">
-                        <img
-                            src={Avengers}
-                            alt="Avengers"
-                            className="photo"
-                        ></img>
-                    </a>
-                </li>
+                <div>
+                    <h1>Movie List</h1>
+                </div>
             </p>
             <p>
                 Katie Oates, Diya Shah, John Henry Cooper, Faith Lovell, Joy

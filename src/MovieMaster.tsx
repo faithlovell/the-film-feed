@@ -1,9 +1,16 @@
 import React from "react";
+import "./App.css"; // import CSS file
 
-interface Movie {
+import HarryPotter1 from "./Movies_images/HarryPotter1.png";
+import HungerGames from "./Movies_images/Hunger_Games.png";
+import Aladdin from "./Movies_images/Aladdin.png";
+import Avatar from "./Movies_images/Avatar.png";
+import Avengers from "./Movies_images/Avengers.png";
+
+export interface Movie {
     title: string;
     cast: string[];
-    rating: "G" | "PG" | "R" | "unrated";
+    rating: string;
     inTheaters: boolean;
     image: string;
 }
@@ -17,14 +24,18 @@ export class MovieItem extends React.Component<MovieProps> {
         const { movie } = this.props;
         return (
             <div>
-                <img src={movie.image} alt={movie.title} />
+                {" "}
+                <img
+                    src={movie.image}
+                    alt={movie.title}
+                    style={{ maxWidth: "200px" }}
+                />
                 <h3>{movie.title}</h3>
                 <p>Rating: {movie.rating}</p>
             </div>
         );
     }
 }
-
 interface MovieListProps {
     movies: Movie[];
 }
@@ -41,21 +52,3 @@ export default class MovieList extends React.Component<MovieListProps> {
         );
     }
 }
-
-const movies = [
-    {
-        title: "Movie 1",
-        cast: ["Actor 1", "Actor 2"],
-        rating: "PG",
-        inTheaters: true,
-        image: "https://example.com/movie1.jpg",
-    },
-    {
-        title: "Movie 2",
-        cast: ["Actor 3", "Actor 4"],
-        rating: "R",
-        inTheaters: false,
-        image: "https://example.com/movie2.jpg",
-    },
-    // add more movies here
-];

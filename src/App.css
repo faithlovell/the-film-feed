@@ -85,3 +85,23 @@
         transform: rotate(360deg);
     }
 }
+.movie-item {
+    position: relative;
+}
+
+.movie-item:hover {
+    transform: scale(1.1);
+}
+
+.movie-item:hover::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px solid pink;
+    z-index: -1;
+    pointer-events: none;
+    transition: border-color 0.2s ease-out;
+}

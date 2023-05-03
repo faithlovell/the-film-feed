@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import MovieList, {MovieItem} from "../MovieMaster";
+import MovieList, { Movie, MovieItem } from "../MovieMaster";
 import { RoleSelect } from "../MenuBar";
 import logo from "../assets/ff-logo.png";
 import HarryPotter1 from "../Movies_images/HarryPotter1.png";
@@ -10,11 +10,28 @@ import Avatar from "../Movies_images/Avatar.png";
 import Avengers from "../Movies_images/Avengers.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
-import "../Scroller.css"
-import SliderParent from "../Scroller.jsx"
+import "../Scroller.css";
+import SliderParent from "../Scroller";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
+    const movies = [
+        {
+            title: "Movie 1",
+            cast: ["Actor 1", "Actor 2"],
+            rating: "PG",
+            inTheaters: true,
+            image: HarryPotter1
+        },
+        {
+            title: "Movie 2",
+            cast: ["Actor 3", "Actor 4"],
+            rating: "R",
+            inTheaters: false,
+            image: Aladdin
+        }
+        // add more movies here
+    ];
     return (
         <div className="App">
             <header className="App-header">
@@ -39,16 +56,15 @@ function App(): JSX.Element {
                 </div>
             </header>
             <DragLists role={role}></DragLists>
-
             <hr></hr>
-            <MovieMaster></MovieMaster>
+            <MovieItem movie={movies[0]}></MovieItem>
+            <MovieList movies={movies}></MovieList>
             <hr></hr>
             <SliderParent></SliderParent>
             <p>
                 Movies List:
                 <div>
                     <h1>Movie List</h1>
-                    <MovieList movies={movies} />
                 </div>
             </p>
             <p>

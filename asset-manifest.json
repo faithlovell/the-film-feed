@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/the-film-feed/static/css/main.b3534b25.css",
-    "main.js": "/the-film-feed/static/js/main.c38ba6fa.js",
-    "static/js/787.4ef7427d.chunk.js": "/the-film-feed/static/js/787.4ef7427d.chunk.js",
+    "main.css": "/the-film-feed/static/css/main.e99ab9e6.css",
+    "main.js": "/the-film-feed/static/js/main.72fa514c.js",
+    "static/js/787.9a502bfc.chunk.js": "/the-film-feed/static/js/787.9a502bfc.chunk.js",
     "static/media/Avengers.png": "/the-film-feed/static/media/Avengers.6165ca2b06f628f6210a.png",
     "static/media/HarryPotter1.png": "/the-film-feed/static/media/HarryPotter1.d73c8b1f25143a3c047b.png",
     "static/media/Aladdin.png": "/the-film-feed/static/media/Aladdin.61e18dc616273f92e992.png",
@@ -10,12 +10,12 @@
     "static/media/Avatar.png": "/the-film-feed/static/media/Avatar.bc4f0432dfff34ad1ec5.png",
     "static/media/ff-logo.png": "/the-film-feed/static/media/ff-logo.652bdc971f02b9793116.png",
     "index.html": "/the-film-feed/index.html",
-    "main.b3534b25.css.map": "/the-film-feed/static/css/main.b3534b25.css.map",
-    "main.c38ba6fa.js.map": "/the-film-feed/static/js/main.c38ba6fa.js.map",
-    "787.4ef7427d.chunk.js.map": "/the-film-feed/static/js/787.4ef7427d.chunk.js.map"
+    "main.e99ab9e6.css.map": "/the-film-feed/static/css/main.e99ab9e6.css.map",
+    "main.72fa514c.js.map": "/the-film-feed/static/js/main.72fa514c.js.map",
+    "787.9a502bfc.chunk.js.map": "/the-film-feed/static/js/787.9a502bfc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3534b25.css",
-    "static/js/main.c38ba6fa.js"
+    "static/css/main.e99ab9e6.css",
+    "static/js/main.72fa514c.js"
   ]
 }

@@ -4,6 +4,9 @@ import ReactDOM from "react-dom";
 import { Movie } from "./MovieMaster";
 import HarryPotter1 from "./Movies_images/HarryPotter1.png";
 import Aladdin from "./Movies_images/Aladdin.png";
+import Avatar from "./Movies_images/Avatar.png";
+import Avengers from "./Movies_images/Avengers.png";
+import HungerGames from "./Movies_images/Hunger_Games.png";
 
 interface SliderProps {
     movies: Movie[];
@@ -90,21 +93,7 @@ class Slider extends Component<SliderProps, SliderState> {
 
 class SliderParent extends Component {
     public render() {
-        const movies: Movie[] = [
-            {
-                title: "Harry Potter and the Philosopher's Stone",
-                cast: ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
-                rating: "PG",
-                inTheaters: false,
-                image: HarryPotter1
-            },
-            {
-                title: "Aladdin",
-                cast: ["Will Smith", "Mena Massoud", "Naomi Scott"],
-                rating: "PG",
-                inTheaters: false,
-                image: Aladdin
-            },
+        const movies = [
             {
                 title: "Movie 1",
                 cast: ["Actor 1", "Actor 2"],
@@ -124,7 +113,21 @@ class SliderParent extends Component {
                 cast: ["Actor 1", "Actor 2"],
                 rating: "PG",
                 inTheaters: true,
-                image: HarryPotter1
+                image: Avatar
+            },
+            {
+                title: "Movie 2",
+                cast: ["Actor 3", "Actor 4"],
+                rating: "R",
+                inTheaters: false,
+                image: Avengers
+            },
+            {
+                title: "Movie 1",
+                cast: ["Actor 1", "Actor 2"],
+                rating: "PG",
+                inTheaters: true,
+                image: HungerGames
             },
             {
                 title: "Movie 2",
@@ -133,7 +136,6 @@ class SliderParent extends Component {
                 inTheaters: false,
                 image: Aladdin
             }
-            // add more movies here
         ];
 
         return (

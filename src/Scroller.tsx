@@ -2,11 +2,13 @@ import "./Scroller.css";
 import React, { Component, ReactNode } from "react";
 import ReactDOM from "react-dom";
 import { Movie } from "./MovieMaster";
+//Movies:
 import HarryPotter1 from "./Movies_images/HarryPotter1.png";
 import Aladdin from "./Movies_images/Aladdin.png";
 import Avatar from "./Movies_images/Avatar.png";
 import Avengers from "./Movies_images/Avengers.png";
 import HungerGames from "./Movies_images/Hunger_Games.png";
+import AliceInWonderland from "./Movies_images/AliceInWonderland.png";
 
 interface SliderProps {
     movies: Movie[];
@@ -95,46 +97,46 @@ class SliderParent extends Component {
     public render() {
         const movies = [
             {
-                title: "Movie 1",
+                title: "Harry Potter",
                 cast: ["Actor 1", "Actor 2"],
                 rating: "PG",
                 inTheaters: true,
                 image: HarryPotter1
             },
             {
-                title: "Movie 2",
+                title: "Aladdin",
                 cast: ["Actor 3", "Actor 4"],
                 rating: "R",
                 inTheaters: false,
                 image: Aladdin
             },
             {
-                title: "Movie 1",
+                title: "Avatar",
                 cast: ["Actor 1", "Actor 2"],
                 rating: "PG",
                 inTheaters: true,
                 image: Avatar
             },
             {
-                title: "Movie 2",
+                title: "Avengers",
                 cast: ["Actor 3", "Actor 4"],
                 rating: "R",
                 inTheaters: false,
                 image: Avengers
             },
             {
-                title: "Movie 1",
+                title: "Hunger Games",
                 cast: ["Actor 1", "Actor 2"],
                 rating: "PG",
                 inTheaters: true,
                 image: HungerGames
             },
             {
-                title: "Movie 2",
+                title: "Alice In Wonderland",
                 cast: ["Actor 3", "Actor 4"],
                 rating: "R",
                 inTheaters: false,
-                image: Aladdin
+                image: AliceInWonderland
             }
         ];
 

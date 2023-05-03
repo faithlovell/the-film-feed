@@ -3,11 +3,6 @@ import "../App.css";
 import MovieList, { MovieItem } from "../MovieMaster";
 import { RoleSelect } from "../MenuBar";
 import logo from "../assets/ff-logo.png";
-import HarryPotter1 from "../Movies_images/HarryPotter1.png";
-import HungerGames from "../Movies_images/Hunger_Games.png";
-import Aladdin from "../Movies_images/Aladdin.png";
-import Avatar from "../Movies_images/Avatar.png";
-import Avengers from "../Movies_images/Avengers.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
 import "../Scroller.css";
@@ -15,51 +10,58 @@ import SliderParent from "../Scroller";
 import "../App.css";
 import ReviewApp from "../ReviewBox";
 import "../MovieMaster";
+//Movies:
+import HarryPotter1 from "../Movies_images/HarryPotter1.png";
+import HungerGames from "../Movies_images/Hunger_Games.png";
+import Aladdin from "../Movies_images/Aladdin.png";
+import Avatar from "../Movies_images/Avatar.png";
+import Avengers from "../Movies_images/Avengers.png";
+import AliceInWonderland from "../Movies_images/AliceInWonderland.png";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
     const movies = [
         {
-            title: "Movie 1",
+            title: "Harry Potter",
             cast: ["Actor 1", "Actor 2"],
             rating: "PG",
             inTheaters: true,
             image: HarryPotter1
         },
         {
-            title: "Movie 2",
+            title: "Aladdin",
             cast: ["Actor 3", "Actor 4"],
             rating: "R",
             inTheaters: false,
             image: Aladdin
         },
         {
-            title: "Movie 1",
+            title: "Avatar",
             cast: ["Actor 1", "Actor 2"],
             rating: "PG",
             inTheaters: true,
             image: Avatar
         },
         {
-            title: "Movie 2",
+            title: "Avengers",
             cast: ["Actor 3", "Actor 4"],
             rating: "R",
             inTheaters: false,
             image: Avengers
         },
         {
-            title: "Movie 1",
+            title: "Hunger Games",
             cast: ["Actor 1", "Actor 2"],
             rating: "PG",
             inTheaters: true,
             image: HungerGames
         },
         {
-            title: "Movie 2",
+            title: "Alice In Wonderland",
             cast: ["Actor 3", "Actor 4"],
             rating: "R",
             inTheaters: false,
-            image: Aladdin
+            image: AliceInWonderland
         }
     ];
 

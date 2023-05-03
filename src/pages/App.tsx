@@ -31,9 +31,37 @@ function App(): JSX.Element {
             rating: "R",
             inTheaters: false,
             image: Aladdin
+        },
+        {
+            title: "Movie 1",
+            cast: ["Actor 1", "Actor 2"],
+            rating: "PG",
+            inTheaters: true,
+            image: Avatar
+        },
+        {
+            title: "Movie 2",
+            cast: ["Actor 3", "Actor 4"],
+            rating: "R",
+            inTheaters: false,
+            image: Avengers
+        },
+        {
+            title: "Movie 1",
+            cast: ["Actor 1", "Actor 2"],
+            rating: "PG",
+            inTheaters: true,
+            image: HungerGames
+        },
+        {
+            title: "Movie 2",
+            cast: ["Actor 3", "Actor 4"],
+            rating: "R",
+            inTheaters: false,
+            image: Aladdin
         }
-        // add more movies here
     ];
+
     return (
         <div className="App">
             <header className="App-header">

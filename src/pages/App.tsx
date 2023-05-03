@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import { MovieItem } from "../MovieMaster";
+import { MovieItem, Movie } from "../MovieMaster";
 import { RoleSelect } from "../MenuBar";
 import logo from "../assets/ff-logo.png";
 import HarryPotter1 from "../Movies_images/HarryPotter1.png";
@@ -14,10 +14,11 @@ import "../Scroller.css";
 import SliderParent from "../Scroller";
 import "../App.css";
 import ReviewApp from "../ReviewBox";
+import { AllMoviesList } from "../AllMoviesList";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
-    const movies = [
+    const [movies, setMovies] = useState<Movie[]>([
         {
             id: 1,
             title: "Movie 1",
@@ -66,7 +67,14 @@ function App(): JSX.Element {
             inTheaters: false,
             image: Aladdin
         }
-    ];
+    ]);
+    function handleSave(movie: Movie) {
+        setMovies((prevMovies) =>
+            prevMovies.map((prevMovie) =>
+                prevMovie.id === movie.id ? { ...movie } : prevMovie
+            )
+        );
+    }
 
     return (
         <div className="App">
@@ -96,7 +104,7 @@ function App(): JSX.Element {
             <ReviewApp></ReviewApp>
             <SliderParent></SliderParent>
             <hr></hr>
-            <MovieItem movie={movies[0]}></MovieItem>
+            <AllMoviesList movies={movies} onSave={handleSave}></AllMoviesList>
             <hr></hr>
             <p>
                 Movies List:

@@ -12,25 +12,43 @@ export interface Movie {
 
 interface MovieProps {
     movie: Movie;
+    onSave: (movie: Movie) => void;
 }
 
-export class MovieItem extends React.Component<MovieProps> {
-    render() {
-        const { movie } = this.props;
-        return (
-            <div>
-                {" "}
-                <img
-                    src={movie.image}
-                    alt={movie.title}
-                    style={{ maxWidth: "200px" }}
-                />
-                <h3>{movie.title}</h3>
-                <p>Rating: {movie.rating}</p>
-            </div>
-        );
+export function MovieItem({ movie, onSave }: MovieProps) {
+    const [editing, setEditing] = useState(false);
+
+    function handleImageClick() {
+        setEditing(true);
     }
+    function handleCancel() {
+        setEditing(false);
+    }
+
+    return (
+        <div>
+            {editing ? (
+                <MovieEdit
+                    movie={movie}
+                    onSave={onSave}
+                    onCancel={handleCancel}
+                />
+            ) : (
+                <>
+                    <img
+                        src={movie.image}
+                        alt={movie.title}
+                        style={{ maxWidth: "200px" }}
+                        onClick={handleImageClick}
+                    />
+                    <h3>{movie.title}</h3>
+                    <p>Rating: {movie.rating}</p>
+                </>
+            )}
+        </div>
+    );
 }
+
 interface MovieListProps {
     movies: Movie[];
 }
@@ -49,11 +67,6 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
 
     function handleEditClick() {
         setEditing(true);
-    }
-
-    function handleSave(movie: Movie) {
-        onSave(movie);
-        setEditing(false);
     }
 
     function handleCancel() {
@@ -91,8 +104,8 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
             inTheaters,
             image
         });
+        setEditing(false);
     }
-
     return (
         <div>
             <label>

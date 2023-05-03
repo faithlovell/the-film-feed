@@ -43,6 +43,27 @@ export function DragLists({ role }: DragListsProps) {
     function handleDragOver(e: React.DragEvent) {
         e.preventDefault();
     }
+    function handleUserOnSave(movie: Movie) {
+        setUserMovies((prevMovies) =>
+            prevMovies.map((prevMovie) =>
+                prevMovie.id === movie.id ? { ...movie } : prevMovie
+            )
+        );
+    }
+    function handleSuperOnSave(movie: Movie) {
+        setSuperMovies((prevMovies) =>
+            prevMovies.map((prevMovie) =>
+                prevMovie.id === movie.id ? { ...movie } : prevMovie
+            )
+        );
+    }
+    function handleAdminOnSave(movie: Movie) {
+        setAdminMovies((prevMovies) =>
+            prevMovies.map((prevMovie) =>
+                prevMovie.id === movie.id ? { ...movie } : prevMovie
+            )
+        );
+    }
 
     return (
         <div className="container">
@@ -56,7 +77,11 @@ export function DragLists({ role }: DragListsProps) {
                     >
                         {superMovies.map((movie, index) => (
                             <div key={index} className="dropped-movie">
-                                <MovieItem movie={movie} />
+                                <MovieItem
+                                    key={movie.id}
+                                    movie={movie}
+                                    onSave={handleSuperOnSave}
+                                />
                             </div>
                         ))}
                     </div>
@@ -73,7 +98,11 @@ export function DragLists({ role }: DragListsProps) {
                     >
                         {adminMovies.map((movie, index) => (
                             <div key={index} className="dropped-movie">
-                                <MovieItem movie={movie} />
+                                <MovieItem
+                                    movie={movie}
+                                    key={movie.id}
+                                    onSave={handleAdminOnSave}
+                                />
                             </div>
                         ))}
                     </div>
@@ -90,7 +119,11 @@ export function DragLists({ role }: DragListsProps) {
                     >
                         {userMovies.map((movie, index) => (
                             <div key={index} className="dropped-movie">
-                                <MovieItem movie={movie} />
+                                <MovieItem
+                                    movie={movie}
+                                    key={movie.id}
+                                    onSave={handleUserOnSave}
+                                />
                             </div>
                         ))}
                     </div>

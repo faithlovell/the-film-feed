@@ -91,6 +91,7 @@
 
 .movie-item:hover {
     transform: scale(1.1);
+    border: #cd5b5d
 }
 
 .movie-item:hover::after {

@@ -141,7 +141,7 @@ class SliderParent extends Component {
                 <Slider movies={movies}>
                     {movies.map((movie) => {
                         return (
-                            <div>
+                            <div key={movie.title}>
                                 <img
                                     className="movie-item"
                                     src={movie.image}

@@ -1,12 +1,6 @@
 import React from "react";
 import "./App.css"; // import CSS file
 
-import HarryPotter1 from "./Movies_images/HarryPotter1.png";
-import HungerGames from "./Movies_images/Hunger_Games.png";
-import Aladdin from "./Movies_images/Aladdin.png";
-import Avatar from "./Movies_images/Avatar.png";
-import Avengers from "./Movies_images/Avengers.png";
-
 export interface Movie {
     title: string;
     cast: string[];

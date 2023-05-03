@@ -53,7 +53,7 @@ class Slider extends Component<SliderProps, SliderState> {
 
     private onNextClick = () => {
         if (this.sliderRef) {
-            const { offsetWidth, scrollWidth } = this.sliderRef;
+            const { offsetWidth } = this.sliderRef;
             this.sliderRef.scrollLeft += offsetWidth / 2;
             this.checkButtons();
         }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import MovieList, { Movie, MovieItem } from "../MovieMaster";
+import MovieList, { MovieItem } from "../MovieMaster";
 import { RoleSelect } from "../MenuBar";
 import logo from "../assets/ff-logo.png";
 import HarryPotter1 from "../Movies_images/HarryPotter1.png";

@@ -2,11 +2,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 //import { Form } from "react-bootstrap";
-import HarryPotter1 from "../Movies_images/HarryPotter1.png";
-import HungerGames from "../Movies_images/Hunger_Games.png";
-import Aladdin_pic from "../Movies_images/Aladdin.png";
-import Avatar_pic from "../Movies_images/Avatar.png";
-import Avengers_pic from "../Movies_images/Avengers.png";
 
 export function MovieMaster(): JSX.Element {
     interface Movie {
@@ -14,39 +9,44 @@ export function MovieMaster(): JSX.Element {
         title: string;
         cast: string[];
         rating: "G" | "PG" | "PG-13" | "R" | "unrated";
-        inTheaters: boolean;
+        inTheatres: boolean;
     }
     // eslint-disable-next-line no-var
-    const Hunger_Games = {
-        image: HungerGames,
+    var Hunger_Games = {
+        image: "../Movies_images/Hunger_Games.png",
         title: "Hunger Games",
-        cast: "Jennifer Lawrence, Josh Hutcherson, Liam Hemsworth, Donald Sutherland",
+        cast: [
+            "Jennifer Lawrence",
+            "Josh Hutcherson",
+            "Liam Hemsworth",
+            "Donald Sutherland"
+        ],
         rating: "PG-13",
         inTheatres: false
     };
-    const Harry_Potter = {
-        image: HarryPotter1,
+    let Harry_Potter = {
+        image: "../Movies_images/HarryPotter1.png",
         title: "Harry Potter",
         cast: "",
         rating: "PG",
         inTheatres: false
     };
-    const Aladdin = {
-        image: Aladdin_pic,
+    let Aladdin = {
+        image: "../Movies_images/Aladdin.png",
         title: "Aladdin",
         cast: "",
         rating: "PG",
         inTheatres: false
     };
-    const Avatar = {
-        image: Avatar_pic,
+    let Avatar = {
+        image: "../Movies_images/Avatar.png",
         title: "Avatar",
         cast: "",
         rating: "PG",
         inTheatres: false
     };
-    const Avengers = {
-        image: Avengers_pic,
+    let Avengers = {
+        image: "../Movies_images/Avengers.png",
         title: "Avengers",
         cast: "",
         rating: "PG",

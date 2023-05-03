@@ -13,6 +13,7 @@ import "../styles.css";
 import "../style.css";
 import ReviewApp from "../ReviewBox";
 import SliderParent from "../script.jsx";
+import "../MovieMaster";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");

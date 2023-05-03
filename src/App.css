@@ -91,7 +91,7 @@
 
 .movie-item:hover {
     transform: scale(1.1);
-    border: #cd5b5d
+    border: 3px solid #cd5b5d;
 }
 
 .movie-item:hover::after {
@@ -101,7 +101,7 @@
     left: -10px;
     right: -10px;
     bottom: -10px;
-    border: 3px solid pink;
+    border: 3px solid #cd5b5d;
     z-index: -1;
     pointer-events: none;
     transition: border-color 0.2s ease-out;

@@ -33,10 +33,13 @@
 	padding: 1rem;
 }
 .slider-container {
- /* if you want to have a scrollbar, you can add overflow here */
-
+	overflow-x: scroll;
 	display: flex;
-
+	justify-content: center;
+	align-items: center;
+	margin: 0rem 2rem;
+	padding: 3px;
+ scroll-behavior: smooth;
 }
 .slider-wrapper {
 	display: flex;
@@ -73,4 +76,3 @@
 	margin-right: 10px;
 	border-radius: 21px;
 }
-

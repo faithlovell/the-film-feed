@@ -12,6 +12,8 @@ import { DragLists } from "../DragList";
 import "../styles.css";
 import "../Scroller.css";
 import SliderParent from "../Scroller";
+import "../App.css";
+import ReviewApp from "../ReviewBox";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
@@ -56,11 +58,13 @@ function App(): JSX.Element {
                 </div>
             </header>
             <DragLists role={role}></DragLists>
+
+            <ReviewApp></ReviewApp>
+            <SliderParent></SliderParent>
             <hr></hr>
             <MovieItem movie={movies[0]}></MovieItem>
             <MovieList movies={movies}></MovieList>
             <hr></hr>
-            <SliderParent></SliderParent>
             <p>
                 Movies List:
                 <div>

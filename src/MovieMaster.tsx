@@ -36,12 +36,13 @@ export function MovieItem({ movie, onSave }: MovieProps) {
             ) : (
                 <>
                     <img
+                        className="movie-image"
                         src={movie.image}
                         alt={movie.title}
                         style={{ maxWidth: "200px" }}
                         onClick={handleImageClick}
                     />
-                    <h3>{movie.title}</h3>
+                    <h3 className={"movie-header"}>{movie.title}</h3>
                     <p>Rating: {movie.rating}</p>
                 </>
             )}

@@ -8,6 +8,13 @@ import HungerGames from "../Movies_images/Hunger_Games.png";
 import Aladdin from "../Movies_images/Aladdin.png";
 import Avatar from "../Movies_images/Avatar.png";
 import Avengers from "../Movies_images/Avengers.png";
+import KnivesOut from "../Movies_images/KnivesOut.png";
+import TheGodfather from "../Movies_images/TheGodfather.jpg";
+import JurassicPark from "../Movies_images/JurassicPark.jpeg";
+import Matrix from "../Movies_images/Matrix.jpg";
+import ForrestGump from "../Movies_images/ForrestGump.jpeg";
+import Inception from "../Movies_images/Inception.jpeg";
+import StarWarsIV from "../Movies_images/StarWarsIV.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
 import "../Scroller.css";
@@ -38,7 +45,7 @@ function App(): JSX.Element {
             ],
             rating: "PG-13",
             inTheaters: false,
-            image: "KnivesOut"
+            image: KnivesOut
         },
         {
             id: 3,
@@ -78,7 +85,7 @@ function App(): JSX.Element {
             cast: ["Marlon Brando", "Al Pacino", "James Caan"],
             rating: "R",
             inTheaters: false,
-            image: "godfather"
+            image: TheGodfather
         },
         {
             id: 8,
@@ -86,7 +93,7 @@ function App(): JSX.Element {
             cast: ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
             rating: "PG-13",
             inTheaters: true,
-            image: "jurassicpark"
+            image: JurassicPark
         },
         {
             id: 9,
@@ -94,7 +101,7 @@ function App(): JSX.Element {
             cast: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
             rating: "R",
             inTheaters: false,
-            image: "matrix"
+            image: Matrix
         },
         {
             id: 10,
@@ -102,7 +109,7 @@ function App(): JSX.Element {
             cast: ["Tom Hanks", "Robin Wright", "Gary Sinise"],
             rating: "PG-13",
             inTheaters: false,
-            image: "forrestgump"
+            image: ForrestGump
         },
         {
             id: 11,
@@ -110,7 +117,7 @@ function App(): JSX.Element {
             cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
             rating: "PG-13",
             inTheaters: false,
-            image: "inception"
+            image: Inception
         },
         {
             id: 12,
@@ -118,7 +125,7 @@ function App(): JSX.Element {
             cast: ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
             rating: "PG",
             inTheaters: false,
-            image: "starwars"
+            image: StarWarsIV
         }
     ]);
 

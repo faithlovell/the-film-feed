@@ -5,16 +5,26 @@ import { Movie, MovieItem } from "./MovieMaster";
 interface AllMoviesListProps {
     movies: Movie[];
     onSave: (movie: Movie) => void;
-
-    roll: string;
+    role: string;
 }
 
-export function AllMoviesList({ movies, onSave }: AllMoviesListProps) {
+export function AllMoviesList({ movies, onSave, role }: AllMoviesListProps) {
     return (
-        <div className="all-movies-list">
-            {movies.map((movie) => (
-                <MovieItem key={movie.id} movie={movie} onSave={onSave} />
-            ))}
-        </div>
+        <>
+            {role === "Movie Mentor" || role === "Movie Master" ? (
+                <div className="all-movies-list">
+                    <h2 className="title">All Movies</h2>
+                    <div className="movie-images">
+                        {movies.map((movie) => (
+                            <MovieItem
+                                key={movie.id}
+                                movie={movie}
+                                onSave={onSave}
+                            />
+                        ))}
+                    </div>
+                </div>
+            ) : null}
+        </>
     );
 }

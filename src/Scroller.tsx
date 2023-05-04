@@ -17,7 +17,6 @@ interface SliderState {
     prevDisable: boolean;
     nextDisable: boolean;
 }
-
 class Slider extends Component<SliderProps, SliderState> {
     private sliderRef: HTMLDivElement | null = null;
 
@@ -90,60 +89,13 @@ class Slider extends Component<SliderProps, SliderState> {
         );
     }
 }
+interface SliderParentProps {
+    movies: Movie[];
+}
 
-class SliderParent extends Component {
+class SliderParent extends Component<SliderParentProps> {
     public render() {
-        const movies = [
-            {
-                id: 1,
-                title: "Movie 1",
-                cast: ["Actor 1", "Actor 2"],
-                rating: "PG",
-                inTheaters: true,
-                image: HarryPotter1
-            },
-            {
-                id: 2,
-                title: "Movie 2",
-                cast: ["Actor 3", "Actor 4"],
-                rating: "R",
-                inTheaters: false,
-                image: Aladdin
-            },
-            {
-                id: 3,
-                title: "Movie 1",
-                cast: ["Actor 1", "Actor 2"],
-                rating: "PG",
-                inTheaters: true,
-                image: Avatar
-            },
-            {
-                id: 4,
-                title: "Movie 2",
-                cast: ["Actor 3", "Actor 4"],
-                rating: "R",
-                inTheaters: false,
-                image: Avengers
-            },
-            {
-                id: 5,
-                title: "Movie 1",
-                cast: ["Actor 1", "Actor 2"],
-                rating: "PG",
-                inTheaters: true,
-                image: HungerGames
-            },
-            {
-                id: 6,
-                title: "Movie 2",
-                cast: ["Actor 3", "Actor 4"],
-                rating: "R",
-                inTheaters: false,
-                image: Aladdin
-            }
-        ];
-
+        const { movies } = this.props;
         return (
             <div className="parent">
                 <Slider movies={movies}>
@@ -166,7 +118,5 @@ class SliderParent extends Component {
         );
     }
 }
-
-ReactDOM.render(<SliderParent />, document.getElementById("root"));
 
 export default SliderParent;

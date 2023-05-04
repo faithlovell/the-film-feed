@@ -21,53 +21,107 @@ function App(): JSX.Element {
     const [movies, setMovies] = useState<Movie[]>([
         {
             id: 1,
-            title: "Movie 1",
-            cast: ["Actor 1", "Actor 2"],
+            title: "Harry Potter and the Philosopher's Stone",
+            cast: ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
             rating: "PG",
             inTheaters: true,
             image: HarryPotter1
         },
         {
             id: 2,
-            title: "Movie 2",
-            cast: ["Actor 3", "Actor 4"],
-            rating: "R",
+            title: "Knives Out",
+            cast: [
+                "Daniel Craig",
+                "Chris Evans",
+                "Ana de Armas",
+                "Jamie Lee Curtis"
+            ],
+            rating: "PG-13",
             inTheaters: false,
-            image: Aladdin
+            image: "KnivesOut"
         },
         {
             id: 3,
-            title: "Movie 1",
-            cast: ["Actor 1", "Actor 2"],
-            rating: "PG",
+            title: "Avatar",
+            cast: ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"],
+            rating: "PG-13",
             inTheaters: true,
             image: Avatar
         },
         {
             id: 4,
-            title: "Movie 2",
-            cast: ["Actor 3", "Actor 4"],
-            rating: "R",
+            title: "Avengers: Endgame",
+            cast: ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"],
+            rating: "PG-13",
             inTheaters: false,
             image: Avengers
         },
         {
             id: 5,
-            title: "Movie 1",
-            cast: ["Actor 1", "Actor 2"],
-            rating: "PG",
+            title: "The Hunger Games",
+            cast: ["Jennifer Lawrence", "Josh Hutcherson", "Liam Hemsworth"],
+            rating: "PG-13",
             inTheaters: true,
             image: HungerGames
         },
         {
             id: 6,
-            title: "Movie 2",
-            cast: ["Actor 3", "Actor 4"],
-            rating: "R",
+            title: "Aladdin",
+            cast: ["Will Smith", "Mena Massoud", "Naomi Scott"],
+            rating: "PG",
             inTheaters: false,
             image: Aladdin
+        },
+        {
+            id: 7,
+            title: "The Godfather",
+            cast: ["Marlon Brando", "Al Pacino", "James Caan"],
+            rating: "R",
+            inTheaters: false,
+            image: "godfather"
+        },
+        {
+            id: 8,
+            title: "Jurassic Park",
+            cast: ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
+            rating: "PG-13",
+            inTheaters: true,
+            image: "jurassicpark"
+        },
+        {
+            id: 9,
+            title: "The Matrix",
+            cast: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
+            rating: "R",
+            inTheaters: false,
+            image: "matrix"
+        },
+        {
+            id: 10,
+            title: "Forrest Gump",
+            cast: ["Tom Hanks", "Robin Wright", "Gary Sinise"],
+            rating: "PG-13",
+            inTheaters: false,
+            image: "forrestgump"
+        },
+        {
+            id: 11,
+            title: "Inception",
+            cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
+            rating: "PG-13",
+            inTheaters: false,
+            image: "inception"
+        },
+        {
+            id: 12,
+            title: "Star Wars: Episode IV - A New Hope",
+            cast: ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
+            rating: "PG",
+            inTheaters: false,
+            image: "starwars"
         }
     ]);
+
     function handleSave(movie: Movie) {
         setMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>
@@ -102,9 +156,13 @@ function App(): JSX.Element {
             <DragLists role={role}></DragLists>
 
             <ReviewApp></ReviewApp>
-            <SliderParent></SliderParent>
+            <SliderParent movies={movies}></SliderParent>
             <hr></hr>
-            <AllMoviesList movies={movies} onSave={handleSave}></AllMoviesList>
+            <AllMoviesList
+                movies={movies}
+                onSave={handleSave}
+                role={role}
+            ></AllMoviesList>
             <hr></hr>
             <p>
                 Movies List:

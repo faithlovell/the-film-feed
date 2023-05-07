@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../App.css";
-import { MovieItem, Movie } from "../MovieMaster";
 import { RoleSelect } from "../MenuBar";
 import logo from "../assets/ff-logo.png";
 import { DragLists } from "../DragList";
@@ -38,10 +37,10 @@ import SnowWhite from "../Movies_images/SnowWhite.png";
 import Tangled from "../Movies_images/Tangled.png";
 import TheLionKing from "../Movies_images/TheLionKing.png";
 import TheLittleMermaid from "../Movies_images/TheLittleMermaid.png";
-//new movies
 import Cars from "../Movies_images/cars.png";
 import Incredibles from "../Movies_images/Incredibles.png";
 import ToyStory from "../Movies_images/toyStory.png";
+import { Movie } from "../MovieMaster";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");

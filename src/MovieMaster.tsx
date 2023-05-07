@@ -50,9 +50,9 @@ export function MovieItem({ movie, onSave }: MovieProps) {
     );
 }
 
-interface MovieListProps {
-    movies: Movie[];
-}
+// interface MovieListProps {
+//     movies: Movie[];
+// }
 interface MovieEditProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
@@ -64,15 +64,15 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
     const [rating, setRating] = useState(movie.rating);
     const [inTheaters, setInTheaters] = useState(movie.inTheaters);
     const [image, setImage] = useState(movie.image);
-    const [editing, setEditing] = useState(false);
+    // const [editing, setEditing] = useState(false);
 
-    function handleEditClick() {
-        setEditing(true);
-    }
+    // function handleEditClick() {
+    //     setEditing(true);
+    // }
 
-    function handleCancel() {
-        setEditing(false);
-    }
+    // function handleCancel() {
+    //     setEditing(false);
+    // }
 
     function handleTitleChange(event: React.ChangeEvent<HTMLInputElement>) {
         setTitle(event.target.value);
@@ -105,7 +105,7 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
             inTheaters,
             image
         });
-        setEditing(false);
+        // setEditing(false);
     }
     return (
         <div>

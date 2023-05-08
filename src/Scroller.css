@@ -4,7 +4,7 @@
 	overflow-x: scroll;
 	justify-content: center;
 	align-items: center;
-	margin: 0rem 2rem;
+	margin: 0 2rem;
 	padding: 3px;
 	scroll-behavior: smooth;
 }
@@ -37,7 +37,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0rem 2rem;
+	margin: 0 2rem;
 	padding: 3px;
  scroll-behavior: smooth;
 }

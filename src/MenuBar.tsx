@@ -19,7 +19,7 @@ export function RoleSelect({
     return (
         <div>
             <h3 style={{ color: "#FFF5EE" }}>Role Selection</h3>
-            <Form.Group controlId="favoriteColors">
+            <Form.Group controlId="Users">
                 <Form.Select id="dropDown" value={role} onChange={newAnswer}>
                     {options.map((ans) => (
                         <option key={ans} value={ans}>

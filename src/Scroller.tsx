@@ -1,12 +1,6 @@
 import "./Scroller.css";
 import React, { Component, ReactNode } from "react";
-import ReactDOM from "react-dom";
 import { Movie } from "./MovieMaster";
-import HarryPotter1 from "./Movies_images/HarryPotter1.png";
-import Aladdin from "./Movies_images/Aladdin.png";
-import Avatar from "./Movies_images/Avatar.png";
-import Avengers from "./Movies_images/Avengers.png";
-import HungerGames from "./Movies_images/Hunger_Games.png";
 
 interface SliderProps {
     movies: Movie[];

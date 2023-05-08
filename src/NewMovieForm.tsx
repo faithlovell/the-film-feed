@@ -12,7 +12,8 @@ function AddMovie() {
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [actors, setActors] = useState<string[]>([]);
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState("");
+    const [audienceRating, setAudienceRating] = useState(0);
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
@@ -28,8 +29,14 @@ function AddMovie() {
         setImage(event.target.value);
     };
 
+    const handleAudienceRatingChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setAudienceRating(parseInt(event.target.value));
+    };
+
     const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRating(parseInt(event.target.value));
+        setRating(event.target.value);
     };
 
     const handleActorsChange = (
@@ -83,13 +90,22 @@ function AddMovie() {
                     />
                 </section>
                 <section>
-                    <label htmlFor="rating">Number Rating: </label>
+                    <label htmlFor="rating">Audience Rating: </label>
                     <input
                         type="number"
-                        id="rating"
+                        id="audience-rating"
                         value={rating}
                         min="0"
                         max="10"
+                        onChange={handleAudienceRatingChange}
+                    />
+                </section>
+                <section>
+                    <label htmlFor="rating">Rating: </label>
+                    <input
+                        id="rating"
+                        type="text"
+                        value={rating}
                         onChange={handleRatingChange}
                     />
                 </section>

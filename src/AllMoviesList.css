@@ -1,0 +1,132 @@
+.all-movies-list {
+    display: flex;
+    flex-direction: column; /* change the flex direction to column */
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #282c34;
+    color: white;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Georgia, sans-serif;
+    margin-bottom: 1rem;
+    text-align: center; /* center the title */
+    color: white;
+    /*outline-color: #cd5b5d;*/
+    /*outline-width: 5px;*/
+    /*outline-style: inset;*/
+    text-decoration-line: blink;
+}
+
+.movie-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* center the images horizontally */
+    align-content: center; /* center the images vertically */
+    gap: 20px;
+    width: 100%; /* make the images take up the full width */
+
+}
+
+.movie-images img {
+    max-width: 100%;
+    height: auto;
+}
+.movie-image:hover {
+    transform: scale(1.1);
+    border: 3px solid #cd5b5d;
+}
+.movie-header {
+    font-size: 16px; /* starting font size */
+    max-width: 200px; /* desired width */
+    line-height: 1.2; /* adjust as needed */
+    white-space: nowrap; /* don't allow line breaks */
+    overflow: hidden; /* hide overflowing text */
+    text-overflow: ellipsis; /* add ellipsis to indicate truncated text */
+}
+
+
+
+.movie-image:hover::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px solid #cd5b5d;
+    z-index: -1;
+    pointer-events: none;
+    transition: border-color 0.2s ease-out;
+}
+.movie-editor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 300px;
+    font-weight: bold;
+}
+
+.movie-editor label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.movie-editor label input[type="text"],
+.movie-editor label input[type="checkbox"] {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.movie-editor label input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.movie-editor label input[type="checkbox"]:checked {
+    background-color: #cd5b5d;
+    border-color: #cd5b5d;
+}
+
+.movie-editor button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #323541;
+    cursor: pointer;
+    transition: 0.2s;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+
+}
+
+.movie-editor button:hover {
+    background-color: #cd5b5d;
+    transform: perspective(100px);
+
+}
+
+.movie-editor button + button {
+    margin-left: 10px;
+}

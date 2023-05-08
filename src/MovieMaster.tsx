@@ -106,7 +106,7 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
             inTheaters,
             image
         });
-        // setEditing(false);
+        onCancel();
     }
     return (
         <div className="movie-editor">

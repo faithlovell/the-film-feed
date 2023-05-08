@@ -1,5 +1,5 @@
 div {
-    background: lavender;
+    background: salmon;
     padding: 20px;
 }
 
@@ -50,7 +50,7 @@ label {
 }
 
 .submitButton {
-    background-color: #6976d9;
+    background-color: #f3987a;
     color: white;
     font-family: sans-serif;
     font-size: 14px;

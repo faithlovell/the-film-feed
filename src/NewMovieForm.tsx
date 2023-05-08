@@ -1,11 +1,23 @@
 import React from "react";
 import { useState } from "react";
 import "./MovieForm.css";
+import { Movie } from "./MovieMaster";
 
 /*interface Review {
     name: string;
     content: string;
 }*/
+
+/*
+                <section>
+                    <label htmlFor="description">Description: </label>
+                    <textarea
+                        id="description"
+                        value={description}
+                        onChange={handleDescriptionChange}
+                    />
+                </section>
+                */
 
 function AddMovie() {
     const [name, setName] = useState("");
@@ -14,6 +26,7 @@ function AddMovie() {
     const [actors, setActors] = useState<string[]>([]);
     const [rating, setRating] = useState("");
     const [audienceRating, setAudienceRating] = useState(0);
+    const [inTheaters, setInTheaters] = useState(false);
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
@@ -51,6 +64,12 @@ function AddMovie() {
         event.preventDefault();
     };
 
+    function handleInTheatersChange(
+        event: React.ChangeEvent<HTMLInputElement>
+    ) {
+        setInTheaters(event.target.checked);
+    }
+
     return (
         <section>
             <form onSubmit={handleSubmit}>
@@ -62,14 +81,6 @@ function AddMovie() {
                         id="name"
                         value={name}
                         onChange={handleNameChange}
-                    />
-                </section>
-                <section>
-                    <label htmlFor="description">Description: </label>
-                    <textarea
-                        id="description"
-                        value={description}
-                        onChange={handleDescriptionChange}
                     />
                 </section>
                 <section>
@@ -94,7 +105,7 @@ function AddMovie() {
                     <input
                         type="number"
                         id="audience-rating"
-                        value={rating}
+                        value={audienceRating}
                         min="0"
                         max="10"
                         onChange={handleAudienceRatingChange}
@@ -107,6 +118,15 @@ function AddMovie() {
                         type="text"
                         value={rating}
                         onChange={handleRatingChange}
+                    />
+                </section>
+                <section>
+                    <label htmlFor="theaters">In Theaters? </label>
+                    <input
+                        id="inTheaters"
+                        type="checkbox"
+                        checked={inTheaters}
+                        onChange={handleInTheatersChange}
                     />
                 </section>
                 <button type="submit">Submit</button>

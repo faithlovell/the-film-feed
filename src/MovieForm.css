@@ -1,3 +1,8 @@
+section {
+    background: salmon;
+    padding: 20px;
+}
+
 h1 {
     border-bottom: 1px solid white;
     color: #3d3d3d;

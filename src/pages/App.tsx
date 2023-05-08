@@ -44,6 +44,7 @@ import { Movie } from "../MovieMaster";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
+
     const [movies, setMovies] = useState<Movie[]>([
         {
             id: 1,

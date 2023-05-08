@@ -50,9 +50,6 @@ export function MovieItem({ movie, onSave }: MovieProps) {
     );
 }
 
-interface MovieListProps {
-    movies: Movie[];
-}
 interface MovieEditProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
@@ -108,7 +105,7 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
         setEditing(false);
     }
     return (
-        <div>
+        <div className="movie-editor">
             <label>
                 Title:
                 <input type="text" value={title} onChange={handleTitleChange} />
@@ -142,8 +139,15 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
                 <input type="text" value={image} onChange={handleImageChange} />
             </label>
             <br />
-            <button onClick={handleSaveClick}>Save</button>
-            <button onClick={onCancel}>Cancel</button>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row"
+                }}
+            >
+                <button onClick={handleSaveClick}>Save</button>
+                <button onClick={onCancel}>Cancel</button>
+            </div>
         </div>
     );
 }

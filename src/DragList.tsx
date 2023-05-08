@@ -11,9 +11,9 @@ export function DragLists({ role }: DragListsProps) {
     const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
     const [userMovies, setUserMovies] = useState<Movie[]>([]);
 
-    function handleOnDrag(e: React.DragEvent, movie: Movie) {
-        e.dataTransfer.setData("movie", JSON.stringify(movie));
-    }
+    // function handleOnDrag(e: React.DragEvent, movie: Movie) {
+    //     e.dataTransfer.setData("movie", JSON.stringify(movie));
+    // }
 
     function handleOnDropSuper(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;

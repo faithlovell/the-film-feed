@@ -7,7 +7,7 @@ import "./MovieForm.css";
     content: string;
 }*/
 
-export function AddMovie() {
+function AddMovie() {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
@@ -45,9 +45,9 @@ export function AddMovie() {
     };
 
     return (
-        <div>
+        <section>
             <form onSubmit={handleSubmit}>
-                <div>
+                <section>
                     <h1>Add a Movie</h1>
                     <label htmlFor="name">Movie Name: </label>
                     <input
@@ -56,16 +56,16 @@ export function AddMovie() {
                         value={name}
                         onChange={handleNameChange}
                     />
-                </div>
-                <div>
+                </section>
+                <section>
                     <label htmlFor="description">Description: </label>
                     <textarea
                         id="description"
                         value={description}
                         onChange={handleDescriptionChange}
                     />
-                </div>
-                <div>
+                </section>
+                <section>
                     <label htmlFor="image">Image: </label>
                     <input
                         type="text"
@@ -73,16 +73,16 @@ export function AddMovie() {
                         value={image}
                         onChange={handleImageChange}
                     />
-                </div>
-                <div>
+                </section>
+                <section>
                     <label htmlFor="actors">Actor List: </label>
                     <textarea
                         id="actors"
                         value={actors}
                         onChange={handleActorsChange}
                     />
-                </div>
-                <div>
+                </section>
+                <section>
                     <label htmlFor="rating">Number Rating: </label>
                     <input
                         type="number"
@@ -92,9 +92,11 @@ export function AddMovie() {
                         max="10"
                         onChange={handleRatingChange}
                     />
-                </div>
+                </section>
                 <button type="submit">Submit</button>
             </form>
-        </div>
+        </section>
     );
 }
+
+export default AddMovie;

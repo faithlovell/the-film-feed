@@ -36,34 +36,32 @@ export function AllMoviesList({ movies, onSave, role }: AllMoviesListProps) {
 
     return (
         <>
-            {role === "Movie Mentor" || role === "Movie Master" ? (
-                <div className="all-movies-list">
-                    <h2 className="title">Movies</h2>
-                    <div className="filters">
-                        <select
-                            value={filter}
-                            onChange={handleFilterChange}
-                            className="filter-dropdown"
-                        >
-                            <option value="">All</option>
-                            <option value="inTheaters">In Theaters</option>
-                            <option value="ratingG">G</option>
-                            <option value="ratingPG">PG</option>
-                            <option value="ratingPG13">PG-13</option>
-                            <option value="ratingR">R</option>
-                        </select>
-                    </div>
-                    <div className="movie-images">
-                        {filteredMovies.map((movie) => (
-                            <MovieItem
-                                key={movie.id}
-                                movie={movie}
-                                onSave={onSave}
-                            />
-                        ))}
-                    </div>
+            <div className="all-movies-list">
+                <h2 className="title">Movies</h2>
+                <div className="filters">
+                    <select
+                        value={filter}
+                        onChange={handleFilterChange}
+                        className="filter-dropdown"
+                    >
+                        <option value="">All</option>
+                        <option value="inTheaters">In Theaters</option>
+                        <option value="ratingG">G</option>
+                        <option value="ratingPG">PG</option>
+                        <option value="ratingPG13">PG-13</option>
+                        <option value="ratingR">R</option>
+                    </select>
                 </div>
-            ) : null}
+                <div className="movie-images">
+                    {filteredMovies.map((movie) => (
+                        <MovieItem
+                            key={movie.id}
+                            movie={movie}
+                            onSave={onSave}
+                        />
+                    ))}
+                </div>
+            </div>
         </>
     );
 }

@@ -34,13 +34,6 @@ export function AllMoviesList({ movies, onSave, role }: AllMoviesListProps) {
         return false;
     });
 
-    const handleDragStart = (
-        event: React.DragEvent<HTMLDivElement>,
-        movie: Movie
-    ) => {
-        event.dataTransfer.setData("text/plain", JSON.stringify(movie.title));
-    };
-
     return (
         <>
             {role === "Movie Mentor" || role === "Movie Master" ? (
@@ -62,15 +55,11 @@ export function AllMoviesList({ movies, onSave, role }: AllMoviesListProps) {
                     </div>
                     <div className="movie-images">
                         {filteredMovies.map((movie) => (
-                            <div
+                            <MovieItem
                                 key={movie.id}
-                                draggable
-                                onDragStart={(event) =>
-                                    handleDragStart(event, movie)
-                                }
-                            >
-                                <MovieItem movie={movie} onSave={onSave} />
-                            </div>
+                                movie={movie}
+                                onSave={onSave}
+                            />
                         ))}
                     </div>
                 </div>

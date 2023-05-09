@@ -1,15 +1,29 @@
 import React, { useState } from "react";
 // import { RoleSelect } from "./MenuBar";
 import { Movie, MovieItem } from "./MovieMaster";
+import { Form } from "react-bootstrap";
 
 interface DragListsProps {
     role: string;
+    options: string[];
+    setOptions: (newOptions: string[]) => void;
 }
 
-export function DragLists({ role }: DragListsProps) {
+export function DragLists({ role, options, setOptions }: DragListsProps) {
     const [superMovies, setSuperMovies] = useState<Movie[]>([]);
     const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
     const [userMovies, setUserMovies] = useState<Movie[]>([]);
+    const [newUser, setNewUser] = useState<string>("");
+
+    function updateNewUser(event: React.ChangeEvent<HTMLInputElement>) {
+        setNewUser(event.target.value);
+    }
+
+    function updateOptions(newUser: string) {
+        if (!options.includes(newUser)) {
+            setOptions([...options, newUser]);
+        }
+    }
 
     // function handleOnDrag(e: React.DragEvent, movie: Movie) {
     //     e.dataTransfer.setData("movie", JSON.stringify(movie));
@@ -84,6 +98,23 @@ export function DragLists({ role }: DragListsProps) {
                                 />
                             </div>
                         ))}
+                    </div>
+
+                    <h3>Add Users</h3>
+                    <div>
+                        <Form.Group controlId="formUser">
+                            <Form.Label>Username:</Form.Label>
+                            <Form.Control
+                                value={newUser}
+                                onChange={updateNewUser}
+                                onKeyPress={(event) => {
+                                    if (event.key === "Enter") {
+                                        updateOptions(newUser);
+                                    }
+                                    console.log(options);
+                                }}
+                            />
+                        </Form.Group>
                     </div>
                 </>
             )}

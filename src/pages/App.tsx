@@ -44,6 +44,11 @@ import { Movie } from "../MovieMaster";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
+    const [options, setOptions] = useState<string[]>([
+        "Movie Master",
+        "Movie Mentor",
+        "Movie Member"
+    ]);
     const [movies, setMovies] = useState<Movie[]>([
         {
             id: 1,
@@ -312,18 +317,18 @@ function App(): JSX.Element {
                     <div>
                         {" "}
                         <RoleSelect
-                            options={[
-                                "Movie Master",
-                                "Movie Mentor",
-                                "Movie Member"
-                            ]}
+                            options={options}
                             role={role}
                             setRole={setRole}
                         ></RoleSelect>{" "}
                     </div>
                 </div>
             </header>
-            <DragLists role={role}></DragLists>
+            <DragLists
+                role={role}
+                options={options}
+                setOptions={setOptions}
+            ></DragLists>
 
             <ReviewApp></ReviewApp>
             <SliderParent movies={movies}></SliderParent>

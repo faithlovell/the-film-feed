@@ -151,3 +151,8 @@
     justify-items:  center;
     display: grid;
 }
+
+.labels{
+    color: white;
+    font-weight: bold;
+}

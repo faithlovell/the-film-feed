@@ -58,6 +58,7 @@ export function AllMoviesList({ movies, onSave, role }: AllMoviesListProps) {
                             key={movie.id}
                             movie={movie}
                             onSave={onSave}
+                            role={role}
                         />
                     ))}
                 </div>

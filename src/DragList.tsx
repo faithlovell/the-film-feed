@@ -119,6 +119,7 @@ export function DragLists({ role }: DragListsProps) {
                                         key={movie.id}
                                         movie={movie}
                                         onSave={handleSuperOnSave}
+                                        role={role}
                                     />
                                 </div>
                             ))}
@@ -139,6 +140,7 @@ export function DragLists({ role }: DragListsProps) {
                                         movie={movie}
                                         key={movie.id}
                                         onSave={handleAdminOnSave}
+                                        role={role}
                                     />
                                 </div>
                             ))}
@@ -160,6 +162,7 @@ export function DragLists({ role }: DragListsProps) {
                                         movie={movie}
                                         key={movie.id}
                                         onSave={handleUserOnSave}
+                                        role={role}
                                     />
                                 </div>
                             ))}

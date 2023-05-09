@@ -41,6 +41,7 @@ import Cars from "../Movies_images/cars.png";
 import Incredibles from "../Movies_images/Incredibles.png";
 import ToyStory from "../Movies_images/toyStory.png";
 import { Movie } from "../MovieMaster";
+import MovieForm from "../NewMovieForm";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
@@ -367,6 +368,7 @@ function App(): JSX.Element {
                 onSave={handleSave}
                 role={role}
             ></AllMoviesList>
+            <MovieForm addMovie={addMovie} movies={movies}></MovieForm>
             <hr></hr>
             <p>
                 Movies List:

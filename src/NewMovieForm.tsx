@@ -31,6 +31,13 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies }) => {
     const [rating, setRating] = useState("");
     const [audienceRating, setAudienceRating] = useState(0);
     const [inTheaters, setInTheaters] = useState(false);
+    const [newCast, setNewCast] = useState<string>("");
+
+    const handleNewCastChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setNewCast(event.target.value);
+    };
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(event.target.value);
@@ -56,9 +63,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies }) => {
         setRating(event.target.value);
     };
 
-    const handleCastChange = (
-        event: React.ChangeEvent<HTMLTextAreaElement>
-    ) => {
+    const handleCastChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const inputText = event.target.value;
         const newActors = inputText.split(",").map((actor) => actor.trim());
         setCast(newActors);
@@ -67,12 +72,14 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies }) => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newId = movies.length + 1;
+        const newActors = newCast.split(",").map((actor) => actor.trim());
+        setNewCast("");
         const img = new Image();
         img.src = image;
         const newMovie: Movie = {
             id: newId,
             title,
-            cast,
+            cast: newActors,
             rating,
             audienceRating,
             inTheaters,
@@ -111,14 +118,15 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies }) => {
                 </section>
                 <section>
                     <label htmlFor="actors">Actor List: </label>
-                    <textarea
+                    <input
+                        type="text"
                         id="cast"
-                        value={cast}
-                        onChange={handleCastChange}
+                        value={newCast}
+                        onChange={handleNewCastChange}
                     />
                 </section>
                 <section>
-                    <label htmlFor="rating">Audience Rating: </label>
+                    <label htmlFor="audience-rating">Audience Rating: </label>
                     <input
                         type="number"
                         id="audience-rating"

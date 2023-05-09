@@ -15,10 +15,14 @@ export interface Movie {
 export interface MovieProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
+    draggable: boolean; // Add this line
+    onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
+    onDrag?: (e: React.DragEvent<HTMLDivElement>) => void; // add this line
+    onDelete: (movieToDelete: Movie) => void;
     role: string;
 }
 
-export function MovieItem({ movie, onSave, role }: MovieProps) {
+export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
     const [editing, setEditing] = useState(false);
 
     function handleImageClick() {
@@ -28,15 +32,23 @@ export function MovieItem({ movie, onSave, role }: MovieProps) {
     function handleCancel() {
         setEditing(false);
     }
+    function handleOnDrag(e: React.DragEvent<HTMLDivElement>, movie: Movie) {
+        e.dataTransfer.setData("movie", JSON.stringify(movie));
+    }
 
     return (
-        <div>
+        <div
+            className="movie"
+            draggable
+            onDragStart={(e) => handleOnDrag(e, movie)}
+        >
             {editing ? (
                 role === "Movie Mentor" || role === "Movie Master" ? (
                     <MovieEdit
                         movie={movie}
                         onSave={onSave}
                         onCancel={handleCancel}
+                        onDelete={onDelete}
                     />
                 ) : (
                     <div className="movie-editor">
@@ -87,8 +99,15 @@ interface MovieEditProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
     onCancel: () => void;
+    onDelete: (movieToDelete: Movie) => void;
 }
-export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
+
+export function MovieEdit({
+    movie,
+    onSave,
+    onCancel,
+    onDelete
+}: MovieEditProps) {
     const [title, setTitle] = useState(movie.title);
     const [cast, setCast] = useState(movie.cast.join(", "));
     const [rating, setRating] = useState(movie.rating);
@@ -138,6 +157,10 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
 
     function handleImageChange(event: React.ChangeEvent<HTMLInputElement>) {
         setImage(event.target.value);
+    }
+
+    function handleDeleteClick() {
+        onDelete(movie);
     }
 
     function handleSaveClick() {
@@ -212,6 +235,7 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
             >
                 <button onClick={handleSaveClick}>Save</button>
                 <button onClick={onCancel}>Cancel</button>
+                <button onClick={handleDeleteClick}>Delete</button>
             </div>
         </div>
     );

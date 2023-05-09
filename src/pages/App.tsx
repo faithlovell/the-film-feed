@@ -396,6 +396,16 @@ function App(): JSX.Element {
         setMovies((prevMovies) => [...prevMovies, newMovie]);
     };
 
+    function deleteMovie(movieToDelete: Movie) {
+        // Create a new array that excludes the movie to be deleted
+        const updatedMovies = movies.filter(
+            (movie) => movie.id !== movieToDelete.id
+        );
+
+        // Update the movies state with the new array
+        setMovies(updatedMovies);
+    }
+
     return (
         <div className="App">
             <header className="App-header">
@@ -421,33 +431,28 @@ function App(): JSX.Element {
             </header>
             <DragLists role={role}></DragLists>
 
-            <ReviewApp></ReviewApp>
-            <SliderParent movies={movies}></SliderParent>
             <hr></hr>
             <AllMoviesList
                 movies={movies}
                 onSave={handleSave}
+                onDelete={deleteMovie}
                 role={role}
+                draggable={true}
+                onDragStart={function (): void {
+                    throw new Error("Function not implemented.");
+                }}
             ></AllMoviesList>
+            <SliderParent movies={movies}></SliderParent>
             <MovieForm
                 addMovie={addMovie}
                 movies={movies}
                 role={role}
             ></MovieForm>
+            <ReviewApp></ReviewApp>
             <hr></hr>
             <p>
-                Movies List:
-                <div>
-                    <h1>Movie List</h1>
-                </div>
-            </p>
-            <p>
-                Katie Oates, Diya Shah, John Henry Cooper, Faith Lovell, Joy
-                Mwaria
-            </p>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
+                Created by: Katie Oates, Diya Shah, John Henry Cooper, Faith
+                Lovell, Joy Mwaria
             </p>
         </div>
     );

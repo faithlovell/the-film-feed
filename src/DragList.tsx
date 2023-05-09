@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
 import { Movie, MovieItem } from "./MovieMaster";
 
@@ -12,7 +14,7 @@ export function DragLists({ role }: DragListsProps) {
 
     function handleOnDrag(e: React.DragEvent, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie)); //added this not sure if its right yet
-    }
+    } //try adding this to allmovieslist.tsx
 
     function handleOnDropSuper(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
@@ -24,9 +26,17 @@ export function DragLists({ role }: DragListsProps) {
         }
     }
 
+    function checkDuplicates(movie1: Movie, movie2: Movie) {
+        return movie1.id == movie2.id;
+    }
+
     function handleOnDropAdmin(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
-        if (!adminMovies.includes(movie)) {
+        if (
+            !adminMovies.some((existingMovie) =>
+                checkDuplicates(existingMovie, movie)
+            )
+        ) {
             setAdminMovies([...adminMovies, movie]);
         }
     }
@@ -63,113 +73,109 @@ export function DragLists({ role }: DragListsProps) {
             )
         );
     }
-
-    function handleDragStart(e: React.DragEvent, movie: Movie) {
-        e.dataTransfer.setData("movie", JSON.stringify(movie));
-    }
-
-    function handleDragEnd(e: React.DragEvent) {
-        e.preventDefault();
+    function handleDelete(movie: Movie) {
+        setSuperMovies(superMovies.filter((m) => m.id !== movie.id));
+        setAdminMovies(adminMovies.filter((m) => m.id !== movie.id));
+        setUserMovies(userMovies.filter((m) => m.id !== movie.id));
     }
 
     return (
-        <div className="DragLists">
-            <div
-                className="movie"
-                draggable
-                onDragStart={(e) =>
-                    handleOnDrag(e, {
-                        id: 1,
-                        title: "Harry Potter and the Philosopher's Stone",
-                        cast: [
-                            "Daniel Radcliffe",
-                            "Emma Watson",
-                            "Rupert Grint"
-                        ],
-                        rating: "PG",
-                        audienceRating: 0,
-                        inTheaters: true,
-                        image: "x",
-                        description: ""
-                    })
-                } // not adding bc the function doesnt ahave place to drop
-            >
-                Movie 1
-            </div>
-            <div className="container">
-                {role === "Movie Master" && (
-                    <>
-                        <div className="list0-label">Super List</div>
-                        <div
-                            className="list0"
-                            onDrop={handleOnDropSuper}
-                            onDragOver={handleDragOver}
-                        >
-                            {superMovies.map((movie, index) => (
-                                <div
-                                    key={index}
-                                    className="dropped-movie"
-                                    draggable
-                                    onDragStart={(e) =>
-                                        handleDragStart(e, movie)
-                                    }
-                                    onDragEnd={handleDragEnd}
-                                >
-                                    <MovieItem
-                                        key={movie.id}
-                                        movie={movie}
-                                        onSave={handleSuperOnSave}
-                                        role={role}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </>
-                )}
-                {role === "Movie Mentor" && (
-                    <>
-                        <div className="list1-label">Admin List</div>
-                        <div
-                            className="list1"
-                            onDrop={handleOnDropAdmin}
-                            onDragOver={handleDragOver}
-                        >
-                            {adminMovies.map((movie, index) => (
-                                <div key={index} className="dropped-movie">
-                                    <MovieItem
-                                        movie={movie}
-                                        key={movie.id}
-                                        onSave={handleAdminOnSave}
-                                        role={role}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </>
-                )}
+        <div className="content-lists">
+            {role === "Movie Master" && (
+                <>
+                    <div className="list0-label">Movie Master List</div>
+                    <div
+                        className="list0"
+                        onDrop={handleOnDropSuper}
+                        onDragOver={handleDragOver}
+                    >
+                        {superMovies.map((movie, index) => (
+                            <div key={index} className="dropped-movie">
+                                <MovieItem
+                                    key={movie.id}
+                                    movie={movie}
+                                    onSave={handleSuperOnSave}
+                                    onDelete={handleDelete}
+                                    draggable={true}
+                                    role={role}
+                                    onDragStart={function (
+                                        e,
+                                        movie: Movie
+                                    ): void {
+                                        throw new Error(
+                                            "Function not implemented."
+                                        );
+                                    }}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </>
+            )}
 
-                {role === "Movie Member" && (
-                    <>
-                        <div className="list1-label">User List</div>
-                        <div
-                            className="list2"
-                            onDrop={handleOnDropUser}
-                            onDragOver={handleDragOver}
-                        >
-                            {userMovies.map((movie, index) => (
-                                <div key={index} className="dropped-movie">
-                                    <MovieItem
-                                        movie={movie}
-                                        key={movie.id}
-                                        onSave={handleUserOnSave}
-                                        role={role}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </>
-                )}
-            </div>
+            {role === "Movie Mentor" && (
+                <>
+                    <div className="list1-label">Movie Mentor List</div>
+                    <div
+                        className="list1"
+                        onDrop={handleOnDropAdmin}
+                        onDragOver={handleDragOver}
+                    >
+                        {adminMovies.map((movie, index) => (
+                            <div key={index} className="dropped-movie">
+                                <MovieItem
+                                    movie={movie}
+                                    key={movie.id}
+                                    onSave={handleAdminOnSave}
+                                    onDelete={handleDelete}
+                                    role={role}
+                                    onDragStart={function (
+                                        e,
+                                        movie: Movie
+                                    ): void {
+                                        throw new Error(
+                                            "Function not implemented."
+                                        );
+                                    }}
+                                    draggable={false}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </>
+            )}
+
+            {role === "Movie Member" && (
+                <>
+                    <div className="list1-label">Movie Member List</div>
+                    <div
+                        className="list2"
+                        onDrop={handleOnDropUser}
+                        onDragOver={handleDragOver}
+                    >
+                        {userMovies.map((movie, index) => (
+                            <div key={index} className="dropped-movie">
+                                <MovieItem
+                                    movie={movie}
+                                    key={movie.id}
+                                    onSave={handleUserOnSave}
+                                    onDelete={handleDelete}
+                                    role={role}
+                                    onDragStart={function (
+                                        e,
+                                        movie: Movie
+                                    ): void {
+                                        throw new Error(
+                                            "Function not implemented."
+                                        );
+                                    }}
+                                    draggable={false}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </>
+            )}
         </div>
     );
 }

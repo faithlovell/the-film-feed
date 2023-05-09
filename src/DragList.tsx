@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import { RoleSelect } from "./MenuBar";
 import { Movie, MovieItem } from "./MovieMaster";
+import { ManageUser } from "./ManageUser";
 import { Form } from "react-bootstrap";
 
 interface DragListsProps {
@@ -18,9 +19,8 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
     function updateNewUser(event: React.ChangeEvent<HTMLInputElement>) {
         setNewUser(event.target.value);
     }
-
     function updateOptions(newUser: string) {
-        if (!options.includes(newUser)) {
+        if (!options.includes(newUser) && newUser !== "") {
             setOptions([...options, newUser]);
         }
     }
@@ -99,11 +99,16 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
                             </div>
                         ))}
                     </div>
-
-                    <h3>Add Users</h3>
                     <div>
+                        <h4>Add Users</h4>
+                        <p>
+                            type new username then press enter <br></br> click
+                            user tags for delete option
+                        </p>
                         <Form.Group controlId="formUser">
-                            <Form.Label>Username:</Form.Label>
+                            <Form.Label>
+                                <h6>New User:</h6>
+                            </Form.Label>
                             <Form.Control
                                 value={newUser}
                                 onChange={updateNewUser}
@@ -115,6 +120,18 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
                                 }}
                             />
                         </Form.Group>
+                        <span className="plaques">
+                            {options.map((user, index) => (
+                                <span key={index}>
+                                    {" "}
+                                    <ManageUser
+                                        user={user}
+                                        options={options}
+                                        setOptions={setOptions}
+                                    />
+                                </span>
+                            ))}
+                        </span>
                     </div>
                 </>
             )}

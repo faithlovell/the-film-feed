@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/the-film-feed/static/css/main.2f1b31cd.css",
-    "main.js": "/the-film-feed/static/js/main.c584d470.js",
+    "main.css": "/the-film-feed/static/css/main.f8659ad4.css",
+    "main.js": "/the-film-feed/static/js/main.34712f40.js",
     "static/js/787.4ef7427d.chunk.js": "/the-film-feed/static/js/787.4ef7427d.chunk.js",
     "static/media/Divergent.png": "/the-film-feed/static/media/Divergent.dc0590652a71f445a8a4.png",
     "static/media/Avengers.png": "/the-film-feed/static/media/Avengers.6165ca2b06f628f6210a.png",
@@ -34,14 +34,13 @@
     "static/media/ForrestGump.jpeg": "/the-film-feed/static/media/ForrestGump.156e1dd3aaf93d2657c8.jpeg",
     "static/media/Matrix.jpg": "/the-film-feed/static/media/Matrix.85c19ae40308822306a9.jpg",
     "static/media/JurassicPark.jpeg": "/the-film-feed/static/media/JurassicPark.6cf12f7e9a4d9a444905.jpeg",
-    "static/media/ff-logo.png": "/the-film-feed/static/media/ff-logo.652bdc971f02b9793116.png",
     "index.html": "/the-film-feed/index.html",
-    "main.2f1b31cd.css.map": "/the-film-feed/static/css/main.2f1b31cd.css.map",
-    "main.c584d470.js.map": "/the-film-feed/static/js/main.c584d470.js.map",
+    "main.f8659ad4.css.map": "/the-film-feed/static/css/main.f8659ad4.css.map",
+    "main.34712f40.js.map": "/the-film-feed/static/js/main.34712f40.js.map",
     "787.4ef7427d.chunk.js.map": "/the-film-feed/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f1b31cd.css",
-    "static/js/main.c584d470.js"
+    "static/css/main.f8659ad4.css",
+    "static/js/main.34712f40.js"
   ]
 }

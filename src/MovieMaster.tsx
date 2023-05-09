@@ -6,11 +6,12 @@ export interface Movie {
     title: string;
     cast: string[];
     rating: string;
+    audienceRating: number;
     inTheaters: boolean;
     image: string;
 }
 
-interface MovieProps {
+export interface MovieProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
 }

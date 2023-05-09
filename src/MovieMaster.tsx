@@ -19,14 +19,16 @@ export interface MovieProps {
     onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
     onDrag?: (e: React.DragEvent<HTMLDivElement>) => void; // add this line
     onDelete: (movieToDelete: Movie) => void;
+    role: string;
 }
 
-export function MovieItem({ movie, onSave, onDelete }: MovieProps) {
+export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
     const [editing, setEditing] = useState(false);
 
     function handleImageClick() {
         setEditing(true);
     }
+
     function handleCancel() {
         setEditing(false);
     }
@@ -41,12 +43,37 @@ export function MovieItem({ movie, onSave, onDelete }: MovieProps) {
             onDragStart={(e) => handleOnDrag(e, movie)}
         >
             {editing ? (
-                <MovieEdit
-                    movie={movie}
-                    onSave={onSave}
-                    onCancel={handleCancel}
-                    onDelete={onDelete}
-                />
+                role === "Movie Mentor" || role === "Movie Master" ? (
+                    <MovieEdit
+                        movie={movie}
+                        onSave={onSave}
+                        onCancel={handleCancel}
+                        onDelete={onDelete}
+                    />
+                ) : (
+                    <div className="movie-editor">
+                        <>
+                            <p className="movie-info">
+                                <strong>Title:</strong> {movie.title}
+                            </p>
+                            <p className="movie-info">
+                                <strong>Cast:</strong> {movie.cast.join(", ")}
+                            </p>
+                            <p className="movie-info">
+                                <strong>Rating:</strong> {movie.rating}
+                            </p>
+                            <p className="movie-info">
+                                <strong>Description:</strong>{" "}
+                                {movie.description}
+                            </p>
+                            <p className="movie-info">
+                                <strong>In Theaters:</strong>{" "}
+                                {movie.inTheaters ? "Yes" : "No"}
+                            </p>
+                        </>
+                        <button onClick={handleCancel}>Cancel</button>
+                    </div>
+                )
             ) : (
                 <div className="centered">
                     <img
@@ -149,12 +176,12 @@ export function MovieEdit({
     }
     return (
         <div className="movie-editor">
-            <label>
+            <label className="labels">
                 Title:
                 <input type="text" value={title} onChange={handleTitleChange} />
             </label>
             <br />
-            <label>
+            <label className="labels">
                 Description:
                 <input
                     type="text"
@@ -163,12 +190,12 @@ export function MovieEdit({
                 />
             </label>
             <br />
-            <label>
+            <label className="labels">
                 Cast:
                 <input type="text" value={cast} onChange={handleCastChange} />
             </label>
             <br />
-            <label>
+            <label className="labels">
                 Rating:
                 <input
                     type="text"
@@ -177,7 +204,7 @@ export function MovieEdit({
                 />
             </label>
             <br />
-            <label>
+            <label className="labels">
                 Audience Rating:
                 <input
                     type="number"
@@ -186,7 +213,7 @@ export function MovieEdit({
                 />
             </label>
             <br />
-            <label>
+            <label className="labels">
                 In Theaters:
                 <input
                     type="checkbox"
@@ -195,7 +222,7 @@ export function MovieEdit({
                 />
             </label>
             <br />
-            <label>
+            <label className="labels">
                 Image URL:
                 <input type="text" value={image} onChange={handleImageChange} />
             </label>

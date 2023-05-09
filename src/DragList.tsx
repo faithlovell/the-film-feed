@@ -96,7 +96,8 @@ export function DragLists({ role }: DragListsProps) {
                                     movie={movie}
                                     onSave={handleSuperOnSave}
                                     onDelete={handleDelete}
-                                    draggable={false}
+                                    draggable={true}
+                                    role={role}
                                     onDragStart={function (
                                         e,
                                         movie: Movie
@@ -127,6 +128,7 @@ export function DragLists({ role }: DragListsProps) {
                                     key={movie.id}
                                     onSave={handleAdminOnSave}
                                     onDelete={handleDelete}
+                                    role={role}
                                     onDragStart={function (
                                         e,
                                         movie: Movie
@@ -158,6 +160,7 @@ export function DragLists({ role }: DragListsProps) {
                                     key={movie.id}
                                     onSave={handleUserOnSave}
                                     onDelete={handleDelete}
+                                    role={role}
                                     onDragStart={function (
                                         e,
                                         movie: Movie

@@ -19,7 +19,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    width: 120px; /* set the width to fit in the list */
+    width: 120px;
 }
 
 .list0,
@@ -148,9 +148,9 @@ label {
 }
 
 .movie-header {
-    font-size: 16px; /* starting font size */
-    max-width: 200px; /* desired width */
-    line-height: 1.2; /* adjust as needed */
+    font-size: 16px;
+    max-width: 200px;
+    line-height: 1.2;
     white-space: nowrap; /* don't allow line breaks */
     overflow: hidden; /* hide overflowing text */
     text-overflow: ellipsis; /* add ellipsis to indicate truncated text */
@@ -167,4 +167,9 @@ label {
 .centered {
     justify-items: center;
     display: grid;
+}
+
+.labels{
+    color: white;
+    font-weight: bold;
 }

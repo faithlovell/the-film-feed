@@ -431,8 +431,6 @@ function App(): JSX.Element {
             </header>
             <DragLists role={role}></DragLists>
 
-            <ReviewApp></ReviewApp>
-            <SliderParent movies={movies}></SliderParent>
             <hr></hr>
             <AllMoviesList
                 movies={movies}
@@ -444,15 +442,17 @@ function App(): JSX.Element {
                     throw new Error("Function not implemented.");
                 }}
             ></AllMoviesList>
+            <SliderParent movies={movies}></SliderParent>
             <MovieForm
                 addMovie={addMovie}
                 movies={movies}
                 role={role}
             ></MovieForm>
+            <ReviewApp></ReviewApp>
             <hr></hr>
             <p>
                 Created by: Katie Oates, Diya Shah, John Henry Cooper, Faith
-                Lovell, Joy Mwaria
+                Lovell, Joy Mwaria.
             </p>
         </div>
     );

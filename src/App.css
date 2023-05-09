@@ -20,7 +20,22 @@
     width: 120px; /* set the width to fit in the list */
 }
 
-.list0 {
+.list0,
+.list1,
+.list2 {
+    flex-basis: 50%;
+    border: 6px solid rgb(220, 102, 102);
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    flex-grow: 1;
+    min-height: 400px;
+
+}
+
+
+/* .list0 {
     flex-basis: 50%;
     width: 300px;
     height: 300px;
@@ -51,7 +66,7 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-}
+} */
 
 
 .page.dragging {

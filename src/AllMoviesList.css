@@ -39,14 +39,17 @@
 .movie-image:hover {
     transform: scale(1.1);
     border: 3px solid #cd5b5d;
+    transition: transform 0.5s ease-out, border-color 0.5s ease-out
 }
 .movie-header {
-    font-size: 16px; /* starting font size */
-    max-width: 200px; /* desired width */
-    line-height: 1.2; /* adjust as needed */
+    font-size: 20px;
+    max-width: 200px;
+    line-height: 1.2;
     white-space: nowrap; /* don't allow line breaks */
     overflow: hidden; /* hide overflowing text */
     text-overflow: ellipsis; /* add ellipsis to indicate truncated text */
+    margin-top: 16px;
+    font-width: bold;
 }
 
 
@@ -61,7 +64,8 @@
     border: 3px solid #cd5b5d;
     z-index: -1;
     pointer-events: none;
-    transition: border-color 0.2s ease-out;
+    transform: scale(1.0);
+    transition: transform 0.5s ease-out, border-color 0.5s ease-out
 }
 .movie-editor {
     display: flex;
@@ -134,15 +138,17 @@
 .filter-dropdown {
     margin-bottom: 10px;
     font-weight: bold;
-    border: 3px solid white;
+    background-color: #353b45;
+    border: 3px solid #353b45;
     border-radius: 8px;
+    color: white;
 
 }
 
 .filter-dropdown:hover {
-    background-color: #372d33;
-    border: 3px solid #372d33;
+    border: 3px solid #cd5b5d;
     color: white;
+    transition: border-color 0.2s ease-out
 }
 .filter-label{
     font-weight: bold;

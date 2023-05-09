@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
 import { Movie, MovieItem } from "./MovieMaster";
 
@@ -74,27 +75,6 @@ export function DragLists({ role }: DragListsProps) {
 
     return (
         <div className="DragLists">
-            <div
-                className="movie"
-                draggable
-                onDragStart={(e) =>
-                    handleOnDrag(e, {
-                        id: 1,
-                        title: "Harry Potter and the Philosopher's Stone",
-                        cast: [
-                            "Daniel Radcliffe",
-                            "Emma Watson",
-                            "Rupert Grint"
-                        ],
-                        rating: "PG",
-                        audienceRating: 0,
-                        inTheaters: true,
-                        image: "x"
-                    })
-                } // not adding bc the function doesnt ahave place to drop
-            >
-                Movie 1
-            </div>
             <div className="container">
                 {role === "Movie Master" && (
                     <>
@@ -118,6 +98,9 @@ export function DragLists({ role }: DragListsProps) {
                                         key={movie.id}
                                         movie={movie}
                                         onSave={handleSuperOnSave}
+                                        draggable={true}
+                                        onDragStart={() => {}}
+                                        onDrag={(e) => handleOnDrag(e, movie)} // Add this line
                                     />
                                 </div>
                             ))}
@@ -138,6 +121,9 @@ export function DragLists({ role }: DragListsProps) {
                                         movie={movie}
                                         key={movie.id}
                                         onSave={handleAdminOnSave}
+                                        draggable={true}
+                                        onDragStart={() => {}}
+                                        onDrag={(e) => handleOnDrag(e, movie)} // Add this line
                                     />
                                 </div>
                             ))}
@@ -159,6 +145,9 @@ export function DragLists({ role }: DragListsProps) {
                                         movie={movie}
                                         key={movie.id}
                                         onSave={handleUserOnSave}
+                                        draggable={true}
+                                        onDragStart={() => {}}
+                                        onDrag={(e) => handleOnDrag(e, movie)} // Add this line
                                     />
                                 </div>
                             ))}

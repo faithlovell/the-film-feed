@@ -25,13 +25,16 @@ describe("RoleSelect", () => {
     test("calls setRole function on option selection", () => {
         const setRole = jest.fn();
 
-        const { getByLabelText } = render(
+        const { getByRole } = render(
             // eslint-disable-next-line react/react-in-jsx-scope
             <RoleSelect role="Option 1" setRole={setRole} options={options} />
         );
 
+        // Find the select element by its role
+        const selectElement = getByRole("combobox") as HTMLSelectElement;
+        expect(selectElement).toBeInTheDocument();
+
         // Simulate selecting an option
-        const selectElement = getByLabelText("Users");
         fireEvent.change(selectElement, { target: { value: "Option 2" } });
 
         // Check if setRole function is called with the selected value

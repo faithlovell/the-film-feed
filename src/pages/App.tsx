@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import { RoleSelect } from "../MenuBar";
-import logo from "../assets/other-ff-logo.png";
+import logo from "../assets/ff-logo.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
 import "../Scroller.css";
@@ -305,7 +305,7 @@ function App(): JSX.Element {
             <header className="App-header">
                 <div className="container">
                     <img
-                        style={{ width: 500, height: 131 }}
+                        style={{ width: 280, height: 241 }}
                         src={logo}
                         alt="logo"
                     />

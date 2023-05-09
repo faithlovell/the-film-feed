@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import { RoleSelect } from "../MenuBar";
-import logo from "../assets/ff-logo.png";
+import logo from "../assets/other-ff-logo.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
 import "../Scroller.css";
@@ -305,7 +305,7 @@ function App(): JSX.Element {
             <header className="App-header">
                 <div className="container">
                     <img
-                        style={{ width: 280, height: 241 }}
+                        style={{ width: 500, height: 131 }}
                         src={logo}
                         alt="logo"
                     />
@@ -335,18 +335,8 @@ function App(): JSX.Element {
             ></AllMoviesList>
             <hr></hr>
             <p>
-                Movies List:
-                <div>
-                    <h1>Movie List</h1>
-                </div>
-            </p>
-            <p>
-                Katie Oates, Diya Shah, John Henry Cooper, Faith Lovell, Joy
-                Mwaria
-            </p>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
+                Created by: Katie Oates, Diya Shah, John Henry Cooper, Faith
+                Lovell, Joy Mwaria
             </p>
         </div>
     );

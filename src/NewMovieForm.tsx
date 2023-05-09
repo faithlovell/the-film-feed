@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import "./MovieForm.css";
 import { Movie } from "./MovieMaster";
-
 /*interface Review {
     name: string;
     content: string;
@@ -19,17 +18,22 @@ import { Movie } from "./MovieMaster";
                 </section>
                 */
 
-function AddMovie() {
-    const [name, setName] = useState("");
+interface MovieFormProps {
+    addMovie: (newMovie: Movie) => void;
+    movies: Movie[];
+}
+
+const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies }) => {
+    const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
-    const [actors, setActors] = useState<string[]>([]);
+    const [cast, setCast] = useState<string[]>([]);
     const [rating, setRating] = useState("");
     const [audienceRating, setAudienceRating] = useState(0);
     const [inTheaters, setInTheaters] = useState(false);
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setName(event.target.value);
+        setTitle(event.target.value);
     };
 
     const handleDescriptionChange = (
@@ -52,16 +56,27 @@ function AddMovie() {
         setRating(event.target.value);
     };
 
-    const handleActorsChange = (
+    const handleCastChange = (
         event: React.ChangeEvent<HTMLTextAreaElement>
     ) => {
         const inputText = event.target.value;
         const newActors = inputText.split(",").map((actor) => actor.trim());
-        setActors(newActors);
+        setCast(newActors);
     };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const newId = movies.length + 1;
+        const newMovie: Movie = {
+            id: newId,
+            title,
+            cast,
+            rating,
+            audienceRating,
+            inTheaters,
+            image
+        };
+        addMovie(newMovie);
     };
 
     function handleInTheatersChange(
@@ -75,16 +90,16 @@ function AddMovie() {
             <form onSubmit={handleSubmit}>
                 <section>
                     <h1>Add a Movie</h1>
-                    <label htmlFor="name">Movie Name: </label>
+                    <label htmlFor="title">Movie Name: </label>
                     <input
                         type="text"
-                        id="name"
-                        value={name}
+                        id="title"
+                        value={title}
                         onChange={handleNameChange}
                     />
                 </section>
                 <section>
-                    <label htmlFor="image">Image: </label>
+                    <label htmlFor="image">Image Link: </label>
                     <input
                         type="text"
                         id="image"
@@ -95,9 +110,9 @@ function AddMovie() {
                 <section>
                     <label htmlFor="actors">Actor List: </label>
                     <textarea
-                        id="actors"
-                        value={actors}
-                        onChange={handleActorsChange}
+                        id="cast"
+                        value={cast}
+                        onChange={handleCastChange}
                     />
                 </section>
                 <section>
@@ -129,10 +144,10 @@ function AddMovie() {
                         onChange={handleInTheatersChange}
                     />
                 </section>
-                <button type="submit">Submit</button>
+                <button type="submit">Add Movie</button>
             </form>
         </section>
     );
-}
+};
 
-export default AddMovie;
+export default MovieForm;

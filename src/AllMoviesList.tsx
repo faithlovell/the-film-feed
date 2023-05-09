@@ -5,12 +5,18 @@ import { Movie, MovieItem } from "./MovieMaster";
 interface AllMoviesListProps {
     movies: Movie[];
     onSave: (movie: Movie) => void;
+    onDelete: (movieToDelete: Movie) => void;
     role: string;
     draggable: boolean;
     onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
 }
 
-export function AllMoviesList({ movies, onSave, role }: AllMoviesListProps) {
+export function AllMoviesList({
+    movies,
+    onSave,
+    onDelete,
+    role
+}: AllMoviesListProps) {
     const [filter, setFilter] = useState("");
 
     const handleFilterChange = (
@@ -90,6 +96,7 @@ export function AllMoviesList({ movies, onSave, role }: AllMoviesListProps) {
                                     onSave={onSave}
                                     draggable
                                     onDragStart={(e) => handleOnDrag(e, movie)}
+                                    onDelete={onDelete}
                                 />
                             ))}
                         </div>

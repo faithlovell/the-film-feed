@@ -41,6 +41,7 @@ import Cars from "../Movies_images/cars.png";
 import Incredibles from "../Movies_images/Incredibles.png";
 import ToyStory from "../Movies_images/toyStory.png";
 import { Movie } from "../MovieMaster";
+import MovieForm from "../NewMovieForm";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
@@ -51,6 +52,7 @@ function App(): JSX.Element {
             title: "Harry Potter and the Philosopher's Stone",
             cast: ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: true,
             image: HarryPotter1
         },
@@ -64,6 +66,7 @@ function App(): JSX.Element {
                 "Jamie Lee Curtis"
             ],
             rating: "PG-13",
+            audienceRating: 0,
             inTheaters: false,
             image: KnivesOut
         },
@@ -72,6 +75,7 @@ function App(): JSX.Element {
             title: "Avatar",
             cast: ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"],
             rating: "PG-13",
+            audienceRating: 0,
             inTheaters: true,
             image: Avatar
         },
@@ -80,6 +84,7 @@ function App(): JSX.Element {
             title: "Avengers: Endgame",
             cast: ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"],
             rating: "PG-13",
+            audienceRating: 0,
             inTheaters: false,
             image: Avengers
         },
@@ -88,6 +93,7 @@ function App(): JSX.Element {
             title: "The Hunger Games",
             cast: ["Jennifer Lawrence", "Josh Hutcherson", "Liam Hemsworth"],
             rating: "PG-13",
+            audienceRating: 0,
             inTheaters: true,
             image: HungerGames
         },
@@ -96,6 +102,7 @@ function App(): JSX.Element {
             title: "Aladdin",
             cast: ["Will Smith", "Mena Massoud", "Naomi Scott"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: Aladdin
         },
@@ -104,6 +111,7 @@ function App(): JSX.Element {
             title: "The Godfather",
             cast: ["Marlon Brando", "Al Pacino", "James Caan"],
             rating: "R",
+            audienceRating: 0,
             inTheaters: false,
             image: TheGodfather
         },
@@ -112,6 +120,7 @@ function App(): JSX.Element {
             title: "Jurassic Park",
             cast: ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
             rating: "PG-13",
+            audienceRating: 0,
             inTheaters: true,
             image: JurassicPark
         },
@@ -120,6 +129,7 @@ function App(): JSX.Element {
             title: "The Matrix",
             cast: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
             rating: "R",
+            audienceRating: 0,
             inTheaters: false,
             image: Matrix
         },
@@ -128,6 +138,7 @@ function App(): JSX.Element {
             title: "Forrest Gump",
             cast: ["Tom Hanks", "Robin Wright", "Gary Sinise"],
             rating: "PG-13",
+            audienceRating: 0,
             inTheaters: false,
             image: ForrestGump
         },
@@ -136,6 +147,7 @@ function App(): JSX.Element {
             title: "Inception",
             cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
             rating: "PG-13",
+            audienceRating: 0,
             inTheaters: false,
             image: Inception
         },
@@ -144,6 +156,7 @@ function App(): JSX.Element {
             title: "Star Wars: Episode IV - A New Hope",
             cast: ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: StarWarsIV
         },
@@ -152,6 +165,7 @@ function App(): JSX.Element {
             title: "Beauty and the Beast",
             cast: ["Emma Watson", "Dan Stevens", "Luke Evans"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: BeautyBeast
         },
@@ -160,6 +174,7 @@ function App(): JSX.Element {
             title: "Cinderella",
             cast: ["Lily James", "Richard Madden", "Cate Blanchett"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: Cinderella
         },
@@ -168,6 +183,7 @@ function App(): JSX.Element {
             title: "Divergent",
             cast: ["Shailene Woodley", "Theo James", "Miles Teller"],
             rating: "PG-13",
+            audienceRating: 0,
             inTheaters: false,
             image: Divergent
         },
@@ -176,6 +192,7 @@ function App(): JSX.Element {
             title: "Dumbo",
             cast: ["Michael Keaton", "Danny DeVito", "Colin Farrell"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: Dumbo
         },
@@ -184,6 +201,7 @@ function App(): JSX.Element {
             title: "Frozen",
             cast: ["Kristen Bell", "Idina Menzel", "Josh Gad"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: frozen
         },
@@ -192,6 +210,7 @@ function App(): JSX.Element {
             title: "Maleficent",
             cast: ["Angelina Jolie", "Elle Fanning", "Vivienne Jolie-Pitt"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: Maleficent
         },
@@ -200,6 +219,7 @@ function App(): JSX.Element {
             title: "Peter Pan",
             cast: ["Alexander Molony", "Ever Gabo Anderson", "Yara Shahidi"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: PeterPan
         },
@@ -208,6 +228,7 @@ function App(): JSX.Element {
             title: "Pinocchio",
             cast: ["Tom Hanks", "Cynthia Erivo", "Luke Evans"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: Pinocchio
         },
@@ -216,6 +237,7 @@ function App(): JSX.Element {
             title: "Princess and the Frog",
             cast: ["John Musker", "Anika Noni Rose", "Bruno Campos"],
             rating: "G",
+            audienceRating: 0,
             inTheaters: false,
             image: PrincessFrog
         },
@@ -224,6 +246,7 @@ function App(): JSX.Element {
             title: "Pocahontas",
             cast: ["Mel Gibson", "Irene Bedard", "Christian Bale"],
             rating: "G",
+            audienceRating: 0,
             inTheaters: false,
             image: Pocahontas
         },
@@ -232,6 +255,7 @@ function App(): JSX.Element {
             title: "Shutter Island",
             cast: ["Leonardo DiCaprio", "Mark Ruffalo", "Ben Kingsley"],
             rating: "R",
+            audienceRating: 0,
             inTheaters: false,
             image: ShutterIsland
         },
@@ -240,6 +264,7 @@ function App(): JSX.Element {
             title: "Snow White",
             cast: ["Adriana Caselotti", "Harry Stockwell", "Lucille La Verne"],
             rating: "G",
+            audienceRating: 0,
             inTheaters: false,
             image: SnowWhite
         },
@@ -248,6 +273,7 @@ function App(): JSX.Element {
             title: "Tangled",
             cast: ["Mandy Moore", "Zachary Levi", "Donna Murphy"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: Tangled
         },
@@ -256,6 +282,7 @@ function App(): JSX.Element {
             title: "The Lion King",
             cast: ["Donald Glover", "Seth Rogen", "Chiwetel Ejiofor"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: TheLionKing
         },
@@ -264,6 +291,7 @@ function App(): JSX.Element {
             title: "The Little Mermaid",
             cast: ["Halle Bailey", "Jodi Benson", "Samuel E. Wright"],
             rating: "G",
+            audienceRating: 0,
             inTheaters: false,
             image: TheLittleMermaid
         },
@@ -272,6 +300,7 @@ function App(): JSX.Element {
             title: "Cars",
             cast: ["Owen Wilson", "Paul Newman", "Bonnie Hunt"],
             rating: "G",
+            audienceRating: 0,
             inTheaters: false,
             image: Cars
         },
@@ -280,6 +309,7 @@ function App(): JSX.Element {
             title: "The Incredibles",
             cast: ["Brad Bird", "Holly Hunder", "Craig T. Nelson"],
             rating: "PG",
+            audienceRating: 0,
             inTheaters: false,
             image: Incredibles
         },
@@ -288,6 +318,7 @@ function App(): JSX.Element {
             title: "Toy Story",
             cast: ["Tom Hanks", "Laurie Metcalf", "Donald Reginoux"],
             rating: "G",
+            audienceRating: 0,
             inTheaters: false,
             image: ToyStory
         }
@@ -300,6 +331,10 @@ function App(): JSX.Element {
             )
         );
     }
+
+    const addMovie = (newMovie: Movie) => {
+        setMovies((prevMovies) => [...prevMovies, newMovie]);
+    };
 
     return (
         <div className="App">
@@ -334,6 +369,7 @@ function App(): JSX.Element {
                 onSave={handleSave}
                 role={role}
             ></AllMoviesList>
+            <MovieForm addMovie={addMovie} movies={movies}></MovieForm>
             <hr></hr>
             <p>
                 Movies List:

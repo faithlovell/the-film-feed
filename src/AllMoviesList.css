@@ -28,7 +28,6 @@
     align-content: center; /* center the images vertically */
     gap: 20px;
     width: 100%; /* make the images take up the full width */
-
 }
 
 .movie-images img {
@@ -47,8 +46,6 @@
     overflow: hidden; /* hide overflowing text */
     text-overflow: ellipsis; /* add ellipsis to indicate truncated text */
 }
-
-
 
 .movie-image:hover::after {
     content: "";
@@ -118,13 +115,11 @@
     flex-direction: row;
     justify-content: center;
     display: flex;
-
 }
 
 .movie-editor button:hover {
     background-color: #cd5b5d;
     transform: perspective(100px);
-
 }
 
 .movie-editor button + button {

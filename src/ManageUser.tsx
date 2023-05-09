@@ -62,6 +62,7 @@ export function UserEdit({ user, userDone, removeOption }: userEditProps) {
                 display: "flex",
                 flexDirection: "row"
             }}
+            className="toggle-user"
         >
             <button onClick={handleDeleteClick}>Delete</button>
             <button onClick={userDone}>Cancel</button>

@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { RoleSelect } from "../MenuBar";
 
@@ -7,6 +7,7 @@ describe("RoleSelect", () => {
 
     test("renders RoleSelect component with options", () => {
         const { getByText } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
             <RoleSelect role="Option 1" setRole={jest.fn()} options={options} />
         );
 
@@ -25,6 +26,7 @@ describe("RoleSelect", () => {
         const setRole = jest.fn();
 
         const { getByLabelText } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
             <RoleSelect role="Option 1" setRole={setRole} options={options} />
         );
 

@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { DragLists } from "../DragList";
 
@@ -18,6 +18,7 @@ describe("DragLists", () => {
     ];
 
     test("renders DragLists component with Super List", () => {
+        // eslint-disable-next-line react/react-in-jsx-scope
         const { getByText } = render(<DragLists role="Movie Master" />);
 
         const superListLabel = getByText("Super List");
@@ -25,6 +26,7 @@ describe("DragLists", () => {
     });
 
     test("renders DragLists component with Admin List", () => {
+        // eslint-disable-next-line react/react-in-jsx-scope
         const { getByText } = render(<DragLists role="Movie Mentor" />);
 
         const adminListLabel = getByText("Admin List");
@@ -32,6 +34,7 @@ describe("DragLists", () => {
     });
 
     test("renders DragLists component with User List", () => {
+        // eslint-disable-next-line react/react-in-jsx-scope
         const { getByText } = render(<DragLists role="Movie Member" />);
 
         const userListLabel = getByText("User List");
@@ -40,6 +43,7 @@ describe("DragLists", () => {
 
     test("calls handleOnDropSuper when a movie is dropped on Super List", () => {
         const handleOnDropSuperMock = jest.fn();
+        // eslint-disable-next-line react/react-in-jsx-scope
         const { getByTestId } = render(<DragLists role="Movie Master" />);
 
         const superList = getByTestId("super-list");
@@ -50,6 +54,7 @@ describe("DragLists", () => {
 
     test("calls handleOnDropAdmin when a movie is dropped on Admin List", () => {
         const handleOnDropAdminMock = jest.fn();
+        // eslint-disable-next-line react/react-in-jsx-scope
         const { getByTestId } = render(<DragLists role="Movie Mentor" />);
 
         const adminList = getByTestId("admin-list");
@@ -60,6 +65,7 @@ describe("DragLists", () => {
 
     test("calls handleOnDropUser when a movie is dropped on User List", () => {
         const handleOnDropUserMock = jest.fn();
+        // eslint-disable-next-line react/react-in-jsx-scope
         const { getByTestId } = render(<DragLists role="Movie Member" />);
 
         const userList = getByTestId("user-list");

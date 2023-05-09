@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { AllMoviesList } from "../AllMoviesList";
 
@@ -22,6 +22,7 @@ describe("AllMoviesList", () => {
 
     test("renders AllMoviesList component with movies", () => {
         const { getByText } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}
@@ -41,6 +42,7 @@ describe("AllMoviesList", () => {
 
     test("calls onSave function when a movie is saved", () => {
         const { getAllByText } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}
@@ -61,6 +63,7 @@ describe("AllMoviesList", () => {
 
     test("calls onDelete function when a movie is deleted", () => {
         const { getAllByText } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}
@@ -81,6 +84,7 @@ describe("AllMoviesList", () => {
 
     test("updates the filter when the dropdown value changes", () => {
         const { getByLabelText } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}

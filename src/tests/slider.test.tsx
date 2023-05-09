@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import SliderParent from "../Scroller";
 
@@ -11,6 +11,7 @@ describe("SliderParent", () => {
 
     test("renders SliderParent component with movies", () => {
         const { getByText, getAllByAltText } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
             <SliderParent movies={movies} />
         );
 
@@ -26,6 +27,7 @@ describe("SliderParent", () => {
 
     test("scrolls the slider on next button click", () => {
         const { getByText, container } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
             <SliderParent movies={movies} />
         );
 

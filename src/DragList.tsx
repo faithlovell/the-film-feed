@@ -64,6 +64,11 @@ export function DragLists({ role }: DragListsProps) {
             )
         );
     }
+    function handleDelete(movie: Movie) {
+        setSuperMovies(superMovies.filter((m) => m.id !== movie.id));
+        setAdminMovies(adminMovies.filter((m) => m.id !== movie.id));
+        setUserMovies(userMovies.filter((m) => m.id !== movie.id));
+    }
 
     return (
         <div className="container">
@@ -81,6 +86,7 @@ export function DragLists({ role }: DragListsProps) {
                                     key={movie.id}
                                     movie={movie}
                                     onSave={handleSuperOnSave}
+                                    onDelete={handleDelete}
                                 />
                             </div>
                         ))}
@@ -102,6 +108,7 @@ export function DragLists({ role }: DragListsProps) {
                                     movie={movie}
                                     key={movie.id}
                                     onSave={handleAdminOnSave}
+                                    onDelete={handleDelete}
                                 />
                             </div>
                         ))}
@@ -123,6 +130,7 @@ export function DragLists({ role }: DragListsProps) {
                                     movie={movie}
                                     key={movie.id}
                                     onSave={handleUserOnSave}
+                                    onDelete={handleDelete}
                                 />
                             </div>
                         ))}

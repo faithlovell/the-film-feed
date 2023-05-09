@@ -198,7 +198,7 @@ export function MovieEdit({
             >
                 <button onClick={handleSaveClick}>Save</button>
                 <button onClick={onCancel}>Cancel</button>
-                <button onClick={handleDeleteClick}>Delete Movie</button>
+                <button onClick={handleDeleteClick}>Delete</button>
             </div>
         </div>
     );

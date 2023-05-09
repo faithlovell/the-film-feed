@@ -83,6 +83,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
         const newMovie: Movie = {
             id: newId,
             title,
+            description,
             cast,
             rating,
             audienceRating,

@@ -67,6 +67,8 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies }) => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newId = movies.length + 1;
+        const img = new Image();
+        img.src = image;
         const newMovie: Movie = {
             id: newId,
             title,
@@ -74,7 +76,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies }) => {
             rating,
             audienceRating,
             inTheaters,
-            image
+            image: img.src
         };
         addMovie(newMovie);
     };

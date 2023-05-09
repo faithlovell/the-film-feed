@@ -113,6 +113,7 @@
 
 .movie-item:hover .edit-icon {
     display: block;
+
 }
 
 .edit-icon {
@@ -122,8 +123,16 @@
     right: 10px;
     width: 20px;
     height: 20px;
-    background-image: url(Movies_images/EditIcon.jpeg);
+    background-image: url('Movies_images/EditIcon.jpeg');
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 1;
+}
+.movie-header {
+    font-size: 16px; /* starting font size */
+    max-width: 200px; /* desired width */
+    line-height: 1.2; /* adjust as needed */
+    white-space: nowrap; /* don't allow line breaks */
+    overflow: hidden; /* hide overflowing text */
+    text-overflow: ellipsis; /* add ellipsis to indicate truncated text */
 }

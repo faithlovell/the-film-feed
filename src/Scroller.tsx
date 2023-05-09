@@ -102,7 +102,7 @@ class SliderParent extends Component<SliderParentProps> {
                                     alt={movie.title}
                                     style={{ maxWidth: "200px" }}
                                 />
-                                <h3>{movie.title}</h3>
+                                <h3 className="movie-header">{movie.title}</h3>
                                 <p>Rating: {movie.rating}</p>
                             </div>
                         );

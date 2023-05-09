@@ -6,6 +6,7 @@
     margin: 0 auto;
     background: #282c34;
     color: white;
+    justify-content: space-between;
 }
 
 .title {
@@ -129,4 +130,29 @@
 
 .movie-editor button + button {
     margin-left: 10px;
+}
+.filter-dropdown {
+    margin-bottom: 10px;
+    font-weight: bold;
+    border: 3px solid white;
+    border-radius: 8px;
+
+}
+
+.filter-dropdown:hover {
+    background-color: #372d33;
+    border: 3px solid #372d33;
+    color: white;
+}
+.filter-label{
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.filters {
+    margin-right: 10px;
+}
+
+.filter-dropdown {
+    border-radius: 10px;
 }

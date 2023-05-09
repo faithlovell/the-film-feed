@@ -429,7 +429,7 @@ function App(): JSX.Element {
                 onSave={handleSave}
                 role={role}
                 draggable={true}
-                onDragStart={function (e, movie: Movie): void {
+                onDragStart={function (): void {
                     throw new Error("Function not implemented.");
                 }}
             ></AllMoviesList>

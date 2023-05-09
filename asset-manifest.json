@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/the-film-feed/static/css/main.69ff70f3.css",
+    "main.css": "/the-film-feed/static/css/main.1479b3d6.css",
     "main.js": "/the-film-feed/static/js/main.551c6bb1.js",
     "static/js/787.4ef7427d.chunk.js": "/the-film-feed/static/js/787.4ef7427d.chunk.js",
     "static/media/Divergent.png": "/the-film-feed/static/media/Divergent.dc0590652a71f445a8a4.png",
@@ -35,12 +35,12 @@
     "static/media/JurassicPark.jpeg": "/the-film-feed/static/media/JurassicPark.6cf12f7e9a4d9a444905.jpeg",
     "static/media/ff-logo.png": "/the-film-feed/static/media/ff-logo.652bdc971f02b9793116.png",
     "index.html": "/the-film-feed/index.html",
-    "main.69ff70f3.css.map": "/the-film-feed/static/css/main.69ff70f3.css.map",
+    "main.1479b3d6.css.map": "/the-film-feed/static/css/main.1479b3d6.css.map",
     "main.551c6bb1.js.map": "/the-film-feed/static/js/main.551c6bb1.js.map",
     "787.4ef7427d.chunk.js.map": "/the-film-feed/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.69ff70f3.css",
+    "static/css/main.1479b3d6.css",
     "static/js/main.551c6bb1.js"
   ]
 }

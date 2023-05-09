@@ -26,9 +26,17 @@ export function DragLists({ role }: DragListsProps) {
         }
     }
 
+    function checkDuplicates(movie1: Movie, movie2: Movie) {
+        return movie1.id == movie2.id;
+    }
+
     function handleOnDropAdmin(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
-        if (!adminMovies.includes(movie)) {
+        if (
+            !adminMovies.some((existingMovie) =>
+                checkDuplicates(existingMovie, movie)
+            )
+        ) {
             setAdminMovies([...adminMovies, movie]);
         }
     }

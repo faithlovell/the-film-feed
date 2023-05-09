@@ -34,7 +34,7 @@ export function MovieItem({ movie, onSave }: MovieProps) {
                     onCancel={handleCancel}
                 />
             ) : (
-                <>
+                <div className="centered">
                     <img
                         className="movie-image"
                         src={movie.image}
@@ -42,9 +42,9 @@ export function MovieItem({ movie, onSave }: MovieProps) {
                         style={{ maxWidth: "200px" }}
                         onClick={handleImageClick}
                     />
-                    <h3 className={"movie-header"}>{movie.title}</h3>
-                    <p>Rating: {movie.rating}</p>
-                </>
+                    <h3 className="movie-header">{movie.title}</h3>
+                    <p className="movie-rating">{movie.rating}</p>
+                </div>
             )}
         </div>
     );

@@ -136,3 +136,18 @@
     overflow: hidden; /* hide overflowing text */
     text-overflow: ellipsis; /* add ellipsis to indicate truncated text */
 }
+.movie-rating {
+    background-color: #353b45;
+    border: 3px solid #353b45;
+    border-radius: 8px;
+    font-weight: bold;
+    width: fit-content;
+    align-items: center;
+    justify-items: center;
+
+}
+.centered{
+
+    justify-items:  center;
+    display: grid;
+}

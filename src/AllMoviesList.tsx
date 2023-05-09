@@ -38,7 +38,7 @@ export function AllMoviesList({ movies, onSave, role }: AllMoviesListProps) {
         <>
             {role === "Movie Mentor" || role === "Movie Master" ? (
                 <div className="all-movies-list">
-                    <h2 className="title">All Movies</h2>
+                    <h2 className="title">Movies</h2>
                     <div className="filters">
                         <select
                             value={filter}

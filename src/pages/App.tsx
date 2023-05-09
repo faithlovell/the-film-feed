@@ -396,6 +396,16 @@ function App(): JSX.Element {
         setMovies((prevMovies) => [...prevMovies, newMovie]);
     };
 
+    function deleteMovie(movieToDelete: Movie) {
+        // Create a new array that excludes the movie to be deleted
+        const updatedMovies = movies.filter(
+            (movie) => movie.id !== movieToDelete.id
+        );
+
+        // Update the movies state with the new array
+        setMovies(updatedMovies);
+    }
+
     return (
         <div className="App">
             <header className="App-header">
@@ -427,6 +437,7 @@ function App(): JSX.Element {
             <AllMoviesList
                 movies={movies}
                 onSave={handleSave}
+                onDelete={deleteMovie}
                 role={role}
             ></AllMoviesList>
             <MovieForm

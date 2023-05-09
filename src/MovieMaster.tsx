@@ -15,9 +15,10 @@ export interface Movie {
 export interface MovieProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
+    onDelete: (movieToDelete: Movie) => void;
 }
 
-export function MovieItem({ movie, onSave }: MovieProps) {
+export function MovieItem({ movie, onSave, onDelete }: MovieProps) {
     const [editing, setEditing] = useState(false);
 
     function handleImageClick() {
@@ -34,6 +35,7 @@ export function MovieItem({ movie, onSave }: MovieProps) {
                     movie={movie}
                     onSave={onSave}
                     onCancel={handleCancel}
+                    onDelete={onDelete}
                 />
             ) : (
                 <div className="centered">
@@ -60,8 +62,15 @@ interface MovieEditProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
     onCancel: () => void;
+    onDelete: (movieToDelete: Movie) => void;
 }
-export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
+
+export function MovieEdit({
+    movie,
+    onSave,
+    onCancel,
+    onDelete
+}: MovieEditProps) {
     const [title, setTitle] = useState(movie.title);
     const [cast, setCast] = useState(movie.cast.join(", "));
     const [rating, setRating] = useState(movie.rating);
@@ -111,6 +120,10 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
 
     function handleImageChange(event: React.ChangeEvent<HTMLInputElement>) {
         setImage(event.target.value);
+    }
+
+    function handleDeleteClick() {
+        onDelete(movie);
     }
 
     function handleSaveClick() {
@@ -185,6 +198,7 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
             >
                 <button onClick={handleSaveClick}>Save</button>
                 <button onClick={onCancel}>Cancel</button>
+                <button onClick={handleDeleteClick}>Delete Movie</button>
             </div>
         </div>
     );

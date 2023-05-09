@@ -4,18 +4,24 @@ import "./App.css"; // import CSS file
 export interface Movie {
     id: number;
     title: string;
+    description: string;
     cast: string[];
     rating: string;
+    audienceRating: number;
     inTheaters: boolean;
     image: string;
 }
 
-interface MovieProps {
+export interface MovieProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
+    draggable: boolean; // Add this line
+    onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
+    onDrag?: (e: React.DragEvent<HTMLDivElement>) => void; // add this line
+    onDelete: (movieToDelete: Movie) => void;
 }
 
-export function MovieItem({ movie, onSave }: MovieProps) {
+export function MovieItem({ movie, onSave, onDelete }: MovieProps) {
     const [editing, setEditing] = useState(false);
 
     function handleImageClick() {
@@ -24,17 +30,25 @@ export function MovieItem({ movie, onSave }: MovieProps) {
     function handleCancel() {
         setEditing(false);
     }
+    function handleOnDrag(e: React.DragEvent<HTMLDivElement>, movie: Movie) {
+        e.dataTransfer.setData("movie", JSON.stringify(movie));
+    }
 
     return (
-        <div>
+        <div
+            className="movie"
+            draggable
+            onDragStart={(e) => handleOnDrag(e, movie)}
+        >
             {editing ? (
                 <MovieEdit
                     movie={movie}
                     onSave={onSave}
                     onCancel={handleCancel}
+                    onDelete={onDelete}
                 />
             ) : (
-                <>
+                <div className="centered">
                     <img
                         className="movie-image"
                         src={movie.image}
@@ -42,9 +56,9 @@ export function MovieItem({ movie, onSave }: MovieProps) {
                         style={{ maxWidth: "200px" }}
                         onClick={handleImageClick}
                     />
-                    <h3 className={"movie-header"}>{movie.title}</h3>
-                    <p>Rating: {movie.rating}</p>
-                </>
+                    <h3 className="movie-header">{movie.title}</h3>
+                    <p className="movie-rating">{movie.rating}</p>
+                </div>
             )}
         </div>
     );
@@ -58,13 +72,22 @@ interface MovieEditProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
     onCancel: () => void;
+    onDelete: (movieToDelete: Movie) => void;
 }
-export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
+
+export function MovieEdit({
+    movie,
+    onSave,
+    onCancel,
+    onDelete
+}: MovieEditProps) {
     const [title, setTitle] = useState(movie.title);
     const [cast, setCast] = useState(movie.cast.join(", "));
     const [rating, setRating] = useState(movie.rating);
     const [inTheaters, setInTheaters] = useState(movie.inTheaters);
     const [image, setImage] = useState(movie.image);
+    const [description, setDescription] = useState(movie.description);
+    const [audienceRating, setAudienceRating] = useState(movie.audienceRating);
     // const [editing, setEditing] = useState(false);
 
     // function handleEditClick() {
@@ -77,6 +100,18 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
 
     function handleTitleChange(event: React.ChangeEvent<HTMLInputElement>) {
         setTitle(event.target.value);
+    }
+
+    function handleDescriptionChange(
+        event: React.ChangeEvent<HTMLInputElement>
+    ) {
+        setDescription(event.target.value);
+    }
+
+    function handleAudienceRatingChange(
+        event: React.ChangeEvent<HTMLInputElement>
+    ) {
+        setAudienceRating(parseInt(event.target.value));
     }
 
     function handleCastChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -97,6 +132,10 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
         setImage(event.target.value);
     }
 
+    function handleDeleteClick() {
+        onDelete(movie);
+    }
+
     function handleSaveClick() {
         onSave({
             ...movie,
@@ -106,13 +145,22 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
             inTheaters,
             image
         });
-        // setEditing(false);
+        onCancel();
     }
     return (
         <div className="movie-editor">
             <label>
                 Title:
                 <input type="text" value={title} onChange={handleTitleChange} />
+            </label>
+            <br />
+            <label>
+                Description:
+                <input
+                    type="text"
+                    value={description}
+                    onChange={handleDescriptionChange}
+                />
             </label>
             <br />
             <label>
@@ -126,6 +174,15 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
                     type="text"
                     value={rating}
                     onChange={handleRatingChange}
+                />
+            </label>
+            <br />
+            <label>
+                Audience Rating:
+                <input
+                    type="number"
+                    value={audienceRating}
+                    onChange={handleAudienceRatingChange}
                 />
             </label>
             <br />
@@ -151,6 +208,7 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
             >
                 <button onClick={handleSaveClick}>Save</button>
                 <button onClick={onCancel}>Cancel</button>
+                <button onClick={handleDeleteClick}>Delete</button>
             </div>
         </div>
     );

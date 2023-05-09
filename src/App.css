@@ -22,32 +22,8 @@
     width: 120px; /* set the width to fit in the list */
 }
 
-.list0 {
-    flex-basis: 50%;
-    width: 300px;
-    height: 300px;
-    border: 5px solid #1e2127;
-    border-radius: 10px;
-    background-color: #282c34;
-    margin: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-}
-
-.list1 {
-    flex-basis: 50%;
-    width: 300px;
-    height: 300px;
-    border: 5px solid #1e2127;
-    border-radius: 10px;
-    background-color: #282c34;
-    margin: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-}
-
+.list0,
+.list1,
 .list2 {
     flex-basis: 50%;
     width: 300px;
@@ -59,6 +35,9 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    flex-grow: 1;
+    min-height: 400px;
+
 }
 
 .page.dragging {
@@ -119,6 +98,7 @@
 
 .movie-item:hover .edit-icon {
     display: block;
+
 }
 
 .edit-icon {
@@ -128,7 +108,7 @@
     right: 10px;
     width: 20px;
     height: 20px;
-    background-image: url(Movies_images/EditIcon.jpeg);
+    background-image: url('Movies_images/EditIcon.jpeg');
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 1;
@@ -167,4 +147,28 @@ label {
 
 .drop-down {
     margin-top: 20px;
+}
+=======
+.movie-header {
+    font-size: 16px; /* starting font size */
+    max-width: 200px; /* desired width */
+    line-height: 1.2; /* adjust as needed */
+    white-space: nowrap; /* don't allow line breaks */
+    overflow: hidden; /* hide overflowing text */
+    text-overflow: ellipsis; /* add ellipsis to indicate truncated text */
+}
+.movie-rating {
+    background-color: #353b45;
+    border: 3px solid #353b45;
+    border-radius: 8px;
+    font-weight: bold;
+    width: fit-content;
+    align-items: center;
+    justify-items: center;
+
+}
+.centered{
+
+    justify-items:  center;
+    display: grid;
 }

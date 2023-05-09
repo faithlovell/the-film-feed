@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import { RoleSelect } from "../MenuBar";
-import logo from "../assets/ff-logo.png";
+import logo from "../assets/ff-logo-white.png";
 import { DragLists } from "../DragList";
 import "../styles.css";
 import "../Scroller.css";

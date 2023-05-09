@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
-// import { RoleSelect } from "./MenuBar";
 import { Movie, MovieItem } from "./MovieMaster";
 
 interface DragListsProps {
@@ -11,13 +12,12 @@ export function DragLists({ role }: DragListsProps) {
     const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
     const [userMovies, setUserMovies] = useState<Movie[]>([]);
 
-    // function handleOnDrag(e: React.DragEvent, movie: Movie) {
-    //     e.dataTransfer.setData("movie", JSON.stringify(movie));
-    // }
+    function handleOnDrag(e: React.DragEvent, movie: Movie) {
+        e.dataTransfer.setData("movie", JSON.stringify(movie)); //added this not sure if its right yet
+    } //try adding this to allmovieslist.tsx
 
     function handleOnDropSuper(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
-        console.log("movie", movie);
         if (!superMovies.includes(movie)) {
             setSuperMovies([...superMovies, movie]);
             if (!adminMovies.includes(movie)) {
@@ -28,7 +28,6 @@ export function DragLists({ role }: DragListsProps) {
 
     function handleOnDropAdmin(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
-        console.log("movie", movie);
         if (!adminMovies.includes(movie)) {
             setAdminMovies([...adminMovies, movie]);
         }
@@ -36,13 +35,13 @@ export function DragLists({ role }: DragListsProps) {
 
     function handleOnDropUser(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
-        console.log("movie", movie);
         setUserMovies([...userMovies, movie]);
     }
 
     function handleDragOver(e: React.DragEvent) {
         e.preventDefault();
     }
+
     function handleUserOnSave(movie: Movie) {
         setUserMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>
@@ -50,6 +49,7 @@ export function DragLists({ role }: DragListsProps) {
             )
         );
     }
+
     function handleSuperOnSave(movie: Movie) {
         setSuperMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>
@@ -57,12 +57,18 @@ export function DragLists({ role }: DragListsProps) {
             )
         );
     }
+
     function handleAdminOnSave(movie: Movie) {
         setAdminMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>
                 prevMovie.id === movie.id ? { ...movie } : prevMovie
             )
         );
+    }
+    function handleDelete(movie: Movie) {
+        setSuperMovies(superMovies.filter((m) => m.id !== movie.id));
+        setAdminMovies(adminMovies.filter((m) => m.id !== movie.id));
+        setUserMovies(userMovies.filter((m) => m.id !== movie.id));
     }
 
     return (
@@ -81,6 +87,16 @@ export function DragLists({ role }: DragListsProps) {
                                     key={movie.id}
                                     movie={movie}
                                     onSave={handleSuperOnSave}
+                                    onDelete={handleDelete}
+                                    draggable={false}
+                                    onDragStart={function (
+                                        e,
+                                        movie: Movie
+                                    ): void {
+                                        throw new Error(
+                                            "Function not implemented."
+                                        );
+                                    }}
                                 />
                             </div>
                         ))}
@@ -102,6 +118,16 @@ export function DragLists({ role }: DragListsProps) {
                                     movie={movie}
                                     key={movie.id}
                                     onSave={handleAdminOnSave}
+                                    onDelete={handleDelete}
+                                    onDragStart={function (
+                                        e,
+                                        movie: Movie
+                                    ): void {
+                                        throw new Error(
+                                            "Function not implemented."
+                                        );
+                                    }}
+                                    draggable={false}
                                 />
                             </div>
                         ))}
@@ -123,6 +149,16 @@ export function DragLists({ role }: DragListsProps) {
                                     movie={movie}
                                     key={movie.id}
                                     onSave={handleUserOnSave}
+                                    onDelete={handleDelete}
+                                    onDragStart={function (
+                                        e,
+                                        movie: Movie
+                                    ): void {
+                                        throw new Error(
+                                            "Function not implemented."
+                                        );
+                                    }}
+                                    draggable={false}
                                 />
                             </div>
                         ))}

@@ -4,6 +4,7 @@ import "./App.css"; // import CSS file
 export interface Movie {
     id: number;
     title: string;
+    description: string;
     cast: string[];
     rating: string;
     audienceRating: number;
@@ -66,6 +67,8 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
     const [rating, setRating] = useState(movie.rating);
     const [inTheaters, setInTheaters] = useState(movie.inTheaters);
     const [image, setImage] = useState(movie.image);
+    const [description, setDescription] = useState(movie.description);
+    const [audienceRating, setAudienceRating] = useState(movie.audienceRating);
     // const [editing, setEditing] = useState(false);
 
     // function handleEditClick() {
@@ -78,6 +81,18 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
 
     function handleTitleChange(event: React.ChangeEvent<HTMLInputElement>) {
         setTitle(event.target.value);
+    }
+
+    function handleDescriptionChange(
+        event: React.ChangeEvent<HTMLInputElement>
+    ) {
+        setDescription(event.target.value);
+    }
+
+    function handleAudienceRatingChange(
+        event: React.ChangeEvent<HTMLInputElement>
+    ) {
+        setAudienceRating(parseInt(event.target.value));
     }
 
     function handleCastChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -117,6 +132,15 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
             </label>
             <br />
             <label>
+                Description:
+                <input
+                    type="text"
+                    value={description}
+                    onChange={handleDescriptionChange}
+                />
+            </label>
+            <br />
+            <label>
                 Cast:
                 <input type="text" value={cast} onChange={handleCastChange} />
             </label>
@@ -127,6 +151,15 @@ export function MovieEdit({ movie, onSave, onCancel }: MovieEditProps) {
                     type="text"
                     value={rating}
                     onChange={handleRatingChange}
+                />
+            </label>
+            <br />
+            <label>
+                Audience Rating:
+                <input
+                    type="number"
+                    value={audienceRating}
+                    onChange={handleAudienceRatingChange}
                 />
             </label>
             <br />

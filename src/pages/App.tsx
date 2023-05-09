@@ -50,6 +50,8 @@ function App(): JSX.Element {
         {
             id: 1,
             title: "Harry Potter and the Philosopher's Stone",
+            description:
+                "A young orphan boy learns he is a wizard and enrolls in a magical school where he makes friends and discovers dark secrets about his past.",
             cast: ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
             rating: "PG",
             audienceRating: 0,
@@ -59,6 +61,8 @@ function App(): JSX.Element {
         {
             id: 2,
             title: "Knives Out",
+            description:
+                "A wealthy patriarch dies and his family members become suspects in his murder. A famous detective is called in to solve the case.",
             cast: [
                 "Daniel Craig",
                 "Chris Evans",
@@ -73,6 +77,8 @@ function App(): JSX.Element {
         {
             id: 3,
             title: "Avatar",
+            description:
+                "In a futuristic world, humans are trying to exploit a planet's resources. The natives of the planet, the Na'vi, resist the humans' efforts and a disabled ex-marine is recruited to help bridge the gap between the two sides.",
             cast: ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"],
             rating: "PG-13",
             audienceRating: 0,
@@ -82,6 +88,8 @@ function App(): JSX.Element {
         {
             id: 4,
             title: "Avengers: Endgame",
+            description:
+                "The Avengers must reunite to defeat the supervillain Thanos who has wiped out half the universe's population.",
             cast: ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"],
             rating: "PG-13",
             audienceRating: 0,
@@ -91,6 +99,8 @@ function App(): JSX.Element {
         {
             id: 5,
             title: "The Hunger Games",
+            description:
+                "In a dystopian future, teenagers are chosen to compete in a televised fight to the death as a reminder of the government's power",
             cast: ["Jennifer Lawrence", "Josh Hutcherson", "Liam Hemsworth"],
             rating: "PG-13",
             audienceRating: 0,
@@ -100,6 +110,8 @@ function App(): JSX.Element {
         {
             id: 6,
             title: "Aladdin",
+            description:
+                "A street urchin in a mythical city falls in love with a princess and finds a magical lamp with a genie who helps him win her heart.",
             cast: ["Will Smith", "Mena Massoud", "Naomi Scott"],
             rating: "PG",
             audienceRating: 0,
@@ -109,6 +121,8 @@ function App(): JSX.Element {
         {
             id: 7,
             title: "The Godfather",
+            description:
+                "A crime family patriarch tries to pass his empire onto his son, who is reluctant to take on the family business.",
             cast: ["Marlon Brando", "Al Pacino", "James Caan"],
             rating: "R",
             audienceRating: 0,
@@ -118,6 +132,8 @@ function App(): JSX.Element {
         {
             id: 8,
             title: "Jurassic Park",
+            description:
+                "A billionaire invites a group of scientists to visit his island theme park where cloned dinosaurs roam free. Chaos ensues when the dinosaurs escape their enclosures.",
             cast: ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
             rating: "PG-13",
             audienceRating: 0,
@@ -127,6 +143,8 @@ function App(): JSX.Element {
         {
             id: 9,
             title: "The Matrix",
+            description:
+                "A hacker discovers that his reality is a simulation created by machines who have enslaved humanity. He joins a rebellion against the machines.",
             cast: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
             rating: "R",
             audienceRating: 0,
@@ -136,6 +154,8 @@ function App(): JSX.Element {
         {
             id: 10,
             title: "Forrest Gump",
+            description:
+                "A simple man with a low IQ accidentally becomes involved in several defining moments in American history and inspires those around him.",
             cast: ["Tom Hanks", "Robin Wright", "Gary Sinise"],
             rating: "PG-13",
             audienceRating: 0,
@@ -145,6 +165,8 @@ function App(): JSX.Element {
         {
             id: 11,
             title: "Inception",
+            description:
+                "A thief who steals corporate secrets by infiltrating people's dreams is hired to perform the opposite task: to implant an idea into a target's subconscious.",
             cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"],
             rating: "PG-13",
             audienceRating: 0,
@@ -154,6 +176,8 @@ function App(): JSX.Element {
         {
             id: 12,
             title: "Star Wars: Episode IV - A New Hope",
+            description:
+                "A farm boy joins a rebellion against an evil empire with the help of a wise old Jedi and a rogue smuggler.",
             cast: ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
             rating: "PG",
             audienceRating: 0,
@@ -163,6 +187,8 @@ function App(): JSX.Element {
         {
             id: 13,
             title: "Beauty and the Beast",
+            description:
+                "A young woman agrees to live with a beast in exchange for her father's freedom, and over time, comes to love the kind-hearted creature.",
             cast: ["Emma Watson", "Dan Stevens", "Luke Evans"],
             rating: "PG",
             audienceRating: 0,
@@ -172,6 +198,8 @@ function App(): JSX.Element {
         {
             id: 14,
             title: "Cinderella",
+            description:
+                "A young girl, mistreated by her stepmother and stepsisters, gets a chance to attend a royal ball with the help of a fairy godmother.",
             cast: ["Lily James", "Richard Madden", "Cate Blanchett"],
             rating: "PG",
             audienceRating: 0,
@@ -181,6 +209,8 @@ function App(): JSX.Element {
         {
             id: 15,
             title: "Divergent",
+            description:
+                "In a dystopian future, society is divided into factions based on personality traits. A girl discovers she doesn't fit neatly into any one faction and must navigate the dangerous consequences.",
             cast: ["Shailene Woodley", "Theo James", "Miles Teller"],
             rating: "PG-13",
             audienceRating: 0,
@@ -190,6 +220,8 @@ function App(): JSX.Element {
         {
             id: 16,
             title: "Dumbo",
+            description:
+                "A young elephant with big ears learns to fly and becomes the star attraction in a struggling circus.",
             cast: ["Michael Keaton", "Danny DeVito", "Colin Farrell"],
             rating: "PG",
             audienceRating: 0,
@@ -199,6 +231,8 @@ function App(): JSX.Element {
         {
             id: 17,
             title: "Frozen",
+            description:
+                "Two sisters, one of whom has magical powers that cause an eternal winter, must work together to save their kingdom.",
             cast: ["Kristen Bell", "Idina Menzel", "Josh Gad"],
             rating: "PG",
             audienceRating: 0,
@@ -208,6 +242,8 @@ function App(): JSX.Element {
         {
             id: 18,
             title: "Maleficent",
+            description:
+                "A retelling of the classic Sleeping Beauty story from the perspective of the villainous Maleficent, who is actually a misunderstood and complex character.",
             cast: ["Angelina Jolie", "Elle Fanning", "Vivienne Jolie-Pitt"],
             rating: "PG",
             audienceRating: 0,
@@ -217,6 +253,8 @@ function App(): JSX.Element {
         {
             id: 19,
             title: "Peter Pan",
+            description:
+                "Based on the classic novel by J.M. Barrie, this is a fantasy adventure film about a boy named Peter Pan who takes three siblings on a magical journey to Neverland, where they encounter pirates, fairies, and mermaids.",
             cast: ["Alexander Molony", "Ever Gabo Anderson", "Yara Shahidi"],
             rating: "PG",
             audienceRating: 0,
@@ -226,6 +264,8 @@ function App(): JSX.Element {
         {
             id: 20,
             title: "Pinocchio",
+            description:
+                "A live-action remake of the classic Disney animated movie, this film follows the story of a wooden puppet named Pinocchio who comes to life and goes on a quest to become a real boy, while encountering many dangers and obstacles along the way.",
             cast: ["Tom Hanks", "Cynthia Erivo", "Luke Evans"],
             rating: "PG",
             audienceRating: 0,
@@ -235,6 +275,8 @@ function App(): JSX.Element {
         {
             id: 21,
             title: "Princess and the Frog",
+            description:
+                "A musical animated film set in New Orleans, this is a retelling of the classic fairy tale about a princess who falls in love with a prince who has been turned into a frog. They go on a journey to break the spell and find true love.",
             cast: ["John Musker", "Anika Noni Rose", "Bruno Campos"],
             rating: "G",
             audienceRating: 0,
@@ -244,6 +286,8 @@ function App(): JSX.Element {
         {
             id: 22,
             title: "Pocahontas",
+            description:
+                "An animated musical film based on the historical figure, this movie tells the story of Pocahontas, a Native American woman who falls in love with an English explorer named John Smith during the colonization of Virginia. The film explores themes of cultural conflict, love, and the environment.",
             cast: ["Mel Gibson", "Irene Bedard", "Christian Bale"],
             rating: "G",
             audienceRating: 0,
@@ -253,6 +297,8 @@ function App(): JSX.Element {
         {
             id: 23,
             title: "Shutter Island",
+            description:
+                "A psychological thriller film set in 1954, this movie follows two US Marshals who investigate the disappearance of a patient from a mental hospital on a remote island. As they uncover more secrets about the facility, they begin to question their own sanity.",
             cast: ["Leonardo DiCaprio", "Mark Ruffalo", "Ben Kingsley"],
             rating: "R",
             audienceRating: 0,
@@ -262,6 +308,8 @@ function App(): JSX.Element {
         {
             id: 24,
             title: "Snow White",
+            description:
+                "The first animated feature film by Walt Disney, this classic movie tells the story of a young princess who is forced to flee into the forest to escape her evil stepmother's jealousy. With the help of seven dwarfs, she learns to live on her own and finds true love with a prince.",
             cast: ["Adriana Caselotti", "Harry Stockwell", "Lucille La Verne"],
             rating: "G",
             audienceRating: 0,
@@ -271,6 +319,8 @@ function App(): JSX.Element {
         {
             id: 25,
             title: "Tangled",
+            description:
+                "A musical animated film loosely based on the fairy tale Rapunzel, this movie tells the story of a young woman with magical hair who has been locked away in a tower by an evil witch. She eventually escapes with the help of a thief named Flynn Rider and embarks on a journey to discover the truth about her past.",
             cast: ["Mandy Moore", "Zachary Levi", "Donna Murphy"],
             rating: "PG",
             audienceRating: 0,
@@ -280,6 +330,8 @@ function App(): JSX.Element {
         {
             id: 26,
             title: "The Lion King",
+            description:
+                "An animated musical film set in the African savannah, this movie follows the journey of a young lion named Simba who must come to terms with his responsibilities as king after his father is killed by his uncle Scar.",
             cast: ["Donald Glover", "Seth Rogen", "Chiwetel Ejiofor"],
             rating: "PG",
             audienceRating: 0,
@@ -289,6 +341,8 @@ function App(): JSX.Element {
         {
             id: 27,
             title: "The Little Mermaid",
+            description:
+                "An animated musical film based on the fairy tale by Hans Christian Andersen, this movie follows the story of a young mermaid named Ariel who falls in love with a human prince and makes a deal with a sea witch to become human so she can be with him.",
             cast: ["Halle Bailey", "Jodi Benson", "Samuel E. Wright"],
             rating: "G",
             audienceRating: 0,
@@ -298,6 +352,8 @@ function App(): JSX.Element {
         {
             id: 28,
             title: "Cars",
+            description:
+                " An animated film about a world populated by anthropomorphic cars, this movie follows the story of a hotshot race car named Lightning McQueen who gets lost on the way to a big race and learns important lessons about friendship and teamwork.",
             cast: ["Owen Wilson", "Paul Newman", "Bonnie Hunt"],
             rating: "G",
             audienceRating: 0,
@@ -307,6 +363,8 @@ function App(): JSX.Element {
         {
             id: 29,
             title: "The Incredibles",
+            description:
+                "An animated superhero film about a family of superheroes who have to save the world from a villain named Syndrome, this movie explores themes of family, heroism, and personal growth.",
             cast: ["Brad Bird", "Holly Hunder", "Craig T. Nelson"],
             rating: "PG",
             audienceRating: 0,
@@ -316,6 +374,8 @@ function App(): JSX.Element {
         {
             id: 30,
             title: "Toy Story",
+            description:
+                "The first animated feature film entirely created with computer-generated imagery (CGI), this movie follows the adventures of a group of toys who come to life when their owner, a young boy named Andy, is not around. The film explores themes of friendship, loyalty, and the value of play.",
             cast: ["Tom Hanks", "Laurie Metcalf", "Donald Reginoux"],
             rating: "G",
             audienceRating: 0,

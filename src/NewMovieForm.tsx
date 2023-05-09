@@ -26,7 +26,7 @@ interface MovieFormProps {
 
 const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
     const [title, setTitle] = useState("");
-    //const [description, setDescription] = useState("");
+    const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [cast, setCast] = useState<string[]>([]);
     const [rating, setRating] = useState("");
@@ -44,13 +44,11 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
         setTitle(event.target.value);
     };
 
-    /*
     const handleDescriptionChange = (
         event: React.ChangeEvent<HTMLTextAreaElement>
     ) => {
         setDescription(event.target.value);
     };
-    */
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setImage(event.target.value);
@@ -85,6 +83,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
         const newMovie: Movie = {
             id: newId,
             title,
+            description,
             cast,
             rating,
             audienceRating,
@@ -113,6 +112,14 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
                                 id="title"
                                 value={title}
                                 onChange={handleNameChange}
+                            />
+                        </section>
+                        <section>
+                            <label htmlFor="description">Description: </label>
+                            <textarea
+                                id="description"
+                                value={description}
+                                onChange={handleDescriptionChange}
                             />
                         </section>
                         <section>

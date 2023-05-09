@@ -15,6 +15,9 @@ export interface Movie {
 export interface MovieProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
+    draggable: boolean; // Add this line
+    onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
+    onDrag?: (e: React.DragEvent<HTMLDivElement>) => void; // add this line
 }
 
 export function MovieItem({ movie, onSave }: MovieProps) {
@@ -26,9 +29,16 @@ export function MovieItem({ movie, onSave }: MovieProps) {
     function handleCancel() {
         setEditing(false);
     }
+    function handleOnDrag(e: React.DragEvent<HTMLDivElement>, movie: Movie) {
+        e.dataTransfer.setData("movie", JSON.stringify(movie));
+    }
 
     return (
-        <div>
+        <div
+            className="movie"
+            draggable
+            onDragStart={(e) => handleOnDrag(e, movie)}
+        >
             {editing ? (
                 <MovieEdit
                     movie={movie}

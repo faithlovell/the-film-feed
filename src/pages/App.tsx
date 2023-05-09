@@ -428,6 +428,10 @@ function App(): JSX.Element {
                 movies={movies}
                 onSave={handleSave}
                 role={role}
+                draggable={true}
+                onDragStart={function (e, movie: Movie): void {
+                    throw new Error("Function not implemented.");
+                }}
             ></AllMoviesList>
             <MovieForm
                 addMovie={addMovie}

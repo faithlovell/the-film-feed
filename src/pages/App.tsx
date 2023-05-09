@@ -452,7 +452,7 @@ function App(): JSX.Element {
             <hr></hr>
             <p>
                 Created by: Katie Oates, Diya Shah, John Henry Cooper, Faith
-                Lovell, Joy Mwaria
+                Lovell, Joy Mwaria.
             </p>
         </div>
     );

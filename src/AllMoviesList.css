@@ -6,7 +6,10 @@
     margin: 0 auto;
     background: #282c34;
     color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
     justify-content: space-between;
+
 }
 
 .title {
@@ -20,6 +23,7 @@
     /*outline-width: 5px;*/
     /*outline-style: inset;*/
     text-decoration-line: blink;
+    padding: 10px;
 }
 
 .movie-images {
@@ -29,7 +33,6 @@
     align-content: center; /* center the images vertically */
     gap: 20px;
     width: 100%; /* make the images take up the full width */
-
 }
 
 .movie-images img {
@@ -51,8 +54,6 @@
     margin-top: 16px;
     font-width: bold;
 }
-
-
 
 .movie-image:hover::after {
     content: "";
@@ -123,18 +124,17 @@
     flex-direction: row;
     justify-content: center;
     display: flex;
-
 }
 
 .movie-editor button:hover {
     background-color: #cd5b5d;
     transform: perspective(100px);
-
 }
 
 .movie-editor button + button {
     margin-left: 10px;
 }
+
 .filter-dropdown {
     margin-bottom: 10px;
     font-weight: bold;
@@ -162,3 +162,4 @@
 .filter-dropdown {
     border-radius: 10px;
 }
+

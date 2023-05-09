@@ -451,18 +451,8 @@ function App(): JSX.Element {
             ></MovieForm>
             <hr></hr>
             <p>
-                Movies List:
-                <div>
-                    <h1>Movie List</h1>
-                </div>
-            </p>
-            <p>
-                Katie Oates, Diya Shah, John Henry Cooper, Faith Lovell, Joy
-                Mwaria
-            </p>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
+                Created by: Katie Oates, Diya Shah, John Henry Cooper, Faith
+                Lovell, Joy Mwaria
             </p>
         </div>
     );

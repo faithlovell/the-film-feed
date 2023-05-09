@@ -80,10 +80,10 @@ export function DragLists({ role }: DragListsProps) {
     }
 
     return (
-        <div className="container">
+        <div className="content-lists">
             {role === "Movie Master" && (
                 <>
-                    <div className="list0-label">Super List</div>
+                    <div className="list0-label">Movie Master List</div>
                     <div
                         className="list0"
                         onDrop={handleOnDropSuper}
@@ -114,7 +114,7 @@ export function DragLists({ role }: DragListsProps) {
 
             {role === "Movie Mentor" && (
                 <>
-                    <div className="list1-label">Admin List</div>
+                    <div className="list1-label">Movie Mentor List</div>
                     <div
                         className="list1"
                         onDrop={handleOnDropAdmin}
@@ -145,7 +145,7 @@ export function DragLists({ role }: DragListsProps) {
 
             {role === "Movie Member" && (
                 <>
-                    <div className="list1-label">User List</div>
+                    <div className="list1-label">Movie Member List</div>
                     <div
                         className="list2"
                         onDrop={handleOnDropUser}

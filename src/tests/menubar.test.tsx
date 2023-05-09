@@ -31,7 +31,7 @@ describe("RoleSelect", () => {
         );
 
         // Simulate selecting an option
-        const selectElement = getByLabelText("Role Selection");
+        const selectElement = getByLabelText("Users");
         fireEvent.change(selectElement, { target: { value: "Option 2" } });
 
         // Check if setRole function is called with the selected value

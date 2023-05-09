@@ -368,7 +368,11 @@ function App(): JSX.Element {
                 onSave={handleSave}
                 role={role}
             ></AllMoviesList>
-            <MovieForm addMovie={addMovie} movies={movies}></MovieForm>
+            <MovieForm
+                addMovie={addMovie}
+                movies={movies}
+                role={role}
+            ></MovieForm>
             <hr></hr>
             <p>
                 Movies List:

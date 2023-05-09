@@ -21,9 +21,10 @@ import { Movie } from "./MovieMaster";
 interface MovieFormProps {
     addMovie: (newMovie: Movie) => void;
     movies: Movie[];
+    role: string;
 }
 
-const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies }) => {
+const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
@@ -95,68 +96,74 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies }) => {
     }
 
     return (
-        <section>
-            <form onSubmit={handleSubmit}>
+        <>
+            {role === "Movie Master" ? (
                 <section>
-                    <h1>Add a Movie</h1>
-                    <label htmlFor="title">Movie Name: </label>
-                    <input
-                        type="text"
-                        id="title"
-                        value={title}
-                        onChange={handleNameChange}
-                    />
+                    <form onSubmit={handleSubmit}>
+                        <section>
+                            <h1>Add a Movie</h1>
+                            <label htmlFor="title">Movie Name: </label>
+                            <input
+                                type="text"
+                                id="title"
+                                value={title}
+                                onChange={handleNameChange}
+                            />
+                        </section>
+                        <section>
+                            <label htmlFor="image">Image Link: </label>
+                            <input
+                                type="text"
+                                id="image"
+                                value={image}
+                                onChange={handleImageChange}
+                            />
+                        </section>
+                        <section>
+                            <label htmlFor="actors">Actor List: </label>
+                            <input
+                                type="text"
+                                id="cast"
+                                value={newCast}
+                                onChange={handleNewCastChange}
+                            />
+                        </section>
+                        <section>
+                            <label htmlFor="audience-rating">
+                                Audience Rating:{" "}
+                            </label>
+                            <input
+                                type="number"
+                                id="audience-rating"
+                                value={audienceRating}
+                                min="0"
+                                max="10"
+                                onChange={handleAudienceRatingChange}
+                            />
+                        </section>
+                        <section>
+                            <label htmlFor="rating">Rating: </label>
+                            <input
+                                id="rating"
+                                type="text"
+                                value={rating}
+                                onChange={handleRatingChange}
+                            />
+                        </section>
+                        <section>
+                            <label htmlFor="theaters">In Theaters? </label>
+                            <input
+                                id="inTheaters"
+                                type="checkbox"
+                                checked={inTheaters}
+                                onChange={handleInTheatersChange}
+                            />
+                        </section>
+                        <button type="submit">Add Movie</button>
+                    </form>
                 </section>
-                <section>
-                    <label htmlFor="image">Image Link: </label>
-                    <input
-                        type="text"
-                        id="image"
-                        value={image}
-                        onChange={handleImageChange}
-                    />
-                </section>
-                <section>
-                    <label htmlFor="actors">Actor List: </label>
-                    <input
-                        type="text"
-                        id="cast"
-                        value={newCast}
-                        onChange={handleNewCastChange}
-                    />
-                </section>
-                <section>
-                    <label htmlFor="audience-rating">Audience Rating: </label>
-                    <input
-                        type="number"
-                        id="audience-rating"
-                        value={audienceRating}
-                        min="0"
-                        max="10"
-                        onChange={handleAudienceRatingChange}
-                    />
-                </section>
-                <section>
-                    <label htmlFor="rating">Rating: </label>
-                    <input
-                        id="rating"
-                        type="text"
-                        value={rating}
-                        onChange={handleRatingChange}
-                    />
-                </section>
-                <section>
-                    <label htmlFor="theaters">In Theaters? </label>
-                    <input
-                        id="inTheaters"
-                        type="checkbox"
-                        checked={inTheaters}
-                        onChange={handleInTheatersChange}
-                    />
-                </section>
-                <button type="submit">Add Movie</button>
-            </form>
-        </section>
+            ) : null}
+        </>
     );
 };
 

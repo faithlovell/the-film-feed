@@ -66,11 +66,13 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
         setRating(event.target.value);
     };
 
+    /*
     const handleCastChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const inputText = event.target.value;
         const newActors = inputText.split(",").map((actor) => actor.trim());
         setCast(newActors);
     };
+    */
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();

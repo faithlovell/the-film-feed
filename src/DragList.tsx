@@ -190,17 +190,23 @@ export function DragLists({
                                                     movie={movie}
                                                     key={movie.id}
                                                     onSave={handleUserOnSave}
-                                                    onDelete={onDelete}
-                                                    role={role}
+                                                    draggable={false}
                                                     onDragStart={function (
-                                                        e,
+                                                        e: React.DragEvent<HTMLDivElement>,
                                                         movie: Movie
                                                     ): void {
                                                         throw new Error(
                                                             "Function not implemented."
                                                         );
                                                     }}
-                                                    draggable={false}
+                                                    onDelete={function (
+                                                        movieToDelete: Movie
+                                                    ): void {
+                                                        throw new Error(
+                                                            "Function not implemented."
+                                                        );
+                                                    }}
+                                                    role={""}
                                                 />
                                             </div>
                                         ))}

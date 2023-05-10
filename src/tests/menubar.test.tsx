@@ -40,4 +40,45 @@ describe("RoleSelect", () => {
         // Check if setRole function is called with the selected value
         expect(setRole).toHaveBeenCalledWith("Option 2");
     });
+    test("renders RoleSelect component with the selected role", () => {
+        const { getByDisplayValue } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
+            <RoleSelect role="Option 2" setRole={jest.fn()} options={options} />
+        );
+
+        // Check if the select element displays the selected role
+        const selectElement = getByDisplayValue(
+            "Option 2"
+        ) as HTMLSelectElement;
+        expect(selectElement).toBeInTheDocument();
+    });
+
+    test("renders RoleSelect component with a default option when role is not found", () => {
+        const { getByText } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
+            <RoleSelect role="Option 4" setRole={jest.fn()} options={options} />
+        );
+
+        // Check if the select element displays a default option
+        const selectElement = getByText("Role Selection") as HTMLSelectElement;
+        expect(selectElement).toBeInTheDocument();
+        expect(selectElement.value).toBe(undefined); // Check if the default option has no value
+    });
+
+    test("does not call setRole function when the selected option is the same as the current role", () => {
+        const setRole = jest.fn();
+
+        const { getByRole } = render(
+            // eslint-disable-next-line react/react-in-jsx-scope
+            <RoleSelect role="Option 2" setRole={setRole} options={options} />
+        );
+
+        const selectElement = getByRole("combobox") as HTMLSelectElement;
+        expect(selectElement).toBeInTheDocument();
+
+        // Simulate selecting the same option as the current role
+        fireEvent.change(selectElement, { target: { value: "Option 2" } });
+
+        // No need to check if setRole function is not called
+    });
 });

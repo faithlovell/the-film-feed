@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Movie, MovieItem } from "./MovieMaster";
 
-interface DragListsProps {
+export interface DragListsProps {
     role: string;
 }
 

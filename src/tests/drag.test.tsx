@@ -1,6 +1,9 @@
+/* eslint-disable react/react-in-jsx-scope */
 // import React from "react";
 import { render, fireEvent } from "@testing-library/react";
+import { DragListsProps } from "../DragList";
 import { DragLists } from "../DragList";
+// import { handleOnDropSuper } from "../DragList";
 
 describe("DragLists", () => {
     const mockMovies = [
@@ -16,6 +19,17 @@ describe("DragLists", () => {
         }
         // Add more movies as needed
     ];
+    const handleOnDropSuperMock = jest.fn();
+    const handleOnDropAdminMock = jest.fn();
+    const handleOnDropUserMock = jest.fn();
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const props: DragListsProps = {
+        role: "Movie Member",
+        handleOnDropSuper: handleOnDropSuperMock,
+        handleOnDropAdmin: handleOnDropAdminMock,
+        handleOnDropUser: handleOnDropUserMock
+    };
 
     test("renders DragLists component with Super List", () => {
         // eslint-disable-next-line react/react-in-jsx-scope
@@ -26,7 +40,6 @@ describe("DragLists", () => {
     });
 
     test("renders DragLists component with Admin List", () => {
-        // eslint-disable-next-line react/react-in-jsx-scope
         const { getByText } = render(<DragLists role="Movie Mentor" />);
 
         const adminListLabel = getByText("Admin List");
@@ -34,7 +47,6 @@ describe("DragLists", () => {
     });
 
     test("renders DragLists component with User List", () => {
-        // eslint-disable-next-line react/react-in-jsx-scope
         const { getByText } = render(<DragLists role="Movie Member" />);
 
         const userListLabel = getByText("User List");
@@ -43,8 +55,12 @@ describe("DragLists", () => {
 
     test("calls handleOnDropSuper when a movie is dropped on Super List", () => {
         const handleOnDropSuperMock = jest.fn();
-        // eslint-disable-next-line react/react-in-jsx-scope
-        const { getByTestId } = render(<DragLists role="Movie Master" />);
+        const { getByTestId } = render(
+            <DragLists
+                role="Movie Master"
+                handleOnDropSuper={handleOnDropSuperMock}
+            />
+        );
 
         const superList = getByTestId("super-list");
         fireEvent.drop(superList);
@@ -54,8 +70,12 @@ describe("DragLists", () => {
 
     test("calls handleOnDropAdmin when a movie is dropped on Admin List", () => {
         const handleOnDropAdminMock = jest.fn();
-        // eslint-disable-next-line react/react-in-jsx-scope
-        const { getByTestId } = render(<DragLists role="Movie Mentor" />);
+        const { getByTestId } = render(
+            <DragLists
+                role="Movie Mentor"
+                handleOnDropAdmin={handleOnDropAdminMock}
+            />
+        );
 
         const adminList = getByTestId("admin-list");
         fireEvent.drop(adminList);
@@ -65,8 +85,12 @@ describe("DragLists", () => {
 
     test("calls handleOnDropUser when a movie is dropped on User List", () => {
         const handleOnDropUserMock = jest.fn();
-        // eslint-disable-next-line react/react-in-jsx-scope
-        const { getByTestId } = render(<DragLists role="Movie Member" />);
+        const { getByTestId } = render(
+            <DragLists
+                role="Movie Member"
+                handleOnDropUser={handleOnDropUserMock}
+            />
+        );
 
         const userList = getByTestId("user-list");
         fireEvent.drop(userList);

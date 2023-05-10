@@ -2,21 +2,6 @@ import React from "react";
 import { useState } from "react";
 import "./MovieForm.css";
 import { Movie } from "./MovieMaster";
-/*interface Review {
-    name: string;
-    content: string;
-}*/
-
-/*
-                <section>
-                    <label htmlFor="description">Description: </label>
-                    <textarea
-                        id="description"
-                        value={description}
-                        onChange={handleDescriptionChange}
-                    />
-                </section>
-                */
 
 interface MovieFormProps {
     addMovie: (newMovie: Movie) => void;
@@ -64,14 +49,13 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
         setRating(event.target.value);
     };
 
-    /*
-    const handleCastChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const inputText = event.target.value;
-        const newActors = inputText.split(",").map((actor) => actor.trim());
-        setCast(newActors);
-    };
-    */
+    function handleInTheatersChange(
+        event: React.ChangeEvent<HTMLInputElement>
+    ) {
+        setInTheaters(event.target.checked);
+    }
 
+    //updates movie by saving movie's original ID to replace former copy of the movie with new edits
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newId = movies.length + 1;
@@ -92,12 +76,6 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
         };
         addMovie(newMovie);
     };
-
-    function handleInTheatersChange(
-        event: React.ChangeEvent<HTMLInputElement>
-    ) {
-        setInTheaters(event.target.checked);
-    }
 
     return (
         <>

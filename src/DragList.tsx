@@ -26,7 +26,7 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
     function updateOptions(newUser: string) {
         if (!options.includes(newUser) && newUser !== "") {
             setOptions([...options, newUser]);
-            setMembers([...options.slice(2, options.length - 1)]);
+            setMembers([...members, newUser]);
         }
     }
 

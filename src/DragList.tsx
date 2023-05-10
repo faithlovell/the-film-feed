@@ -35,9 +35,12 @@ export function DragLists({
         ...options.slice(2, options.length)
     ]);
 
+    //adds ability for new users to have their own lists
     function updateNewUser(event: React.ChangeEvent<HTMLInputElement>) {
         setNewUser(event.target.value);
     }
+
+    //updates user options when new user is added
     function updateOptions(newUser: string) {
         if (!options.includes(newUser) && newUser !== "") {
             setOptions([...options, newUser]);
@@ -45,14 +48,17 @@ export function DragLists({
         }
     }
 
+    //unused in file but still necessary (somehow) for drag to work correctly
     function handleOnDrag(e: React.DragEvent, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie)); //added this not sure if its right yet
     } //try adding this to allmovieslist.tsx
 
+    //prevents duplicates from being added to admin list: each movie has their own unique ID to keep track of
     function checkDuplicates(movie1: Movie, movie2: Movie) {
         return movie1.id == movie2.id;
     }
 
+    //when admin adds movie to list, adds if there is not already a duplicate
     function handleOnDropAdmin(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
         if (
@@ -64,11 +70,13 @@ export function DragLists({
         }
     }
 
+    //adds movie to user list when user drags a movie in
     function handleOnDropUser(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
         setUserMovies([...userMovies, movie]);
     }
 
+    //aids in drag ability functioning correctly
     function handleDragOver(e: React.DragEvent) {
         e.preventDefault();
     }

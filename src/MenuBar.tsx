@@ -13,6 +13,7 @@ export function RoleSelect({
     setRole,
     options
 }: RoleSelectProps): JSX.Element {
+    //used when user selects a role in order to display the correct view
     function newAnswer(event: React.ChangeEvent<HTMLSelectElement>) {
         setRole(event.target.value);
     }

@@ -22,16 +22,21 @@ export interface MovieProps {
     role: string;
 }
 
+//controls movie display and user interactions with movies (ie editing)
 export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
     const [editing, setEditing] = useState(false);
 
+    //allows user to edit movie if clicked
     function handleImageClick() {
         setEditing(true);
     }
 
+    //takes user out of movie edit mode
     function handleCancel() {
         setEditing(false);
     }
+
+    //allows users to drag movies to lists
     function handleOnDrag(e: React.DragEvent<HTMLDivElement>, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie));
     }
@@ -91,10 +96,6 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
     );
 }
 
-// interface MovieListProps {
-//     movies: Movie[];
-// }
-
 interface MovieEditProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
@@ -115,16 +116,11 @@ export function MovieEdit({
     const [image, setImage] = useState(movie.image);
     const [description, setDescription] = useState(movie.description);
     const [audienceRating, setAudienceRating] = useState(movie.audienceRating);
-    // const [editing, setEditing] = useState(false);
 
-    // function handleEditClick() {
-    //     setEditing(true);
-    // }
-
-    // function handleCancel() {
-    //     setEditing(false);
-    // }
-
+    /*
+    all functions below allow for user to edit fields of the movie. each respective field has its own change function
+    when user enters new info, it is updated on save.
+    */
     function handleTitleChange(event: React.ChangeEvent<HTMLInputElement>) {
         setTitle(event.target.value);
     }

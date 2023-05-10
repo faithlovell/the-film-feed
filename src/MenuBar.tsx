@@ -17,9 +17,9 @@ export function RoleSelect({
         setRole(event.target.value);
     }
     return (
-        <div>
-            <h3 style={{ color: "#FFF5EE" }}>Role Selection</h3>
-            <Form.Group controlId="favoriteColors">
+        <div className="drop-down">
+            <h3>Role Selection</h3>
+            <Form.Group controlId="Users">
                 <Form.Select id="dropDown" value={role} onChange={newAnswer}>
                     {options.map((ans) => (
                         <option key={ans} value={ans}>

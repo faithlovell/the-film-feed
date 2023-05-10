@@ -14,6 +14,10 @@ interface SliderState {
 class Slider extends Component<SliderProps, SliderState> {
     private sliderRef: HTMLDivElement | null = null;
 
+    /*
+    the functions below allow the movie scroller for users to browse movies in a scroll wheel
+    handles users scrolling, and movies being displayed in the scroll.
+    */
     constructor(props: SliderProps) {
         super(props);
         this.state = {

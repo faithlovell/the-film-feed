@@ -51,11 +51,13 @@
     font-width: bold;
 }
 
+
 .movie-image:hover {
     transform: scale(1.1);
     border: 3px solid #cd5b5d;
     transition: transform 0.5s ease-out, border-color 0.5s ease-out
 }
+
 .movie-image:hover::after {
     content: "";
     position: absolute;
@@ -166,4 +168,3 @@
 .filter-dropdown {
     border-radius: 10px;
 }
-

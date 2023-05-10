@@ -13,18 +13,38 @@
     flex-direction: row;
     justify-content: center;
 }
+
+.namePlaque {
+    background-color: #c29b0c;
+    color: whitesmoke;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 18px;
+    width: 150px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    display: block;
+}
+
+.plaques {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
 .dropped-movie {
-    background-color: rgb(18, 16, 16);
+    background-color: #f2f2f2;
     margin: 10px;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    width: 120px;
+    width: 120px; /* set the width to fit in the list */
 }
 
-.list0,
-.list1,
-.list2 {
+.lists {
+
     flex-basis: 50%;
     border: 6px solid rgb(18, 16, 16);
     margin: 10px;
@@ -35,7 +55,6 @@
     min-height: 400px;
     min-width: 800px;
     background-color: #151212;
-
 }
 
 .page.dragging {
@@ -109,6 +128,23 @@
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 1;
+}
+
+button {
+    border-color: #282c34;
+    border-width: 3px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 16px;
+    width: 65px;
+    height: 30px;
+    justify-content: center;
+    align-content: center;
+    margin: 5px;
+}
+
+.toggle-user {
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 h3 {

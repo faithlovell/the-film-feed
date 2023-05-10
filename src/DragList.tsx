@@ -2,15 +2,33 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
 import { Movie, MovieItem } from "./MovieMaster";
+import { ManageUser } from "./ManageUser";
+import { Form } from "react-bootstrap";
 
 export interface DragListsProps {
     role: string;
+    options: string[];
+    setOptions: (newOptions: string[]) => void;
 }
 
-export function DragLists({ role }: DragListsProps) {
+export function DragLists({ role, options, setOptions }: DragListsProps) {
     const [superMovies, setSuperMovies] = useState<Movie[]>([]);
     const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
     const [userMovies, setUserMovies] = useState<Movie[]>([]);
+    const [newUser, setNewUser] = useState<string>("");
+    const [members, setMembers] = useState<string[]>([
+        ...options.slice(2, options.length)
+    ]);
+
+    function updateNewUser(event: React.ChangeEvent<HTMLInputElement>) {
+        setNewUser(event.target.value);
+    }
+    function updateOptions(newUser: string) {
+        if (!options.includes(newUser) && newUser !== "") {
+            setOptions([...options, newUser]);
+            setMembers([...options.slice(2, options.length - 1)]);
+        }
+    }
 
     function handleOnDrag(e: React.DragEvent, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie)); //added this not sure if its right yet
@@ -83,41 +101,49 @@ export function DragLists({ role }: DragListsProps) {
         <div className="content-lists">
             {role === "Movie Master" && (
                 <>
-                    <div className="list0-label">Movie Master List</div>
-                    <div
-                        className="list0"
-                        onDrop={handleOnDropSuper}
-                        onDragOver={handleDragOver}
-                    >
-                        {superMovies.map((movie, index) => (
-                            <div key={index} className="dropped-movie">
-                                <MovieItem
-                                    key={movie.id}
-                                    movie={movie}
-                                    onSave={handleSuperOnSave}
-                                    onDelete={handleDelete}
-                                    draggable={true}
-                                    role={role}
-                                    onDragStart={function (
-                                        e,
-                                        movie: Movie
-                                    ): void {
-                                        throw new Error(
-                                            "Function not implemented."
-                                        );
-                                    }}
-                                />
-                            </div>
-                        ))}
+                    <div>
+                        <h4>Add Users</h4>
+                        <p>
+                            type new username then press enter <br></br> click
+                            user tags for delete option
+                        </p>
+                        <Form.Group controlId="formUser">
+                            <Form.Label>
+                                <h6>New User:</h6>
+                            </Form.Label>
+                            <Form.Control
+                                value={newUser}
+                                onChange={updateNewUser}
+                                onKeyPress={(event) => {
+                                    if (event.key === "Enter") {
+                                        updateOptions(newUser);
+                                    }
+                                }}
+                            />
+                        </Form.Group>
+                        <span className="plaques">
+                            {options.map((user, index) => (
+                                <span key={index}>
+                                    {" "}
+                                    <ManageUser
+                                        user={user}
+                                        options={options}
+                                        setOptions={setOptions}
+                                        members={members}
+                                        setMembers={setMembers}
+                                    />
+                                </span>
+                            ))}
+                          </span>
                     </div>
                 </>
             )}
 
             {role === "Movie Mentor" && (
                 <>
-                    <div className="list1-label">Movie Mentor List</div>
+                    <div className="list1-label">{`${role}`} List</div>
                     <div
-                        className="list1"
+                        className="lists"
                         onDrop={handleOnDropAdmin}
                         onDragOver={handleDragOver}
                     >
@@ -145,35 +171,40 @@ export function DragLists({ role }: DragListsProps) {
                 </>
             )}
 
-            {role === "Movie Member" && (
+            {console.log(members)}
+            {role !== "Movie Master" && role !== "Movie Mentor" && (
                 <>
-                    <div className="list1-label">Movie Member List</div>
-                    <div
-                        className="list2"
-                        onDrop={handleOnDropUser}
-                        onDragOver={handleDragOver}
-                    >
-                        {userMovies.map((movie, index) => (
-                            <div key={index} className="dropped-movie">
-                                <MovieItem
-                                    movie={movie}
-                                    key={movie.id}
-                                    onSave={handleUserOnSave}
-                                    onDelete={handleDelete}
-                                    role={role}
-                                    onDragStart={function (
-                                        e,
-                                        movie: Movie
-                                    ): void {
-                                        throw new Error(
-                                            "Function not implemented."
-                                        );
-                                    }}
-                                    draggable={false}
-                                />
-                            </div>
-                        ))}
-                    </div>
+
+                    {members.map((member) => (
+                        <>
+                            {member === role && (
+                                <>
+                                    <div className="list1-label">
+                                        {`${member}`} List
+                                    </div>
+                                    <div
+                                        className="lists"
+                                        onDrop={handleOnDropUser}
+                                        onDragOver={handleDragOver}
+                                    >
+                                        {userMovies.map((movie, index) => (
+                                            <div
+                                                key={index}
+                                                className="dropped-movie"
+                                            >
+                                                <MovieItem
+                                                    movie={movie}
+                                                    key={movie.id}
+                                                    onSave={handleUserOnSave}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </>
+                    ))}
+
                 </>
             )}
         </div>

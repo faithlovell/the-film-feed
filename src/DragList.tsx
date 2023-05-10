@@ -15,6 +15,9 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
     const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
     const [userMovies, setUserMovies] = useState<Movie[]>([]);
     const [newUser, setNewUser] = useState<string>("");
+    const [members, setMembers] = useState<string[]>([
+        ...options.slice(2, options.length)
+    ]);
 
     function updateNewUser(event: React.ChangeEvent<HTMLInputElement>) {
         setNewUser(event.target.value);
@@ -22,6 +25,7 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
     function updateOptions(newUser: string) {
         if (!options.includes(newUser) && newUser !== "") {
             setOptions([...options, newUser]);
+            setMembers([...options.slice(2, options.length - 1)]);
         }
     }
 
@@ -83,22 +87,6 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
         <div className="container">
             {role === "Movie Master" && (
                 <>
-                    <div className="list0-label">Super List</div>
-                    <div
-                        className="list0"
-                        onDrop={handleOnDropSuper}
-                        onDragOver={handleDragOver}
-                    >
-                        {superMovies.map((movie, index) => (
-                            <div key={index} className="dropped-movie">
-                                <MovieItem
-                                    key={movie.id}
-                                    movie={movie}
-                                    onSave={handleSuperOnSave}
-                                />
-                            </div>
-                        ))}
-                    </div>
                     <div>
                         <h4>Add Users</h4>
                         <p>
@@ -116,7 +104,6 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
                                     if (event.key === "Enter") {
                                         updateOptions(newUser);
                                     }
-                                    console.log(options);
                                 }}
                             />
                         </Form.Group>
@@ -128,6 +115,8 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
                                         user={user}
                                         options={options}
                                         setOptions={setOptions}
+                                        members={members}
+                                        setMembers={setMembers}
                                     />
                                 </span>
                             ))}
@@ -138,9 +127,9 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
 
             {role === "Movie Mentor" && (
                 <>
-                    <div className="list1-label">Admin List</div>
+                    <div className="list1-label">{`${role}`} List</div>
                     <div
-                        className="list1"
+                        className="lists"
                         onDrop={handleOnDropAdmin}
                         onDragOver={handleDragOver}
                     >
@@ -157,24 +146,38 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
                 </>
             )}
 
-            {role === "Movie Member" && (
+            {console.log(members)}
+            {role !== "Movie Master" && role !== "Movie Mentor" && (
                 <>
-                    <div className="list1-label">User List</div>
-                    <div
-                        className="list2"
-                        onDrop={handleOnDropUser}
-                        onDragOver={handleDragOver}
-                    >
-                        {userMovies.map((movie, index) => (
-                            <div key={index} className="dropped-movie">
-                                <MovieItem
-                                    movie={movie}
-                                    key={movie.id}
-                                    onSave={handleUserOnSave}
-                                />
-                            </div>
-                        ))}
-                    </div>
+                    {members.map((member) => (
+                        <>
+                            {member === role && (
+                                <>
+                                    <div className="list1-label">
+                                        {`${member}`} List
+                                    </div>
+                                    <div
+                                        className="lists"
+                                        onDrop={handleOnDropUser}
+                                        onDragOver={handleDragOver}
+                                    >
+                                        {userMovies.map((movie, index) => (
+                                            <div
+                                                key={index}
+                                                className="dropped-movie"
+                                            >
+                                                <MovieItem
+                                                    movie={movie}
+                                                    key={movie.id}
+                                                    onSave={handleUserOnSave}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </>
+                    ))}
                 </>
             )}
         </div>

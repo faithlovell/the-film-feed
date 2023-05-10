@@ -5,8 +5,16 @@ interface ManageUserProps {
     user: string;
     options: string[];
     setOptions: (newOptions: string[]) => void;
+    members: string[];
+    setMembers: (newMembers: string[]) => void;
 }
-export function ManageUser({ user, options, setOptions }: ManageUserProps) {
+export function ManageUser({
+    user,
+    options,
+    setOptions,
+    members,
+    setMembers
+}: ManageUserProps) {
     const [editUsers, setEditUsers] = useState(false);
 
     function handleUserClick() {
@@ -19,6 +27,9 @@ export function ManageUser({ user, options, setOptions }: ManageUserProps) {
     function removeOption(exUser: string) {
         setOptions(
             options.filter((currUser: string): boolean => currUser !== exUser)
+        );
+        setMembers(
+            members.filter((currUser: string): boolean => currUser !== exUser)
         );
         handleUserDone();
     }

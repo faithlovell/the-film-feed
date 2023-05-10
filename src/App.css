@@ -41,29 +41,7 @@
     width: 120px; /* set the width to fit in the list */
 }
 
-.list0 {
-    flex-basis: 50%;
-    width: 300px;
-    height: 300px;
-    border: 2px dashed gray;
-    margin: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-}
-
-.list1 {
-    flex-basis: 50%;
-    width: 300px;
-    height: 300px;
-    border: 2px dashed gray;
-    margin: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-}
-
-.list2 {
+.lists {
     flex-basis: 50%;
     width: 300px;
     height: 300px;

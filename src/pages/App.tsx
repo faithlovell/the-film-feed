@@ -50,7 +50,8 @@ function App(): JSX.Element {
         "Movie Mentor",
         "Movie Member"
     ]);
-
+    const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
+    const [userMovies, setUserMovies] = useState<Movie[]>([]);
     const [movies, setMovies] = useState<Movie[]>([
         {
             id: 1,
@@ -402,13 +403,37 @@ function App(): JSX.Element {
     };
 
     function deleteMovie(movieToDelete: Movie) {
-        // Create a new array that excludes the movie to be deleted
         const updatedMovies = movies.filter(
             (movie) => movie.id !== movieToDelete.id
         );
-
-        // Update the movies state with the new array
         setMovies(updatedMovies);
+
+        const updatedAdminMovies = adminMovies.filter(
+            (movie) => movie.id !== movieToDelete.id
+        );
+        setAdminMovies(updatedAdminMovies);
+
+        const updatedUserMovies = userMovies.filter(
+            (movie) => movie.id !== movieToDelete.id
+        );
+
+        setUserMovies(updatedUserMovies);
+    }
+
+    function handleUserOnSave(movie: Movie) {
+        setUserMovies((prevMovies) =>
+            prevMovies.map((prevMovie) =>
+                prevMovie.id === movie.id ? { ...movie } : prevMovie
+            )
+        );
+    }
+
+    function handleAdminOnSave(movie: Movie) {
+        setAdminMovies((prevMovies) =>
+            prevMovies.map((prevMovie) =>
+                prevMovie.id === movie.id ? { ...movie } : prevMovie
+            )
+        );
     }
 
     return (
@@ -434,6 +459,13 @@ function App(): JSX.Element {
                 role={role}
                 options={options}
                 setOptions={setOptions}
+                onDelete={deleteMovie}
+                userMovies={userMovies}
+                adminMovies={adminMovies}
+                setUserMovies={setUserMovies}
+                setAdminMovies={setAdminMovies}
+                handleAdminOnSave={handleAdminOnSave}
+                handleUserOnSave={handleUserOnSave}
             ></DragLists>
 
             <hr></hr>

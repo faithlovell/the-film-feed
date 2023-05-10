@@ -134,7 +134,7 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
                                     />
                                 </span>
                             ))}
-                          </span>
+                        </span>
                     </div>
                 </>
             )}
@@ -174,7 +174,6 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
             {console.log(members)}
             {role !== "Movie Master" && role !== "Movie Mentor" && (
                 <>
-
                     {members.map((member) => (
                         <>
                             {member === role && (
@@ -196,6 +195,23 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
                                                     movie={movie}
                                                     key={movie.id}
                                                     onSave={handleUserOnSave}
+                                                    draggable={false}
+                                                    onDragStart={function (
+                                                        e: React.DragEvent<HTMLDivElement>,
+                                                        movie: Movie
+                                                    ): void {
+                                                        throw new Error(
+                                                            "Function not implemented."
+                                                        );
+                                                    }}
+                                                    onDelete={function (
+                                                        movieToDelete: Movie
+                                                    ): void {
+                                                        throw new Error(
+                                                            "Function not implemented."
+                                                        );
+                                                    }}
+                                                    role={""}
                                                 />
                                             </div>
                                         ))}
@@ -204,7 +220,6 @@ export function DragLists({ role, options, setOptions }: DragListsProps) {
                             )}
                         </>
                     ))}
-
                 </>
             )}
         </div>

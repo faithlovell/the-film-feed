@@ -78,7 +78,7 @@ describe("AllMoviesList", () => {
     });
 
     test("updates the filter when the dropdown value changes", () => {
-        const { getByText, getByRole, queryAllByText } = render(
+        const { getByRole, queryAllByText } = render(
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}
@@ -101,7 +101,7 @@ describe("AllMoviesList", () => {
         });
     });
     test("updates the filter when the dropdown value changes", () => {
-        const { getByText, getByRole, queryAllByText } = render(
+        const { getByRole, queryAllByText } = render(
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from "react";
 
 interface ManageUserProps {
@@ -36,22 +37,24 @@ export function ManageUser({
     return (
         <>
             <div>
-                {editUsers ? (
-                    <UserEdit
-                        user={user}
-                        userDone={handleUserDone}
-                        removeOption={removeOption}
-                    />
-                ) : (
-                    <span
-                        className="namePlaque"
-                        key={user}
-                        onClick={handleUserClick}
-                    >
-                        {" "}
-                        {user}{" "}
-                    </span>
-                )}
+                {editUsers &&
+                user !== "Movie Master" &&
+                user !== "Movie Mentor" ? (
+                        <UserEdit
+                            user={user}
+                            userDone={handleUserDone}
+                            removeOption={removeOption}
+                        />
+                    ) : (
+                        <span
+                            className="namePlaque"
+                            key={user}
+                            onClick={handleUserClick}
+                        >
+                            {" "}
+                            {user}{" "}
+                        </span>
+                    )}
             </div>
         </>
     );

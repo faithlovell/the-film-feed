@@ -390,6 +390,7 @@ function App(): JSX.Element {
         }
     ]);
 
+    //when any change to a movie list or movie is made, the list is saved with the edits.
     function handleSave(movie: Movie) {
         setMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>
@@ -398,10 +399,12 @@ function App(): JSX.Element {
         );
     }
 
+    //when a movie is added to the movies list by super, this function will update the movies list with the new addition
     const addMovie = (newMovie: Movie) => {
         setMovies((prevMovies) => [...prevMovies, newMovie]);
     };
 
+    //when a movie is deleted from the movies list, this function will update all movie lists to remove it
     function deleteMovie(movieToDelete: Movie) {
         const updatedMovies = movies.filter(
             (movie) => movie.id !== movieToDelete.id
@@ -420,6 +423,7 @@ function App(): JSX.Element {
         setUserMovies(updatedUserMovies);
     }
 
+    //when the user lists are updated, this function handles saving their personal lists
     function handleUserOnSave(movie: Movie) {
         setUserMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>
@@ -428,6 +432,7 @@ function App(): JSX.Element {
         );
     }
 
+    //when the admin list is updated, this function handles saving their personal list
     function handleAdminOnSave(movie: Movie) {
         setAdminMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>

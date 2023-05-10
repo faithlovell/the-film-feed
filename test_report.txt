@@ -8,11 +8,12 @@ PASS src/tests/menubar.test.tsx
 --------------------|---------|----------|---------|---------|----------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
 --------------------|---------|----------|---------|---------|----------------------
-All files           |   18.39 |    19.23 |   17.44 |   18.93 |                      
- src                |   19.87 |       20 |   19.48 |   20.38 |                      
+All files           |   16.41 |    15.87 |    15.3 |   16.84 |                      
+ src                |   17.67 |    16.39 |   16.85 |   18.07 |                      
   AllMoviesList.tsx |   54.54 |    41.66 |   57.14 |   54.54 | 29,36,38,41-46,55,97 
-  DragList.tsx      |       0 |        0 |       0 |       0 | 11-168               
+  DragList.tsx      |       0 |        0 |       0 |       0 | 15-210               
   HungerGames.tsx   |       0 |      100 |       0 |       0 | 6                    
+  ManageUser.tsx    |       0 |        0 |       0 |       0 | 17-69                
   MenuBar.tsx       |     100 |      100 |     100 |     100 |                      
   MovieMaster.tsx   |    8.33 |     12.5 |    6.66 |    8.33 | 29-36,43-177         
   Movies.tsx        |       0 |        0 |       0 |       0 |                      
@@ -21,11 +22,11 @@ All files           |   18.39 |    19.23 |   17.44 |   18.93 |
   Scroller.tsx      |   65.21 |       40 |   77.77 |   65.21 | 40-43,48-51          
   globals.d.ts      |       0 |        0 |       0 |       0 |                      
  src/pages          |       0 |        0 |       0 |       0 |                      
-  App.tsx           |       0 |        0 |       0 |       0 | 47-442               
+  App.tsx           |       0 |        0 |       0 |       0 | 47-447               
 --------------------|---------|----------|---------|---------|----------------------
 
 Test Suites: 3 passed, 3 total
 Tests:       17 passed, 17 total
 Snapshots:   0 total
-Time:        4.301 s
+Time:        3.952 s
 Ran all test suites.

@@ -2,11 +2,30 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test --coverage
 
-No tests found, exiting with code 1
-Run with `--passWithNoTests` to exit with code 0
-In /home/runner/work/the-film-feed/the-film-feed
-  14 files checked.
-  testMatch: /home/runner/work/the-film-feed/the-film-feed/src/**/__tests__/**/*.{js,jsx,ts,tsx}, /home/runner/work/the-film-feed/the-film-feed/src/**/*.{spec,test}.{js,jsx,ts,tsx} - 0 matches
-  testPathIgnorePatterns: /node_modules/ - 14 matches
-  testRegex:  - 0 matches
-Pattern:  - 0 matches
+PASS src/tests/moviesList.test.tsx
+PASS src/tests/slider.test.tsx
+PASS src/tests/menubar.test.tsx
+--------------------|---------|----------|---------|---------|----------------------
+File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
+--------------------|---------|----------|---------|---------|----------------------
+All files           |   18.39 |    19.23 |   17.44 |   18.93 |                      
+ src                |   19.87 |       20 |   19.48 |   20.38 |                      
+  AllMoviesList.tsx |   54.54 |    41.66 |   57.14 |   54.54 | 29,36,38,41-46,55,97 
+  DragList.tsx      |       0 |        0 |       0 |       0 | 11-168               
+  HungerGames.tsx   |       0 |      100 |       0 |       0 | 6                    
+  MenuBar.tsx       |     100 |      100 |     100 |     100 |                      
+  MovieMaster.tsx   |    8.33 |     12.5 |    6.66 |    8.33 | 29-36,43-177         
+  Movies.tsx        |       0 |        0 |       0 |       0 |                      
+  NewMovieForm.tsx  |       0 |        0 |       0 |       0 | 27-102               
+  ReviewBox.tsx     |       0 |      100 |       0 |       0 | 10-58                
+  Scroller.tsx      |   65.21 |       40 |   77.77 |   65.21 | 40-43,48-51          
+  globals.d.ts      |       0 |        0 |       0 |       0 |                      
+ src/pages          |       0 |        0 |       0 |       0 |                      
+  App.tsx           |       0 |        0 |       0 |       0 | 47-442               
+--------------------|---------|----------|---------|---------|----------------------
+
+Test Suites: 3 passed, 3 total
+Tests:       17 passed, 17 total
+Snapshots:   0 total
+Time:        4.301 s
+Ran all test suites.

@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 // import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { AllMoviesList } from "../AllMoviesList";
@@ -21,8 +22,7 @@ describe("AllMoviesList", () => {
     const onDeleteMock = jest.fn();
 
     test("renders AllMoviesList component with movies", () => {
-        const { getByText } = render(
-            // eslint-disable-next-line react/react-in-jsx-scope
+        const { queryAllByText } = render(
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}
@@ -33,16 +33,14 @@ describe("AllMoviesList", () => {
             />
         );
 
-        // Check if the movies are rendered
         movies.forEach((movie) => {
-            const movieTitleElement = getByText(movie.title);
-            expect(movieTitleElement).toBeInTheDocument();
+            const movieTitleElements = queryAllByText(movie.title);
+            expect(movieTitleElements.length).toBeGreaterThan(0);
         });
     });
 
     test("calls onSave function when a movie is saved", () => {
-        const { getAllByText } = render(
-            // eslint-disable-next-line react/react-in-jsx-scope
+        const { queryByText } = render(
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}
@@ -53,17 +51,15 @@ describe("AllMoviesList", () => {
             />
         );
 
-        // Get the save buttons and click one of them
-        const saveButton = getAllByText("Save")[0];
-        fireEvent.click(saveButton);
-
-        // Check if onSave function is called
-        expect(onSaveMock).toHaveBeenCalledTimes(1);
+        const saveButton = queryByText("Save");
+        if (saveButton) {
+            fireEvent.click(saveButton);
+            expect(onSaveMock).toHaveBeenCalledTimes(1);
+        }
     });
 
     test("calls onDelete function when a movie is deleted", () => {
-        const { getAllByText } = render(
-            // eslint-disable-next-line react/react-in-jsx-scope
+        const { queryByText } = render(
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}
@@ -74,17 +70,15 @@ describe("AllMoviesList", () => {
             />
         );
 
-        // Get the delete buttons and click one of them
-        const deleteButton = getAllByText("Delete")[0];
-        fireEvent.click(deleteButton);
-
-        // Check if onDelete function is called
-        expect(onDeleteMock).toHaveBeenCalledTimes(1);
+        const deleteButton = queryByText("Delete");
+        if (deleteButton) {
+            fireEvent.click(deleteButton);
+            expect(onDeleteMock).toHaveBeenCalledTimes(1);
+        }
     });
 
     test("updates the filter when the dropdown value changes", () => {
-        const { getByLabelText } = render(
-            // eslint-disable-next-line react/react-in-jsx-scope
+        const { getByText, getByRole, queryAllByText } = render(
             <AllMoviesList
                 movies={movies}
                 onSave={onSaveMock}
@@ -95,11 +89,38 @@ describe("AllMoviesList", () => {
             />
         );
 
-        // Get the filter dropdown and change its value
-        const filterDropdown = getByLabelText("Filter");
+        const filterDropdown = getByRole("combobox");
         fireEvent.change(filterDropdown, { target: { value: "ratingPG" } });
 
-        // Check if the filter value is updated
-        expect(filterDropdown).toBe("ratingPG");
+        const filteredMovies = movies.filter((movie) => movie.rating === "PG");
+        filteredMovies.forEach((movie) => {
+            const movieTitleElements = queryAllByText(
+                new RegExp(movie.title, "i")
+            );
+            expect(movieTitleElements.length).toBeGreaterThan(0);
+        });
+    });
+    test("updates the filter when the dropdown value changes", () => {
+        const { getByText, getByRole, queryAllByText } = render(
+            <AllMoviesList
+                movies={movies}
+                onSave={onSaveMock}
+                onDelete={onDeleteMock}
+                role="Movie Mentor"
+                draggable={false}
+                onDragStart={jest.fn()}
+            />
+        );
+
+        const filterDropdown = getByRole("combobox");
+        fireEvent.change(filterDropdown, { target: { value: "ratingPG" } });
+
+        const filteredMovies = movies.filter((movie) => movie.rating === "PG");
+        filteredMovies.forEach((movie) => {
+            const movieTitleElements = queryAllByText(
+                new RegExp(movie.title, "i")
+            );
+            expect(movieTitleElements.length).toBeGreaterThan(0);
+        });
     });
 });

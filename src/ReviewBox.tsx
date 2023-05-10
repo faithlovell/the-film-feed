@@ -11,6 +11,9 @@ function ReviewApp() {
     const [content, setContent] = useState("");
     const [reviews, setReviews] = useState<Review[]>([]);
 
+    /*
+    the below functions allow for a review to be inputted and displayed on the website, for viewers to see
+    */
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
     };

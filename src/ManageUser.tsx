@@ -17,13 +17,17 @@ export function ManageUser({
 }: ManageUserProps) {
     const [editUsers, setEditUsers] = useState(false);
 
+    //used to keep track of site users, when super is in edit mode
     function handleUserClick() {
         setEditUsers(true);
     }
+
+    //when super quits user edit mode
     function handleUserDone() {
         setEditUsers(false);
     }
 
+    //remove user from list
     function removeOption(exUser: string) {
         setOptions(
             options.filter((currUser: string): boolean => currUser !== exUser)
@@ -66,6 +70,7 @@ interface userEditProps {
     removeOption: (exUser: string) => void;
 }
 export function UserEdit({ user, userDone, removeOption }: userEditProps) {
+    //allows for super to delete users
     function handleDeleteClick() {
         removeOption(user);
     }

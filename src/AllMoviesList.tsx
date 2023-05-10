@@ -19,16 +19,19 @@ export function AllMoviesList({
 }: AllMoviesListProps) {
     const [filter, setFilter] = useState("");
 
+    //handles user changing filter option by passing filter value
     const handleFilterChange = (
         event: React.ChangeEvent<HTMLSelectElement>
     ) => {
         setFilter(event.target.value);
     };
 
+    //implemented to aid with movie drag ability
     function handleOnDrag(e: React.DragEvent<HTMLDivElement>, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie));
     }
 
+    //filters movies by rating or in theaters
     const filteredMovies = movies.filter((movie) => {
         if (filter === "") {
             return true;

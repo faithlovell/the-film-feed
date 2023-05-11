@@ -40,7 +40,6 @@
     padding: 0px;
     display: flex;
     flex-direction: column;
-    width: 120px; /* set the width to fit in the list */
 }
 
 .lists {

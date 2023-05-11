@@ -51,28 +51,6 @@ export function AllMoviesList({
 
     return (
         <>
-            <div
-                className="movie"
-                draggable
-                onDragStart={(e) =>
-                    handleOnDrag(e, {
-                        id: 1,
-                        title: "Harry Potter and the Philosopher's Stone",
-                        cast: [
-                            "Daniel Radcliffe",
-                            "Emma Watson",
-                            "Rupert Grint"
-                        ],
-                        rating: "PG",
-                        audienceRating: 0,
-                        inTheaters: true,
-                        image: "x",
-                        description: ""
-                    })
-                }
-            >
-                Movie 1
-            </div>
             <>
                 <div className="all-movies-list">
                     <h2 className="title">Movies</h2>

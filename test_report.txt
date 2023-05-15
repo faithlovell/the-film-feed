@@ -8,25 +8,25 @@ PASS src/tests/menubar.test.tsx
 --------------------|---------|----------|---------|---------|-------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------|---------|----------|---------|---------|-------------------
-All files           |   17.29 |    16.66 |   16.48 |   17.48 |                   
- src                |   20.38 |    18.51 |   20.27 |   20.51 |                   
+All files           |   17.36 |    16.12 |   16.12 |   17.55 |                   
+ src                |   20.37 |    17.85 |   19.73 |   20.49 |                   
   AllMoviesList.tsx |   57.14 |    41.66 |   66.66 |   57.14 | 31,39,41,44-49,78 
   DragList.tsx      |       0 |        0 |       0 |       0 | 33-213            
   HungerGames.tsx   |       0 |      100 |       0 |       0 | 6                 
   ManageUser.tsx    |       0 |        0 |       0 |       0 | 18-77             
   MenuBar.tsx       |     100 |      100 |     100 |     100 |                   
-  MovieMaster.tsx   |    8.33 |     12.5 |    6.66 |    8.33 | 31-41,48-173      
-  Movies.tsx        |       0 |        0 |       0 |       0 |                   
+  MovieMaster.tsx   |   10.71 |       10 |    5.88 |   10.71 | 30-52,59-199      
+  Movies.tsx        |       0 |      100 |     100 |       0 | 33                
   NewMovieForm.tsx  |       0 |        0 |       0 |       0 | 12-80             
   ReviewBox.tsx     |       0 |      100 |       0 |       0 | 10-61             
   Scroller.tsx      |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
   globals.d.ts      |       0 |        0 |       0 |       0 |                   
  src/pages          |       0 |        0 |       0 |       0 |                   
-  App.tsx           |       0 |        0 |       0 |       0 | 47-484            
+  App.tsx           |       0 |        0 |       0 |       0 | 17-118            
 --------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 3 passed, 3 total
 Tests:       17 passed, 17 total
 Snapshots:   0 total
-Time:        3.971 s
+Time:        3.634 s
 Ran all test suites.

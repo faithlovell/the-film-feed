@@ -214,7 +214,7 @@ export function DragLists({
                                                             "Function not implemented."
                                                         );
                                                     }}
-                                                    role={""}
+                                                    role={"User Editor"}
                                                 />
                                             </div>
                                         ))}

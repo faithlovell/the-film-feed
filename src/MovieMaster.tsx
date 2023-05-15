@@ -33,6 +33,10 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
         });
         handleCancel();
     }
+    function handleDeleteClick() {
+        onDelete(movie);
+    }
+
     function handleCastChange(event: React.ChangeEvent<HTMLInputElement>) {
         setCast(event.target.value);
     }
@@ -66,12 +70,13 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
                         onCancel={handleCancel}
                         onDelete={onDelete}
                     />
-                ) : (
-                    role === "User Editor" && (
-                        <div className="movie-editor">
-                            <p className="movie-info">
-                                <strong>Title:</strong> {movie.title}
-                            </p>
+                ) : role === "User Editor" ? (
+                    <div className="movie-editor">
+                        <p className="movie-info">
+                            <strong>Title:</strong> {movie.title}
+                        </p>
+
+                        <>
                             <label className="labels">
                                 Cast:
                                 <input
@@ -80,30 +85,52 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
                                     onChange={handleCastChange}
                                 />
                             </label>
+                            <p className="movie-info">
+                                <strong>Rating:</strong> {movie.rating}
+                            </p>
+                            <p className="movie-info">
+                                <strong>Description:</strong>{" "}
+                                {movie.description}
+                            </p>
+                            <p className="movie-info">
+                                <strong>In Theaters:</strong>{" "}
+                                {movie.inTheaters ? "Yes" : "No"}
+                            </p>
+                        </>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "row"
+                            }}
+                        >
                             <button onClick={handleCastSaveClick}>Save</button>
-                            <>
-                                <p className="movie-info">
-                                    <strong>Title:</strong> {movie.title}
-                                </p>
-                                <p className="movie-info">
-                                    <strong>Cast:</strong>{" "}
-                                    {movie.cast.join(", ")}
-                                </p>
-                                <p className="movie-info">
-                                    <strong>Rating:</strong> {movie.rating}
-                                </p>
-                                <p className="movie-info">
-                                    <strong>Description:</strong>{" "}
-                                    {movie.description}
-                                </p>
-                                <p className="movie-info">
-                                    <strong>In Theaters:</strong>{" "}
-                                    {movie.inTheaters ? "Yes" : "No"}
-                                </p>
-                            </>
                             <button onClick={handleCancel}>Cancel</button>
+                            <button onClick={handleDeleteClick}>Delete</button>
                         </div>
-                    )
+                    </div>
+                ) : (
+                    <div className="movie-editor">
+                        <p className="movie-info">
+                            <strong>Title:</strong> {movie.title}
+                        </p>
+                        <>
+                            <p className="movie-info">
+                                <strong>Cast:</strong> {movie.cast.join(", ")}
+                            </p>
+                            <p className="movie-info">
+                                <strong>Rating:</strong> {movie.rating}
+                            </p>
+                            <p className="movie-info">
+                                <strong>Description:</strong>{" "}
+                                {movie.description}
+                            </p>
+                            <p className="movie-info">
+                                <strong>In Theaters:</strong>{" "}
+                                {movie.inTheaters ? "Yes" : "No"}
+                            </p>
+                            <button onClick={handleCancel}>Cancel</button>
+                        </>
+                    </div>
                 )
             ) : (
                 <div className="centered">

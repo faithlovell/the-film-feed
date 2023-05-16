@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import "../App.css";
 import { RoleSelect } from "../MenuBar";
@@ -12,6 +13,7 @@ import { AllMoviesList } from "../AllMoviesList";
 import { Movie } from "../MovieMaster";
 import MovieForm from "../NewMovieForm";
 import { INITIAL_MOVIES } from "../Movies";
+import SearchMovies from "../MoviesSearch";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
@@ -109,6 +111,11 @@ function App(): JSX.Element {
         );
     }
 
+    const [filteredMovies, setFilteredMovies] = useState<Movie[]>(movies);
+    const handleSearchMovies = (filteredMovies: Movie[]) => {
+        setFilteredMovies(filteredMovies);
+    };
+
     return (
         <div className="App">
             <header className="App-header">
@@ -145,10 +152,13 @@ function App(): JSX.Element {
                 }}
                 countMovieOccurrences={countMovieOccurrence}
             ></DragLists>
-
+            <SearchMovies
+                movies={movies}
+                onSearch={handleSearchMovies}
+            ></SearchMovies>
             <hr></hr>
             <AllMoviesList
-                movies={movies}
+                movies={filteredMovies}
                 onSave={handleSave}
                 onDelete={deleteMovie}
                 role={role}

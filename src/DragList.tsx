@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
-import { Movie, MovieItem } from "./MovieMaster";
+import { Movie, MovieItem, MovieProps, MovieEdit } from "./MovieMaster";
 import { ManageUser } from "./ManageUser";
 import { Form } from "react-bootstrap";
 import "./App.css";
@@ -21,7 +21,9 @@ export interface DragListsProps {
     handleUserOnSave: (movie: Movie, user: string) => void;
     movieCounts: { [user: string]: number }; // Add movieCounts property
     setMovieCounts: (counts: { [user: string]: number }) => void; // Add setMovieCounts property
+    userMovieLists: { [movieId: string]: string[] }; //list of users for each movie
     countMovieOccurrences: (movieId: number) => number;
+
 }
 
 export function DragLists({
@@ -46,6 +48,9 @@ export function DragLists({
     const [movieCounts, setMovieCounts] = useState<{ [user: string]: number }>(
         {}
     );
+    const [userMovieLists, setUserMovieLists] = useState<{
+        [movieId: string]: string[];
+    }>({});
 
     // movie count
     function updateMovieCount(user: string, count: number) {
@@ -65,6 +70,11 @@ export function DragLists({
             prevMovie.id === movie.id ? { ...movie } : prevMovie
         );
         setUserMovies(updatedUserMovies);
+        //movie list
+        setUserMovieLists((prevLists) => ({
+            ...prevLists,
+            [movie.id]: [...(prevLists[movie.id] || []), user]
+        }));
     }
 
     //updates user options when new user is added
@@ -112,6 +122,11 @@ export function DragLists({
             ...userMovies,
             [user]: [...userMovies[user], movie] // Add the movie to the specific user's movie list
         });
+        // movie list
+        setUserMovieLists((prevLists) => ({
+            ...prevLists,
+            [movie.id]: [...(prevLists[movie.id] || []), user]
+        }));
         // const user = role; // Remove this line, as `user` is already defined as a parameter
         const count = movieCounts[user] || 0;
         updateMovieCount(user, count + 1);
@@ -174,6 +189,32 @@ export function DragLists({
                             ))}
                         </span>
                     </div>
+                    {adminMovies.map((movie, index) => (
+                        <div key={index} className="dropped-movie">
+                            <MovieItem
+                                movie={movie}
+                                key={movie.id}
+                                onSave={handleAdminOnSave}
+                                onDelete={onDelete}
+                                role={role}
+                                onDragStart={(e, movie: Movie) => {
+                                    throw new Error(
+                                        "Function not implemented."
+                                    );
+                                }}
+                                draggable={false}
+                                user={user}
+                                usersWithMovie={[]}
+                            />
+                            <div>
+                                {userMovieLists[movie.id]?.map(
+                                    (user, index) => (
+                                        <span key={index}>{user}</span>
+                                    )
+                                )}
+                            </div>
+                        </div>
+                    ))}
                 </>
             )}
 

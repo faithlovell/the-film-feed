@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import "./App.css"; // import CSS file
-
+interface User {
+    name: string;
+    movieList: Movie[];
+}
 export interface Movie {
     id: number;
     title: string;
@@ -64,7 +68,7 @@ export function MovieItem({
     }
 
     //allows users to drag movies to lists
-    function handleOnDrag(e: React.DragEvent<HTMLDivElement>, movie: Movie) {
+    function handleOnDrag(e: React.DragEvent, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie));
     }
 
@@ -73,6 +77,7 @@ export function MovieItem({
             className="movie"
             draggable
             onDragStart={(e) => handleOnDrag(e, movie)}
+            onDrag={onDrag}
         >
             {editing ? (
                 role === "Movie Mentor" || role === "Movie Master" ? (
@@ -157,6 +162,16 @@ export function MovieItem({
                     />
                     <h3 className="movie-header">{movie.title}</h3>
                     <p className="movie-rating">{movie.rating}</p>
+                </div>
+            )}
+            {role === "Movie Mentor" && (
+                <div>
+                    <strong>Users with this movie:</strong>
+                    <ul>
+                        {usersWithMovie.map((user) => (
+                            <li key={user}>{user}</li>
+                        ))}
+                    </ul>
                 </div>
             )}
         </div>

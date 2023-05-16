@@ -8,7 +8,7 @@ interface ManageUserProps {
     setOptions: (newOptions: string[]) => void;
     members: string[];
     setMembers: (newMembers: string[]) => void;
-    movieCount: number;
+    movieCount: number; // Add movieCount property
     setMovieCount: (count: number) => void;
 }
 export function ManageUser({
@@ -17,8 +17,7 @@ export function ManageUser({
     setOptions,
     members,
     setMembers,
-    movieCount,
-    setMovieCount
+    movieCount
 }: ManageUserProps) {
     const [editUsers, setEditUsers] = useState(false);
 
@@ -60,8 +59,7 @@ export function ManageUser({
                             key={user}
                             onClick={handleUserClick}
                         >
-                            {" "}
-                            {user}{" "}Movie Count: {movieCount}
+                            {user} Movie Count: {movieCount} {/* Display movie count */}
                         </span>
                     )}
             </div>
@@ -92,3 +90,4 @@ export function UserEdit({ user, userDone, removeOption }: userEditProps) {
         </div>
     );
 }
+

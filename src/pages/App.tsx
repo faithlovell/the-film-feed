@@ -12,6 +12,7 @@ import { AllMoviesList } from "../AllMoviesList";
 import { Movie } from "../MovieMaster";
 import MovieForm from "../NewMovieForm";
 import { INITIAL_MOVIES } from "../Movies";
+import MovieSearchBar from "../MovieSearchBar";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
@@ -145,7 +146,7 @@ function App(): JSX.Element {
                 }}
                 countMovieOccurrences={countMovieOccurrence}
             ></DragLists>
-
+            <MovieSearchBar movies={movies} userMovies={userMovies} />
             <hr></hr>
             <AllMoviesList
                 movies={movies}

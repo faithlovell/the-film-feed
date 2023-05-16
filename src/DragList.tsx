@@ -153,6 +153,8 @@ export function DragLists({
                             <Form.Control
                                 value={newUser}
                                 onChange={updateNewUser}
+                                className="actor-filter"
+                                placeholder="Search Movies..."
                                 onKeyPress={(event) => {
                                     if (event.key === "Enter") {
                                         updateOptions(newUser);

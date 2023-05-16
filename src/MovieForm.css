@@ -1,11 +1,13 @@
 section {
-    background: salmon;
+    background: #353b45;
     padding: 20px;
+    flex-direction: row;
+    align-items: center;
 }
 
 h1 {
     border-bottom: 1px solid white;
-    color: #3d3d3d;
+    color: white;
     font-family: sans-serif;
     font-size: 20px;
     font-weight: 600;
@@ -15,8 +17,8 @@ h1 {
 }
 
 form {
-    background: white;
-    border: 1px solid #dedede;
+    border-radius: 8px;
+    border: 3px solid #dedede;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -34,12 +36,13 @@ input {
 }
 
 label {
-    color: #3d3d3d;
+    color: white;
     display: block;
     font-family: sans-serif;
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .error {
@@ -49,10 +52,26 @@ label {
     height: 30px;
 }
 
-.submitButton {
-    background-color: #f3987a;
-    color: white;
-    font-family: sans-serif;
-    font-size: 14px;
-    margin: 20px 0px;
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #323541;
+    cursor: pointer;
+    transition: 0.2s;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+}
+
+
+button:hover {
+    background-color: #cd5b5d;
+    transform: perspective(100px);
+}
+
+button + button {
+    margin-left: 10px;
 }

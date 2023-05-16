@@ -25,6 +25,7 @@ const SearchMovies: React.FC<SearchMoviesProps> = ({ movies, onSearch }) => {
                 placeholder="Search movies..."
                 value={searchQuery}
                 onChange={handleSearch}
+                className="actor-filter"
             />
         </div>
     );

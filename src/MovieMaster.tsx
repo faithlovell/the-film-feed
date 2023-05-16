@@ -14,23 +14,28 @@ export interface Movie {
 
 export interface MovieProps {
     movie: Movie;
-    onSave: (movie: Movie) => void;
+    onSave: (movie: Movie, user: string) => void;
     draggable: boolean; // Add this line
     onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
     onDrag?: (e: React.DragEvent<HTMLDivElement>) => void; // add this line
     onDelete: (movieToDelete: Movie) => void;
     role: string;
+
+    user: string;
 }
 
 //controls movie display and user interactions with movies (ie editing)
-export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
+export function MovieItem({ movie, onSave, onDelete, role, user }: MovieProps) {
     const [editing, setEditing] = useState(false);
     const [cast, setCast] = useState(movie.cast.join(", "));
     function handleCastSaveClick() {
-        onSave({
-            ...movie,
-            cast: cast.split(", ")
-        });
+        onSave(
+            {
+                ...movie,
+                cast: cast.split(", ")
+            },
+            user
+        );
         handleCancel();
     }
     function handleDeleteClick() {
@@ -69,6 +74,7 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
                         onSave={onSave}
                         onCancel={handleCancel}
                         onDelete={onDelete}
+                        user={user}
                     />
                 ) : role === "User Editor" ? (
                     <div className="movie-editor">
@@ -151,16 +157,18 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
 
 interface MovieEditProps {
     movie: Movie;
-    onSave: (movie: Movie) => void;
+    onSave: (movie: Movie, user: string) => void;
     onCancel: () => void;
     onDelete: (movieToDelete: Movie) => void;
+    user: string;
 }
 
 export function MovieEdit({
     movie,
     onSave,
     onCancel,
-    onDelete
+    onDelete,
+    user
 }: MovieEditProps) {
     const [title, setTitle] = useState(movie.title);
     const [cast, setCast] = useState(movie.cast.join(", "));
@@ -213,15 +221,18 @@ export function MovieEdit({
     }
 
     function handleSaveClick() {
-        onSave({
-            ...movie,
-            title,
-            cast: cast.split(", "),
-            rating,
-            audienceRating,
-            inTheaters,
-            image
-        });
+        onSave(
+            {
+                ...movie,
+                title,
+                cast: cast.split(", "),
+                rating,
+                inTheaters,
+                audienceRating,
+                image
+            },
+            user
+        );
         onCancel();
     }
     return (

@@ -21,7 +21,10 @@ function App(): JSX.Element {
         "Movie Member"
     ]);
     const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
-    const [userMovies, setUserMovies] = useState<Movie[]>([]);
+    const [userMovies, setUserMovies] = useState<{ [key: string]: Movie[] }>(
+        {}
+    );
+
     const [movies, setMovies] = useState<Movie[]>([...INITIAL_MOVIES]);
 
     //when any change to a movie list or movie is made, all of the movie lists are saved with the edits.
@@ -43,43 +46,48 @@ function App(): JSX.Element {
         );
     }
 
-    //when a movie is added to the movies list by super, this function will update the movies list with the new addition
+    // when a movie is added to the movies list by super, this function will update the movies list with the new addition
     const addMovie = (newMovie: Movie) => {
         setMovies((prevMovies) => [...prevMovies, newMovie]);
     };
 
-    //when a movie is deleted from the movies list, this function will update all movie lists to remove it
+    // when a movie is deleted from the movies list, this function will update all movie lists to remove it
     function deleteMovie(movieToDelete: Movie) {
-        const updatedMovies = movies.filter(
-            (movie) => movie.id !== movieToDelete.id
-        );
-        setMovies(updatedMovies);
-
-        const updatedAdminMovies = adminMovies.filter(
-            (movie) => movie.id !== movieToDelete.id
-        );
-        setAdminMovies(updatedAdminMovies);
-
-        const updatedUserMovies = userMovies.filter(
-            (movie) => movie.id !== movieToDelete.id
+        setMovies((prevMovies) =>
+            prevMovies.filter((movie) => movie.id !== movieToDelete.id)
         );
 
-        setUserMovies(updatedUserMovies);
+        setAdminMovies((prevAdminMovies) =>
+            prevAdminMovies.filter((movie) => movie.id !== movieToDelete.id)
+        );
+
+        setUserMovies((prevUserMovies) => {
+            const updatedUserMovies = { ...prevUserMovies };
+            for (const role in updatedUserMovies) {
+                updatedUserMovies[role] = updatedUserMovies[role].filter(
+                    (movie) => movie.id !== movieToDelete.id
+                );
+            }
+            return updatedUserMovies;
+        });
     }
 
-    //when the user lists are updated, this function handles saving their personal lists
     function handleUserOnSave(movie: Movie) {
-        setUserMovies((prevMovies) =>
-            prevMovies.map((prevMovie) =>
-                prevMovie.id === movie.id ? { ...movie } : prevMovie
-            )
-        );
+        setUserMovies((prevUserMovies) => {
+            const updatedUserMovies = { ...prevUserMovies };
+            for (const role in updatedUserMovies) {
+                updatedUserMovies[role] = updatedUserMovies[role].map(
+                    (prevMovie) =>
+                        prevMovie.id === movie.id ? { ...movie } : prevMovie
+                );
+            }
+            return updatedUserMovies;
+        });
     }
 
-    //when the admin list is updated, this function handles saving their personal list
     function handleAdminOnSave(movie: Movie) {
-        setAdminMovies((prevMovies) =>
-            prevMovies.map((prevMovie) =>
+        setAdminMovies((prevAdminMovies) =>
+            prevAdminMovies.map((prevMovie) =>
                 prevMovie.id === movie.id ? { ...movie } : prevMovie
             )
         );
@@ -95,12 +103,11 @@ function App(): JSX.Element {
                         alt="logo"
                     />
                     <div>
-                        {" "}
                         <RoleSelect
                             options={options}
                             role={role}
                             setRole={setRole}
-                        ></RoleSelect>{" "}
+                        ></RoleSelect>
                     </div>
                 </div>
             </header>
@@ -115,6 +122,7 @@ function App(): JSX.Element {
                 setAdminMovies={setAdminMovies}
                 handleAdminOnSave={handleAdminOnSave}
                 handleUserOnSave={handleUserOnSave}
+                user={role}
                 movieCounts={{}}
                 setMovieCounts={function (): void {
                     throw new Error("Function not implemented.");
@@ -131,6 +139,7 @@ function App(): JSX.Element {
                 onDragStart={function (): void {
                     throw new Error("Function not implemented.");
                 }}
+                user={role}
             ></AllMoviesList>
             <SliderParent movies={movies}></SliderParent>
             <MovieForm

@@ -23,19 +23,6 @@ function App(): JSX.Element {
     const [userMovies, setUserMovies] = useState<{ [key: string]: Movie[] }>(
         {}
     );
-    function getMovieCounts(): { [key: string]: number } {
-        const movieCounts: { [key: string]: number } = {};
-
-        for (const role in userMovies) {
-            const movies = userMovies[role];
-            for (const movie of movies) {
-                const { id } = movie;
-                movieCounts[id] = (movieCounts[id] || 0) + 1;
-            }
-        }
-
-        return movieCounts;
-    }
     const [movies, setMovies] = useState<Movie[]>([...INITIAL_MOVIES]);
 
     //counts how many times a movie appears in the user lists

@@ -20,8 +20,13 @@ function App(): JSX.Element {
         "Movie Mentor",
         "Movie Member"
     ]);
-    const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
-    const [userMovies, setUserMovies] = useState<Movie[]>([]);
+    const [adminMovies, setAdminMovies] = useState<{ [key: string]: Movie[] }>(
+        {}
+    );
+    const [userMovies, setUserMovies] = useState<{ [key: string]: Movie[] }>(
+        {}
+    );
+
     const [movies, setMovies] = useState<Movie[]>([...INITIAL_MOVIES]);
 
     //when any change to a movie list or movie is made, the list is saved with the edits.
@@ -38,41 +43,57 @@ function App(): JSX.Element {
         setMovies((prevMovies) => [...prevMovies, newMovie]);
     };
 
-    //when a movie is deleted from the movies list, this function will update all movie lists to remove it
+    // when a movie is deleted from the movies list, this function will update all movie lists to remove it
     function deleteMovie(movieToDelete: Movie) {
-        const updatedMovies = movies.filter(
-            (movie) => movie.id !== movieToDelete.id
-        );
-        setMovies(updatedMovies);
-
-        const updatedAdminMovies = adminMovies.filter(
-            (movie) => movie.id !== movieToDelete.id
-        );
-        setAdminMovies(updatedAdminMovies);
-
-        const updatedUserMovies = userMovies.filter(
-            (movie) => movie.id !== movieToDelete.id
+        setMovies((prevMovies) =>
+            prevMovies.filter((movie) => movie.id !== movieToDelete.id)
         );
 
-        setUserMovies(updatedUserMovies);
+        setAdminMovies((prevAdminMovies) => {
+            const updatedAdminMovies = { ...prevAdminMovies };
+            for (const role in updatedAdminMovies) {
+                updatedAdminMovies[role] = updatedAdminMovies[role].filter(
+                    (movie) => movie.id !== movieToDelete.id
+                );
+            }
+            return updatedAdminMovies;
+        });
+
+        setUserMovies((prevUserMovies) => {
+            const updatedUserMovies = { ...prevUserMovies };
+            for (const role in updatedUserMovies) {
+                updatedUserMovies[role] = updatedUserMovies[role].filter(
+                    (movie) => movie.id !== movieToDelete.id
+                );
+            }
+            return updatedUserMovies;
+        });
     }
 
-    //when the user lists are updated, this function handles saving their personal lists
     function handleUserOnSave(movie: Movie) {
-        setUserMovies((prevMovies) =>
-            prevMovies.map((prevMovie) =>
-                prevMovie.id === movie.id ? { ...movie } : prevMovie
-            )
-        );
+        setUserMovies((prevUserMovies) => {
+            const updatedUserMovies = { ...prevUserMovies };
+            for (const role in updatedUserMovies) {
+                updatedUserMovies[role] = updatedUserMovies[role].map(
+                    (prevMovie) =>
+                        prevMovie.id === movie.id ? { ...movie } : prevMovie
+                );
+            }
+            return updatedUserMovies;
+        });
     }
 
-    //when the admin list is updated, this function handles saving their personal list
     function handleAdminOnSave(movie: Movie) {
-        setAdminMovies((prevMovies) =>
-            prevMovies.map((prevMovie) =>
-                prevMovie.id === movie.id ? { ...movie } : prevMovie
-            )
-        );
+        setAdminMovies((prevAdminMovies) => {
+            const updatedAdminMovies = { ...prevAdminMovies };
+            for (const role in updatedAdminMovies) {
+                updatedAdminMovies[role] = updatedAdminMovies[role].map(
+                    (prevMovie) =>
+                        prevMovie.id === movie.id ? { ...movie } : prevMovie
+                );
+            }
+            return updatedAdminMovies;
+        });
     }
 
     return (

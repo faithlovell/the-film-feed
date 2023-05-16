@@ -11,11 +11,11 @@ export interface DragListsProps {
     setOptions: (newOptions: string[]) => void;
     adminMovies: Movie[];
     setAdminMovies: (movies: Movie[]) => void;
-    userMovies: Movie[];
-    setUserMovies: (movies: Movie[]) => void;
+    userMovies: { [key: string]: Movie[] }; // Updated type to use object with user-specific movie lists
+    setUserMovies: (movies: { [key: string]: Movie[] }) => void; // Updated type to use object with user-specific movie lists
     onDelete: (movieToDelete: Movie) => void;
     handleAdminOnSave: (movie: Movie) => void;
-    handleUserOnSave: (movie: Movie) => void;
+    user: string;
 }
 
 export function DragLists({
@@ -28,7 +28,7 @@ export function DragLists({
     setUserMovies,
     onDelete,
     handleAdminOnSave,
-    handleUserOnSave
+    user
 }: DragListsProps) {
     const [newUser, setNewUser] = useState<string>("");
     const [members, setMembers] = useState<string[]>([
@@ -39,12 +39,23 @@ export function DragLists({
     function updateNewUser(event: React.ChangeEvent<HTMLInputElement>) {
         setNewUser(event.target.value);
     }
+    function handleUserOnSave(movie: Movie, user: string) {
+        const updatedUserMovies = { ...userMovies };
+        updatedUserMovies[user] = updatedUserMovies[user].map((prevMovie) =>
+            prevMovie.id === movie.id ? { ...movie } : prevMovie
+        );
+        setUserMovies(updatedUserMovies);
+    }
 
     //updates user options when new user is added
     function updateOptions(newUser: string) {
         if (!options.includes(newUser) && newUser !== "") {
             setOptions([...options, newUser]);
             setMembers([...members, newUser]);
+            setUserMovies({
+                ...userMovies,
+                [newUser]: []
+            });
         }
     }
 
@@ -71,36 +82,18 @@ export function DragLists({
     }
 
     //adds movie to user list when user drags a movie in
-    function handleOnDropUser(e: React.DragEvent) {
+    function handleOnDropUser(e: React.DragEvent, user: string) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
-        setUserMovies([...userMovies, movie]);
+        setUserMovies({
+            ...userMovies,
+            [user]: [...userMovies[user], movie] // Add the movie to the specific user's movie list
+        });
     }
 
     //aids in drag ability functioning correctly
     function handleDragOver(e: React.DragEvent) {
         e.preventDefault();
     }
-
-    /*function handleUserOnSave(movie: Movie) {
-        setUserMovies((prevMovies) =>
-            prevMovies.map((prevMovie) =>
-                prevMovie.id === movie.id ? { ...movie } : prevMovie
-            )
-        );
-    }
-
-    function handleAdminOnSave(movie: Movie) {
-        setAdminMovies((prevMovies) =>
-            prevMovies.map((prevMovie) =>
-                prevMovie.id === movie.id ? { ...movie } : prevMovie
-            )
-        );
-    }
-    function handleDelete(movie: Movie) {
-        setAdminMovies(adminMovies.filter((m) => m.id !== movie.id));
-        setUserMovies(userMovies.filter((m) => m.id !== movie.id));
-    }
-    */
 
     return (
         <div className="content-lists">
@@ -149,7 +142,7 @@ export function DragLists({
                     <div className="list1-label">{`${role}`} List</div>
                     <div
                         className="lists"
-                        onDrop={handleOnDropAdmin}
+                        onDrop={(e) => handleOnDropAdmin(e)}
                         onDragOver={handleDragOver}
                     >
                         {adminMovies.map((movie, index) => (
@@ -169,6 +162,7 @@ export function DragLists({
                                         );
                                     }}
                                     draggable={false}
+                                    user={user}
                                 />
                             </div>
                         ))}
@@ -186,38 +180,45 @@ export function DragLists({
                                     </div>
                                     <div
                                         className="lists"
-                                        onDrop={handleOnDropUser}
+                                        onDrop={(e) =>
+                                            handleOnDropUser(e, member)
+                                        } // Pass the current user as a parameter
                                         onDragOver={handleDragOver}
                                     >
-                                        {userMovies.map((movie, index) => (
-                                            <div
-                                                key={index}
-                                                className="dropped-movie"
-                                            >
-                                                <MovieItem
-                                                    movie={movie}
-                                                    key={movie.id}
-                                                    onSave={handleUserOnSave}
-                                                    draggable={false}
-                                                    onDragStart={function (
-                                                        e: React.DragEvent<HTMLDivElement>,
-                                                        movie: Movie
-                                                    ): void {
-                                                        throw new Error(
-                                                            "Function not implemented."
-                                                        );
-                                                    }}
-                                                    onDelete={function (
-                                                        movieToDelete: Movie
-                                                    ): void {
-                                                        throw new Error(
-                                                            "Function not implemented."
-                                                        );
-                                                    }}
-                                                    role={"User Editor"}
-                                                />
-                                            </div>
-                                        ))}
+                                        {userMovies[member]?.map(
+                                            (movie, index) => (
+                                                <div
+                                                    key={index}
+                                                    className="dropped-movie"
+                                                >
+                                                    <MovieItem
+                                                        movie={movie}
+                                                        key={movie.id}
+                                                        onSave={
+                                                            handleUserOnSave
+                                                        }
+                                                        draggable={false}
+                                                        onDragStart={function (
+                                                            e: React.DragEvent<HTMLDivElement>,
+                                                            movie: Movie
+                                                        ): void {
+                                                            throw new Error(
+                                                                "Function not implemented."
+                                                            );
+                                                        }}
+                                                        onDelete={function (
+                                                            movieToDelete: Movie
+                                                        ): void {
+                                                            throw new Error(
+                                                                "Function not implemented."
+                                                            );
+                                                        }}
+                                                        role={"User Editor"}
+                                                        user={user}
+                                                    />
+                                                </div>
+                                            )
+                                        )}
                                     </div>
                                 </>
                             )}

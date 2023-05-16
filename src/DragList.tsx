@@ -237,13 +237,7 @@ export function DragLists({
                                                                 "Function not implemented."
                                                             );
                                                         }}
-                                                        onDelete={function (
-                                                            movieToDelete: Movie
-                                                        ): void {
-                                                            throw new Error(
-                                                                "Function not implemented."
-                                                            );
-                                                        }}
+                                                        onDelete={onDelete}
                                                         role={"User Editor"}
                                                         user={user}
                                                     />

@@ -23,9 +23,7 @@ export interface DragListsProps {
     setMovieCounts: (counts: { [user: string]: number }) => void; // Add setMovieCounts property
     userMovieLists: { [movieId: string]: string[] }; //list of users for each movie
     countMovieOccurrences: (movieId: number) => number;
-
 }
-
 export function DragLists({
     role,
     options,
@@ -51,7 +49,6 @@ export function DragLists({
     const [userMovieLists, setUserMovieLists] = useState<{
         [movieId: string]: string[];
     }>({});
-
     // movie count
     function updateMovieCount(user: string, count: number) {
         setMovieCounts((prevCounts) => ({
@@ -59,7 +56,6 @@ export function DragLists({
             [user]: count
         }));
     }
-
     //adds ability for new users to have their own lists
     function updateNewUser(event: React.ChangeEvent<HTMLInputElement>) {
         setNewUser(event.target.value);
@@ -76,7 +72,6 @@ export function DragLists({
             [movie.id]: [...(prevLists[movie.id] || []), user]
         }));
     }
-
     //updates user options when new user is added
     function updateOptions(newUser: string) {
         if (!options.includes(newUser) && newUser !== "") {
@@ -89,12 +84,10 @@ export function DragLists({
             updateMovieCount(newUser, 0);
         }
     }
-
     //unused in file but still necessary (somehow) for drag to work correctly
     function handleOnDrag(e: React.DragEvent, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie)); //added this not sure if its right yet
     } //try adding this to allmovieslist.tsx
-
     //prevents duplicates from being added to admin list: each movie has their own unique ID to keep track of
     function checkDuplicates(movie1: Movie, movie2: Movie) {
         return movie1.id == movie2.id;
@@ -102,7 +95,6 @@ export function DragLists({
     function filterMoviesByActor(movies: Movie[], actor: string): Movie[] {
         return movies.filter((movie) => movie.cast.includes(actor));
     }
-
     //when admin adds movie to list, adds if there is not already a duplicate
     function handleOnDropAdmin(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
@@ -114,7 +106,6 @@ export function DragLists({
             setAdminMovies([...adminMovies, movie]);
         }
     }
-
     //adds movie to user list when user drags a movie in
     function handleOnDropUser(e: React.DragEvent, user: string) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
@@ -135,7 +126,6 @@ export function DragLists({
     function handleDragOver(e: React.DragEvent) {
         e.preventDefault();
     }
-
     //remove
     function removeOption(exUser: string) {
         setOptions(
@@ -204,7 +194,13 @@ export function DragLists({
                                 }}
                                 draggable={false}
                                 user={user}
-                                usersWithMovie={[]}
+                                countMovieOccurrences={function (
+                                    movieId: number
+                                ): number {
+                                    throw new Error(
+                                        "Function not implemented."
+                                    );
+                                }}
                             />
                             <div>
                                 {userMovieLists[movie.id]?.map(
@@ -217,7 +213,6 @@ export function DragLists({
                     ))}
                 </>
             )}
-
             {role === "Movie Mentor" && (
                 <>
                     <div className="list1-label">{`${role}`} List</div>

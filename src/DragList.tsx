@@ -17,6 +17,8 @@ export interface DragListsProps {
     handleAdminOnSave: (movie: Movie) => void;
     user: string;
     handleUserOnSave: (movie: Movie, user: string) => void;
+    movieCounts: { [user: string]: number }; // Add movieCounts property
+    setMovieCounts: (counts: { [user: string]: number }) => void; // Add setMovieCounts property
 }
 
 export function DragLists({
@@ -35,6 +37,17 @@ export function DragLists({
     const [members, setMembers] = useState<string[]>([
         ...options.slice(2, options.length)
     ]);
+    const [movieCounts, setMovieCounts] = useState<{ [user: string]: number }>(
+        {}
+    );
+
+    // movie count
+    function updateMovieCount(user: string, count: number) {
+        setMovieCounts((prevCounts) => ({
+            ...prevCounts,
+            [user]: count
+        }));
+    }
 
     //adds ability for new users to have their own lists
     function updateNewUser(event: React.ChangeEvent<HTMLInputElement>) {
@@ -57,6 +70,7 @@ export function DragLists({
                 ...userMovies,
                 [newUser]: []
             });
+            updateMovieCount(newUser, 0);
         }
     }
 
@@ -89,6 +103,9 @@ export function DragLists({
             ...userMovies,
             [user]: [...userMovies[user], movie] // Add the movie to the specific user's movie list
         });
+        const user = role;
+        const count = movieCounts[user] || 0;
+        updateMovieCount(user, count + 1);
     }
 
     //aids in drag ability functioning correctly
@@ -96,6 +113,16 @@ export function DragLists({
         e.preventDefault();
     }
 
+    //remove
+    function removeOption(exUser: string) {
+        setOptions(
+            options.filter((currUser: string): boolean => currUser !== exUser)
+        );
+        setMembers(
+            members.filter((currUser: string): boolean => currUser !== exUser)
+        );
+        updateMovieCount(exUser, 0);
+    }
     return (
         <div className="content-lists">
             {role === "Movie Master" && (
@@ -130,6 +157,10 @@ export function DragLists({
                                         setOptions={setOptions}
                                         members={members}
                                         setMembers={setMembers}
+                                        movieCount={movieCounts[user] || 0}
+                                        setMovieCount={(count: number) =>
+                                            updateMovieCount(user, count)
+                                        }
                                     />
                                 </span>
                             ))}

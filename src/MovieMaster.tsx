@@ -228,6 +228,7 @@ export function MovieEdit({
                 cast: cast.split(", "),
                 rating,
                 inTheaters,
+                audienceRating,
                 image
             },
             user

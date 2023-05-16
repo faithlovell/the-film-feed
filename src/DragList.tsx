@@ -103,11 +103,10 @@ export function DragLists({
             ...userMovies,
             [user]: [...userMovies[user], movie] // Add the movie to the specific user's movie list
         });
-        const user = role;
+        // const user = role; // Remove this line, as `user` is already defined as a parameter
         const count = movieCounts[user] || 0;
         updateMovieCount(user, count + 1);
     }
-
     //aids in drag ability functioning correctly
     function handleDragOver(e: React.DragEvent) {
         e.preventDefault();

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
-import { Movie, MovieItem } from "./MovieMaster";
+import { Movie, MovieItem, MovieProps, MovieEdit } from "./MovieMaster";
 import { ManageUser } from "./ManageUser";
 import { Form } from "react-bootstrap";
 
@@ -33,7 +33,11 @@ export function DragLists({
     onDelete,
     handleAdminOnSave,
     user
-}: DragListsProps) {
+}: // handleUserOnSave,
+// movieCounts,
+// setMovieCounts,
+// userMovieLists
+DragListsProps) {
     const [newUser, setNewUser] = useState<string>("");
     const [members, setMembers] = useState<string[]>([
         ...options.slice(2, options.length)

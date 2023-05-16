@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import "./App.css"; // import CSS file
-
+interface User {
+    name: string;
+    movieList: Movie[];
+}
 export interface Movie {
     id: number;
     title: string;
@@ -31,7 +35,10 @@ export function MovieItem({
     onDelete,
     role,
     user,
-    usersWithMovie
+    usersWithMovie,
+    draggable,
+    onDragStart,
+    onDrag
 }: MovieProps) {
     const [editing, setEditing] = useState(false);
     const [cast, setCast] = useState(movie.cast.join(", "));
@@ -64,7 +71,7 @@ export function MovieItem({
     }
 
     //allows users to drag movies to lists
-    function handleOnDrag(e: React.DragEvent<HTMLDivElement>, movie: Movie) {
+    function handleOnDrag(e: React.DragEvent, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie));
     }
 
@@ -73,6 +80,7 @@ export function MovieItem({
             className="movie"
             draggable
             onDragStart={(e) => handleOnDrag(e, movie)}
+            onDrag={onDrag}
         >
             {editing ? (
                 role === "Movie Mentor" || role === "Movie Master" ? (

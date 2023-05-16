@@ -19,17 +19,28 @@ function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
     const [options, setOptions] = useState<string[]>([
         "Movie Master",
-        "Movie Mentor",
-        "Movie Member"
+        "Movie Mentor"
     ]);
     const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
     const [userMovies, setUserMovies] = useState<{ [key: string]: Movie[] }>(
         {}
     );
-
     const [movies, setMovies] = useState<Movie[]>([...INITIAL_MOVIES]);
 
-    //when any change to a movie list or movie is made, all of the movie lists are saved with the edits.
+    //counts how many times a movie appears in the user lists
+    const countMovieOccurrence = (movieId: number): number => {
+        let count = 0;
+        Object.values(userMovies).forEach((movies) => {
+            movies.forEach((movie) => {
+                if (movie.id === movieId) {
+                    count++;
+                }
+            });
+        });
+        return count;
+    };
+
+    //when any change to a movie list or movie is made, all the movie lists are saved with the edits.
     function handleSave(movie: Movie) {
         setMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>
@@ -139,7 +150,7 @@ function App(): JSX.Element {
                 setMovieCounts={function (): void {
                     throw new Error("Function not implemented.");
                 }}
-                userMovieLists={{}}
+                countMovieOccurrences={countMovieOccurrence}
             ></DragLists>
             <SearchMovies
                 movies={movies}
@@ -156,6 +167,7 @@ function App(): JSX.Element {
                     throw new Error("Function not implemented.");
                 }}
                 user={role}
+                countMovieOccurrences={countMovieOccurrence}
             ></AllMoviesList>
             <SliderParent movies={movies}></SliderParent>
             <MovieForm

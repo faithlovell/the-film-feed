@@ -18,10 +18,10 @@ PASS src/tests/menubar.test.tsx
 --------------------|---------|----------|---------|---------|-------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------|---------|----------|---------|---------|-------------------
-All files           |    7.96 |     5.26 |    8.92 |    8.14 |                   
- src                |    9.89 |     6.06 |   11.49 |      10 |                   
+All files           |       8 |     5.26 |       9 |    8.18 |                   
+ src                |    9.94 |     6.06 |   11.62 |   10.05 |                   
   AllMoviesList.tsx |       0 |        0 |       0 |       0 | 22-80             
-  DragList.tsx      |       0 |        0 |       0 |       0 | 36-243            
+  DragList.tsx      |       0 |        0 |       0 |       0 | 36-236            
   HungerGames.tsx   |       0 |      100 |       0 |       0 | 6                 
   ManageUser.tsx    |       0 |        0 |       0 |       0 | 22-80             
   MenuBar.tsx       |     100 |      100 |     100 |     100 |                   
@@ -37,5 +37,5 @@ All files           |    7.96 |     5.26 |    8.92 |    8.14 |
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        4.632 s
+Time:        3.448 s
 Ran all test suites.

@@ -31,11 +31,11 @@ All files           |    7.96 |     5.26 |    8.92 |    8.14 |
   ReviewBox.tsx     |       0 |      100 |       0 |       0 | 10-61             
   Scroller.tsx      |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
  src/pages          |       0 |        0 |       0 |       0 |                   
-  App.tsx           |       0 |        0 |       0 |       0 | 17-145            
+  App.tsx           |       0 |        0 |       0 |       0 | 17-144            
 --------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        3.734 s
+Time:        4.632 s
 Ran all test suites.

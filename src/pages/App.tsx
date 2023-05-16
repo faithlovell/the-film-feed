@@ -17,8 +17,7 @@ function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
     const [options, setOptions] = useState<string[]>([
         "Movie Master",
-        "Movie Mentor",
-        "Movie Member"
+        "Movie Mentor"
     ]);
     const [adminMovies, setAdminMovies] = useState<Movie[]>([]);
     const [userMovies, setUserMovies] = useState<{ [key: string]: Movie[] }>(

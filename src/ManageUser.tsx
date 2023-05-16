@@ -1,22 +1,27 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from "react";
 
+
 interface ManageUserProps {
     user: string;
     options: string[];
     setOptions: (newOptions: string[]) => void;
     members: string[];
     setMembers: (newMembers: string[]) => void;
+    movieCount: number;
+    setMovieCount: (count: number) => void;
 }
 export function ManageUser({
     user,
     options,
     setOptions,
     members,
-    setMembers
+    setMembers,
+    movieCount,
+    setMovieCount
 }: ManageUserProps) {
     const [editUsers, setEditUsers] = useState(false);
-    const [showMovies, setShowMovies] = useState(false);
+
     //used to keep track of site users, when super is in edit mode
     function handleUserClick() {
         setEditUsers(true);
@@ -37,21 +42,17 @@ export function ManageUser({
         );
         handleUserDone();
     }
-    function showUserMovieCount(){
-        setShowMovies(true);
-    }
 
     return (
         <>
             <div>
-                {editUsers && showMovies &&
+                {editUsers &&
                 user !== "Movie Master" &&
                 user !== "Movie Mentor" ? (
                         <UserEdit
                             user={user}
                             userDone={handleUserDone}
                             removeOption={removeOption}
-                            // movieCount={showUserMovieCount}
                         />
                     ) : (
                         <span
@@ -60,7 +61,7 @@ export function ManageUser({
                             onClick={handleUserClick}
                         >
                             {" "}
-                            {user}{" "}
+                            {user}{" "}Movie Count: {movieCount}
                         </span>
                     )}
             </div>

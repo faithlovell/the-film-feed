@@ -16,6 +16,8 @@ export interface DragListsProps {
     onDelete: (movieToDelete: Movie) => void;
     handleAdminOnSave: (movie: Movie) => void;
     handleUserOnSave: (movie: Movie) => void;
+    movieCount: number;
+    setMovieCount: (count: number) => void;
 }
 
 export function DragLists({
@@ -28,7 +30,9 @@ export function DragLists({
     setUserMovies,
     onDelete,
     handleAdminOnSave,
-    handleUserOnSave
+    handleUserOnSave,
+    movieCount,
+    setMovieCount
 }: DragListsProps) {
     const [newUser, setNewUser] = useState<string>("");
     const [members, setMembers] = useState<string[]>([
@@ -74,6 +78,7 @@ export function DragLists({
     function handleOnDropUser(e: React.DragEvent) {
         const movie = JSON.parse(e.dataTransfer.getData("movie")) as Movie;
         setUserMovies([...userMovies, movie]);
+        setMovieCount(movieCount + 1);
     }
 
     //aids in drag ability functioning correctly
@@ -136,6 +141,7 @@ export function DragLists({
                                         setOptions={setOptions}
                                         members={members}
                                         setMembers={setMembers}
+                                        setMovieCount={setMovieCount}
                                     />
                                 </span>
                             ))}

@@ -68,8 +68,6 @@ export function MovieItem({
         e.dataTransfer.setData("movie", JSON.stringify(movie));
     }
 
-    const isMovieInList = usersWithMovie.includes(user);
-
     return (
         <div
             className="movie"

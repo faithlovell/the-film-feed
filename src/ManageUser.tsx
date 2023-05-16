@@ -59,7 +59,7 @@ export function ManageUser({
                             key={user}
                             onClick={handleUserClick}
                         >
-                            {user} {members.includes(user) && <>Movie Count: {movieCount}</>}
+                            {user} {members.includes(user) && <><br></br>Movie Count: {movieCount}</>}
                         </span>
                     )}
             </div>

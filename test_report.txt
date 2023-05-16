@@ -15,27 +15,28 @@ FAIL src/tests/moviesList.test.tsx
 
 PASS src/tests/slider.test.tsx
 PASS src/tests/menubar.test.tsx
---------------------|---------|----------|---------|---------|-------------------
-File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------|---------|----------|---------|---------|-------------------
-All files           |    7.46 |     4.87 |    8.26 |    7.65 |                   
- src                |    9.47 |     5.71 |   10.75 |    9.62 |                   
-  AllMoviesList.tsx |       0 |        0 |       0 |       0 | 24-82             
-  DragList.tsx      |       0 |        0 |       0 |       0 | 40-308            
-  HungerGames.tsx   |       0 |      100 |       0 |       0 | 6                 
-  ManageUser.tsx    |       0 |        0 |       0 |       0 | 22-80             
-  MenuBar.tsx       |     100 |      100 |     100 |     100 |                   
-  MovieMaster.tsx   |       0 |        0 |       0 |       0 | 36-249            
-  Movies.tsx        |       0 |      100 |     100 |       0 | 33                
-  NewMovieForm.tsx  |       0 |        0 |       0 |       0 | 12-80             
-  ReviewBox.tsx     |       0 |      100 |       0 |       0 | 10-61             
-  Scroller.tsx      |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
- src/pages          |       0 |        0 |       0 |       0 |                   
-  App.tsx           |       0 |        0 |       0 |       0 | 17-157            
---------------------|---------|----------|---------|---------|-------------------
+---------------------|---------|----------|---------|---------|-------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------|---------|----------|---------|---------|-------------------
+All files            |    6.97 |     4.44 |    7.81 |    7.14 |                   
+ src                 |    8.69 |     5.12 |      10 |    8.82 |                   
+  AllMoviesList.tsx  |       0 |        0 |       0 |       0 | 24-82             
+  DragList.tsx       |       0 |        0 |       0 |       0 | 40-308            
+  HungerGames.tsx    |       0 |      100 |       0 |       0 | 6                 
+  ManageUser.tsx     |       0 |        0 |       0 |       0 | 22-80             
+  MenuBar.tsx        |     100 |      100 |     100 |     100 |                   
+  MovieMaster.tsx    |       0 |        0 |       0 |       0 | 36-249            
+  MovieSearchBar.tsx |       0 |        0 |       0 |       0 | 10-56             
+  Movies.tsx         |       0 |      100 |     100 |       0 | 33                
+  NewMovieForm.tsx   |       0 |        0 |       0 |       0 | 12-80             
+  ReviewBox.tsx      |       0 |      100 |       0 |       0 | 10-61             
+  Scroller.tsx       |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
+ src/pages           |       0 |        0 |       0 |       0 |                   
+  App.tsx            |       0 |        0 |       0 |       0 | 18-158            
+---------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        3.472 s
+Time:        3.711 s
 Ran all test suites.

@@ -132,6 +132,7 @@ function App(): JSX.Element {
                 setMovieCounts={function (): void {
                     throw new Error("Function not implemented.");
                 }}
+                userMovieLists={{}}
             ></DragLists>
 
             <hr></hr>

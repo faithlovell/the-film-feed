@@ -20,12 +20,19 @@ export interface MovieProps {
     onDrag?: (e: React.DragEvent<HTMLDivElement>) => void; // add this line
     onDelete: (movieToDelete: Movie) => void;
     role: string;
-
     user: string;
+    usersWithMovie: string[]; //array of users with movie in thier list
 }
 
 //controls movie display and user interactions with movies (ie editing)
-export function MovieItem({ movie, onSave, onDelete, role, user }: MovieProps) {
+export function MovieItem({
+    movie,
+    onSave,
+    onDelete,
+    role,
+    user,
+    usersWithMovie
+}: MovieProps) {
     const [editing, setEditing] = useState(false);
     const [cast, setCast] = useState(movie.cast.join(", "));
     function handleCastSaveClick() {
@@ -60,6 +67,8 @@ export function MovieItem({ movie, onSave, onDelete, role, user }: MovieProps) {
     function handleOnDrag(e: React.DragEvent<HTMLDivElement>, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie));
     }
+
+    const isMovieInList = usersWithMovie.includes(user);
 
     return (
         <div
@@ -149,6 +158,16 @@ export function MovieItem({ movie, onSave, onDelete, role, user }: MovieProps) {
                     />
                     <h3 className="movie-header">{movie.title}</h3>
                     <p className="movie-rating">{movie.rating}</p>
+                </div>
+            )}
+            {role === "Movie Mentor" && (
+                <div>
+                    <strong>Users with this movie:</strong>
+                    <ul>
+                        {usersWithMovie.map((user) => (
+                            <li key={user}>{user}</li>
+                        ))}
+                    </ul>
                 </div>
             )}
         </div>

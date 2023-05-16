@@ -19,6 +19,7 @@ export interface DragListsProps {
     handleUserOnSave: (movie: Movie, user: string) => void;
     movieCounts: { [user: string]: number }; // Add movieCounts property
     setMovieCounts: (counts: { [user: string]: number }) => void; // Add setMovieCounts property
+    userMovieLists: { [movieId: string]: string[] }; //list of users for each movie
 }
 
 export function DragLists({
@@ -40,6 +41,9 @@ export function DragLists({
     const [movieCounts, setMovieCounts] = useState<{ [user: string]: number }>(
         {}
     );
+    const [userMovieLists, setUserMovieLists] = useState<{
+        [movieId: string]: string[];
+    }>({});
 
     // movie count
     function updateMovieCount(user: string, count: number) {
@@ -59,6 +63,11 @@ export function DragLists({
             prevMovie.id === movie.id ? { ...movie } : prevMovie
         );
         setUserMovies(updatedUserMovies);
+        //movie list
+        setUserMovieLists((prevLists) => ({
+            ...prevLists,
+            [movie.id]: [...(prevLists[movie.id] || []), user]
+        }));
     }
 
     //updates user options when new user is added
@@ -103,6 +112,11 @@ export function DragLists({
             ...userMovies,
             [user]: [...userMovies[user], movie] // Add the movie to the specific user's movie list
         });
+        // movie list
+        setUserMovieLists((prevLists) => ({
+            ...prevLists,
+            [movie.id]: [...(prevLists[movie.id] || []), user]
+        }));
         // const user = role; // Remove this line, as `user` is already defined as a parameter
         const count = movieCounts[user] || 0;
         updateMovieCount(user, count + 1);
@@ -165,6 +179,32 @@ export function DragLists({
                             ))}
                         </span>
                     </div>
+                    {adminMovies.map((movie, index) => (
+                        <div key={index} className="dropped-movie">
+                            <MovieItem
+                                movie={movie}
+                                key={movie.id}
+                                onSave={handleAdminOnSave}
+                                onDelete={onDelete}
+                                role={role}
+                                onDragStart={(e, movie: Movie) => {
+                                    throw new Error(
+                                        "Function not implemented."
+                                    );
+                                }}
+                                draggable={false}
+                                user={user}
+                                usersWithMovie={[]}
+                            />
+                            <div>
+                                {userMovieLists[movie.id]?.map(
+                                    (user, index) => (
+                                        <span key={index}>{user}</span>
+                                    )
+                                )}
+                            </div>
+                        </div>
+                    ))}
                 </>
             )}
 
@@ -194,6 +234,7 @@ export function DragLists({
                                     }}
                                     draggable={false}
                                     user={user}
+                                    usersWithMovie={[]}
                                 />
                             </div>
                         ))}
@@ -213,7 +254,7 @@ export function DragLists({
                                         className="lists"
                                         onDrop={(e) =>
                                             handleOnDropUser(e, member)
-                                        } // Pass the current user as a parameter
+                                        }
                                         onDragOver={handleDragOver}
                                     >
                                         {userMovies[member]?.map(
@@ -246,6 +287,7 @@ export function DragLists({
                                                         }}
                                                         role={"User Editor"}
                                                         user={user}
+                                                        usersWithMovie={[]}
                                                     />
                                                 </div>
                                             )

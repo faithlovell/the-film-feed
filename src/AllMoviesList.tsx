@@ -81,6 +81,7 @@ export function AllMoviesList({
                                 role={role}
                                 onDelete={onDelete}
                                 user={user}
+                                usersWithMovie={[]}
                             />
                         ))}
                     </div>

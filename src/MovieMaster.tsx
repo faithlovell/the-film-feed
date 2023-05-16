@@ -77,7 +77,6 @@ export function MovieItem({
             className="movie"
             draggable
             onDragStart={(e) => handleOnDrag(e, movie)}
-            onDrag={onDrag}
         >
             {editing ? (
                 role === "Movie Mentor" || role === "Movie Master" ? (
@@ -162,16 +161,6 @@ export function MovieItem({
                     />
                     <h3 className="movie-header">{movie.title}</h3>
                     <p className="movie-rating">{movie.rating}</p>
-                </div>
-            )}
-            {role === "Movie Mentor" && (
-                <div>
-                    <strong>Users with this movie:</strong>
-                    <ul>
-                        {usersWithMovie.map((user) => (
-                            <li key={user}>{user}</li>
-                        ))}
-                    </ul>
                 </div>
             )}
         </div>

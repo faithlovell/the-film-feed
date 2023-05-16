@@ -151,6 +151,7 @@ function App(): JSX.Element {
                     throw new Error("Function not implemented.");
                 }}
                 countMovieOccurrences={countMovieOccurrence}
+                userMovieLists={{}}
             ></DragLists>
             <SearchMovies
                 movies={movies}

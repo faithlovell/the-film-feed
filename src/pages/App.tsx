@@ -128,9 +128,6 @@ function App(): JSX.Element {
                 onDelete={deleteMovie}
                 role={role}
                 draggable={true}
-                onDragStart={function (): void {
-                    throw new Error("Function not implemented.");
-                }}
             ></AllMoviesList>
             <SliderParent movies={movies}></SliderParent>
             <MovieForm

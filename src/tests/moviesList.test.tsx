@@ -29,7 +29,6 @@ describe("AllMoviesList", () => {
                 onDelete={onDeleteMock}
                 role="Movie Mentor"
                 draggable={false}
-                onDragStart={jest.fn()}
             />
         );
 
@@ -47,7 +46,6 @@ describe("AllMoviesList", () => {
                 onDelete={onDeleteMock}
                 role="Movie Mentor"
                 draggable={false}
-                onDragStart={jest.fn()}
             />
         );
 
@@ -66,7 +64,6 @@ describe("AllMoviesList", () => {
                 onDelete={onDeleteMock}
                 role="Movie Mentor"
                 draggable={false}
-                onDragStart={jest.fn()}
             />
         );
 
@@ -85,7 +82,6 @@ describe("AllMoviesList", () => {
                 onDelete={onDeleteMock}
                 role="Movie Mentor"
                 draggable={false}
-                onDragStart={jest.fn()}
             />
         );
 
@@ -108,7 +104,6 @@ describe("AllMoviesList", () => {
                 onDelete={onDeleteMock}
                 role="Movie Mentor"
                 draggable={false}
-                onDragStart={jest.fn()}
             />
         );
 

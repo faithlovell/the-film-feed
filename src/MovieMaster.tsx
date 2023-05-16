@@ -15,9 +15,6 @@ export interface Movie {
 export interface MovieProps {
     movie: Movie;
     onSave: (movie: Movie) => void;
-    draggable: boolean; // Add this line
-    onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
-    onDrag?: (e: React.DragEvent<HTMLDivElement>) => void; // add this line
     onDelete: (movieToDelete: Movie) => void;
     role: string;
 }

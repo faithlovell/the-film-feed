@@ -8,7 +8,6 @@ interface AllMoviesListProps {
     onDelete: (movieToDelete: Movie) => void;
     role: string;
     draggable: boolean;
-    onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
 }
 
 export function AllMoviesList({
@@ -74,8 +73,6 @@ export function AllMoviesList({
                                 key={movie.id}
                                 movie={movie}
                                 onSave={onSave}
-                                draggable={true}
-                                onDragStart={(e) => handleOnDrag(e, movie)}
                                 role={role}
                                 onDelete={onDelete}
                             />

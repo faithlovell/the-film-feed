@@ -192,15 +192,6 @@ export function DragLists({
                                     onSave={handleAdminOnSave}
                                     onDelete={onDelete}
                                     role={role}
-                                    onDragStart={function (
-                                        e,
-                                        movie: Movie
-                                    ): void {
-                                        throw new Error(
-                                            "Function not implemented."
-                                        );
-                                    }}
-                                    draggable={false}
                                 />
                             </div>
                         ))}
@@ -230,22 +221,7 @@ export function DragLists({
                                                     movie={movie}
                                                     key={movie.id}
                                                     onSave={handleUserOnSave}
-                                                    draggable={false}
-                                                    onDragStart={function (
-                                                        e: React.DragEvent<HTMLDivElement>,
-                                                        movie: Movie
-                                                    ): void {
-                                                        throw new Error(
-                                                            "Function not implemented."
-                                                        );
-                                                    }}
-                                                    onDelete={function (
-                                                        movieToDelete: Movie
-                                                    ): void {
-                                                        throw new Error(
-                                                            "Function not implemented."
-                                                        );
-                                                    }}
+                                                    onDelete={onDelete}
                                                     role={"User Editor"}
                                                 />
                                             </div>

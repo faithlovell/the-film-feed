@@ -24,9 +24,19 @@ function App(): JSX.Element {
     const [userMovies, setUserMovies] = useState<Movie[]>([]);
     const [movies, setMovies] = useState<Movie[]>([...INITIAL_MOVIES]);
 
-    //when any change to a movie list or movie is made, the list is saved with the edits.
+    //when any change to a movie list or movie is made, all of the movie lists are saved with the edits.
     function handleSave(movie: Movie) {
         setMovies((prevMovies) =>
+            prevMovies.map((prevMovie) =>
+                prevMovie.id === movie.id ? { ...movie } : prevMovie
+            )
+        );
+        setUserMovies((prevMovies) =>
+            prevMovies.map((prevMovie) =>
+                prevMovie.id === movie.id ? { ...movie } : prevMovie
+            )
+        );
+        setAdminMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>
                 prevMovie.id === movie.id ? { ...movie } : prevMovie
             )

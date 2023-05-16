@@ -207,3 +207,10 @@ label {
     color: white;
     font-weight: bold;
 }
+.actor-filter{
+    background-color: #282c34;
+    color: white;
+    font-weight: bold;
+    border-color: #151212;
+
+}

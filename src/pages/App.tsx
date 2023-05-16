@@ -23,6 +23,22 @@ function App(): JSX.Element {
     const [userMovies, setUserMovies] = useState<{ [key: string]: Movie[] }>(
         {}
     );
+    function getMovieCounts(): { [key: string]: number } {
+        const movieCounts: { [key: string]: number } = {};
+
+        for (const role in userMovies) {
+            const movies = userMovies[role];
+            for (const movie of movies) {
+                const { id } = movie;
+                movieCounts[id] = (movieCounts[id] || 0) + 1;
+            }
+        }
+
+        return movieCounts;
+    }
+    function setMovieCounts() {
+        const counts = getMovieCounts();
+    }
 
     const [movies, setMovies] = useState<Movie[]>([...INITIAL_MOVIES]);
 
@@ -39,7 +55,7 @@ function App(): JSX.Element {
         return count;
     };
 
-    //when any change to a movie list or movie is made, all of the movie lists are saved with the edits.
+    //when any change to a movie list or movie is made, all the movie lists are saved with the edits.
     function handleSave(movie: Movie) {
         setMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>

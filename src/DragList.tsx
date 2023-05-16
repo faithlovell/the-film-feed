@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { Movie, MovieItem } from "./MovieMaster";
 import { ManageUser } from "./ManageUser";
 import { Form } from "react-bootstrap";
+import "./App.css";
+import "./AllMoviesList.css";
 
 export interface DragListsProps {
     role: string;
@@ -39,6 +41,8 @@ export function DragLists({
     const [members, setMembers] = useState<string[]>([
         ...options.slice(2, options.length)
     ]);
+    const [actorFilter, setActorFilter] = useState<string>("");
+
     const [movieCounts, setMovieCounts] = useState<{ [user: string]: number }>(
         {}
     );
@@ -84,6 +88,9 @@ export function DragLists({
     //prevents duplicates from being added to admin list: each movie has their own unique ID to keep track of
     function checkDuplicates(movie1: Movie, movie2: Movie) {
         return movie1.id == movie2.id;
+    }
+    function filterMoviesByActor(movies: Movie[], actor: string): Movie[] {
+        return movies.filter((movie) => movie.cast.includes(actor));
     }
 
     //when admin adds movie to list, adds if there is not already a duplicate
@@ -214,11 +221,20 @@ export function DragLists({
                                     <div className="list1-label">
                                         {`${member}`} List
                                     </div>
+                                    <input
+                                        type="text"
+                                        value={actorFilter}
+                                        onChange={(e) =>
+                                            setActorFilter(e.target.value)
+                                        }
+                                        placeholder="Filter by actor"
+                                        className="actor-filter"
+                                    />
                                     <div
                                         className="lists"
                                         onDrop={(e) =>
                                             handleOnDropUser(e, member)
-                                        } // Pass the current user as a parameter
+                                        }
                                         onDragOver={handleDragOver}
                                     >
                                         {userMovies[member]?.map(
@@ -227,28 +243,79 @@ export function DragLists({
                                                     key={index}
                                                     className="dropped-movie"
                                                 >
-                                                    <MovieItem
-                                                        movie={movie}
-                                                        key={movie.id}
-                                                        onSave={
-                                                            handleUserOnSave
-                                                        }
-                                                        draggable={false}
-                                                        onDragStart={function (
-                                                            e: React.DragEvent<HTMLDivElement>,
-                                                            movie: Movie
-                                                        ): void {
-                                                            throw new Error(
-                                                                "Function not implemented."
-                                                            );
-                                                        }}
-                                                        onDelete={onDelete}
-                                                        role={"User Editor"}
-                                                        user={user}
-                                                        countMovieOccurrences={
-                                                            countMovieOccurrences
-                                                        }
-                                                    />
+                                                    {/* Apply the filterMoviesByActor function before rendering */}
+                                                    {actorFilter ? (
+                                                        filterMoviesByActor(
+                                                            [movie],
+                                                            actorFilter
+                                                        ).map(
+                                                            (filteredMovie) => (
+                                                                <MovieItem
+                                                                    movie={
+                                                                        filteredMovie
+                                                                    }
+                                                                    key={
+                                                                        filteredMovie.id
+                                                                    }
+                                                                    onSave={
+                                                                        handleUserOnSave
+                                                                    }
+                                                                    draggable={
+                                                                        false
+                                                                    }
+                                                                    onDragStart={(
+                                                                        e
+                                                                    ) => {
+                                                                        throw new Error(
+                                                                            "Function not implemented."
+                                                                        );
+                                                                    }}
+                                                                    onDelete={(
+                                                                        movieToDelete
+                                                                    ) => {
+                                                                        throw new Error(
+                                                                            "Function not implemented."
+                                                                        );
+                                                                    }}
+                                                                    role={
+                                                                        "User Editor"
+                                                                    }
+                                                                    user={user}
+                                                                    countMovieOccurrences={
+                                                                        countMovieOccurrences
+                                                                    }
+                                                                />
+                                                            )
+                                                        )
+                                                    ) : (
+                                                        <MovieItem
+                                                            movie={movie}
+                                                            key={movie.id}
+                                                            onSave={
+                                                                handleUserOnSave
+                                                            }
+                                                            draggable={false}
+                                                            onDragStart={(
+                                                                e
+                                                            ) => {
+                                                                throw new Error(
+                                                                    "Function not implemented."
+                                                                );
+                                                            }}
+                                                            onDelete={(
+                                                                movieToDelete
+                                                            ) => {
+                                                                throw new Error(
+                                                                    "Function not implemented."
+                                                                );
+                                                            }}
+                                                            role={"User Editor"}
+                                                            user={user}
+                                                            countMovieOccurrences={
+                                                                countMovieOccurrences
+                                                            }
+                                                        />
+                                                    )}
                                                 </div>
                                             )
                                         )}

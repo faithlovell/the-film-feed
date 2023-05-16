@@ -37,6 +37,8 @@ export function DragLists({
     const [members, setMembers] = useState<string[]>([
         ...options.slice(2, options.length)
     ]);
+    const [actorFilter, setActorFilter] = useState<string>("");
+
     const [movieCounts, setMovieCounts] = useState<{ [user: string]: number }>(
         {}
     );
@@ -82,6 +84,9 @@ export function DragLists({
     //prevents duplicates from being added to admin list: each movie has their own unique ID to keep track of
     function checkDuplicates(movie1: Movie, movie2: Movie) {
         return movie1.id == movie2.id;
+    }
+    function filterMoviesByActor(movies: Movie[], actor: string): Movie[] {
+        return movies.filter((movie) => movie.cast.includes(actor));
     }
 
     //when admin adds movie to list, adds if there is not already a duplicate
@@ -209,6 +214,14 @@ export function DragLists({
                                     <div className="list1-label">
                                         {`${member}`} List
                                     </div>
+                                    <input
+                                        type="text"
+                                        value={actorFilter}
+                                        onChange={(e) =>
+                                            setActorFilter(e.target.value)
+                                        }
+                                        placeholder="Filter by actor"
+                                    />
                                     <div
                                         className="lists"
                                         onDrop={(e) =>
@@ -217,38 +230,50 @@ export function DragLists({
                                         onDragOver={handleDragOver}
                                     >
                                         {userMovies[member]?.map(
-                                            (movie, index) => (
-                                                <div
-                                                    key={index}
-                                                    className="dropped-movie"
-                                                >
-                                                    <MovieItem
-                                                        movie={movie}
-                                                        key={movie.id}
-                                                        onSave={
-                                                            handleUserOnSave
-                                                        }
-                                                        draggable={false}
-                                                        onDragStart={function (
-                                                            e: React.DragEvent<HTMLDivElement>,
-                                                            movie: Movie
-                                                        ): void {
-                                                            throw new Error(
-                                                                "Function not implemented."
-                                                            );
-                                                        }}
-                                                        onDelete={function (
-                                                            movieToDelete: Movie
-                                                        ): void {
-                                                            throw new Error(
-                                                                "Function not implemented."
-                                                            );
-                                                        }}
-                                                        role={"User Editor"}
-                                                        user={user}
-                                                    />
-                                                </div>
-                                            )
+                                            (movie, index) => {
+                                                const filteredMovies =
+                                                    actorFilter
+                                                        ? filterMoviesByActor(
+                                                              userMovies[
+                                                                  member
+                                                              ],
+                                                              actorFilter
+                                                          )
+                                                        : userMovies[member];
+
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        className="dropped-movie"
+                                                    >
+                                                        <MovieItem
+                                                            movie={movie}
+                                                            key={movie.id}
+                                                            onSave={
+                                                                handleUserOnSave
+                                                            }
+                                                            draggable={false}
+                                                            onDragStart={function (
+                                                                e: React.DragEvent<HTMLDivElement>,
+                                                                movie: Movie
+                                                            ): void {
+                                                                throw new Error(
+                                                                    "Function not implemented."
+                                                                );
+                                                            }}
+                                                            onDelete={function (
+                                                                movieToDelete: Movie
+                                                            ): void {
+                                                                throw new Error(
+                                                                    "Function not implemented."
+                                                                );
+                                                            }}
+                                                            role={"User Editor"}
+                                                            user={user}
+                                                        />
+                                                    </div>
+                                                );
+                                            }
                                         )}
                                     </div>
                                 </>

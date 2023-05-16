@@ -25,7 +25,7 @@ export interface MovieProps {
     onDelete: (movieToDelete: Movie) => void;
     role: string;
     user: string;
-    usersWithMovie: string[]; //array of users with movie in thier list
+    countMovieOccurrences: (movieId: number) => number;
 }
 
 //controls movie display and user interactions with movies (ie editing)
@@ -35,10 +35,7 @@ export function MovieItem({
     onDelete,
     role,
     user,
-    usersWithMovie,
-    draggable,
-    onDragStart,
-    onDrag
+    countMovieOccurrences
 }: MovieProps) {
     const [editing, setEditing] = useState(false);
     const [cast, setCast] = useState(movie.cast.join(", "));
@@ -90,6 +87,7 @@ export function MovieItem({
                         onCancel={handleCancel}
                         onDelete={onDelete}
                         user={user}
+                        countMovieOccurrences={countMovieOccurrences}
                     />
                 ) : role === "User Editor" ? (
                     <div className="movie-editor">
@@ -186,6 +184,7 @@ interface MovieEditProps {
     onCancel: () => void;
     onDelete: (movieToDelete: Movie) => void;
     user: string;
+    countMovieOccurrences: (movieId: number) => number;
 }
 
 export function MovieEdit({
@@ -193,7 +192,8 @@ export function MovieEdit({
     onSave,
     onCancel,
     onDelete,
-    user
+    user,
+    countMovieOccurrences
 }: MovieEditProps) {
     const [title, setTitle] = useState(movie.title);
     const [cast, setCast] = useState(movie.cast.join(", "));
@@ -202,6 +202,7 @@ export function MovieEdit({
     const [image, setImage] = useState(movie.image);
     const [description, setDescription] = useState(movie.description);
     const [audienceRating, setAudienceRating] = useState(movie.audienceRating);
+    const occurrenceCount = countMovieOccurrences(movie.id);
 
     /*
     all functions below allow for user to edit fields of the movie. each respective field has its own change function
@@ -319,6 +320,15 @@ export function MovieEdit({
                     flexDirection: "row"
                 }}
             >
+                <div className="movie-count">
+                    {user == "Movie Master" && (
+                        <div>
+                            {" "}
+                            Movie appears {occurrenceCount} times across all
+                            user lists.
+                        </div>
+                    )}
+                </div>
                 <button onClick={handleSaveClick}>Save</button>
                 <button onClick={onCancel}>Cancel</button>
                 <button onClick={handleDeleteClick}>Delete</button>

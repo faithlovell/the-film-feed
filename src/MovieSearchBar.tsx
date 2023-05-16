@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Movie } from "./MovieMaster";
 
 function MovieSearchBar({
-    movies,
     userMovies
 }: {
     movies: Movie[];
@@ -24,7 +23,7 @@ function MovieSearchBar({
                             .toLowerCase()
                             .includes(searchTerm.toLowerCase())
                     ) {
-                        matchingUsers = [user[0]];
+                        matchingUsers = [user];
                     }
                 });
             } else {
@@ -34,7 +33,7 @@ function MovieSearchBar({
                             .toLowerCase()
                             .includes(searchTerm.toLowerCase())
                     ) {
-                        matchingUsers = ["no"];
+                        matchingUsers.push(user);
                     }
                 });
             }

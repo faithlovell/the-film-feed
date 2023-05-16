@@ -306,7 +306,13 @@ export function MovieEdit({
                 }}
             >
                 <div className="movie-count">
-                    Movie appears {occurrenceCount} times across all user lists.
+                    {user == "Movie Master" && (
+                        <div>
+                            {" "}
+                            Movie appears {occurrenceCount} times across all
+                            user lists.
+                        </div>
+                    )}
                 </div>
                 <button onClick={handleSaveClick}>Save</button>
                 <button onClick={onCancel}>Cancel</button>

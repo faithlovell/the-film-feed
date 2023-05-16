@@ -34,11 +34,16 @@ function App(): JSX.Element {
                 prevMovie.id === movie.id ? { ...movie } : prevMovie
             )
         );
-        setUserMovies((prevMovies) =>
-            prevMovies.map((prevMovie) =>
-                prevMovie.id === movie.id ? { ...movie } : prevMovie
-            )
-        );
+        setUserMovies((prevMovies) => {
+            const updatedUserMovies = { ...prevMovies };
+            for (const role in updatedUserMovies) {
+                updatedUserMovies[role] = updatedUserMovies[role].map(
+                    (prevMovie) =>
+                        prevMovie.id === movie.id ? { ...movie } : prevMovie
+                );
+            }
+            return updatedUserMovies;
+        });
         setAdminMovies((prevMovies) =>
             prevMovies.map((prevMovie) =>
                 prevMovie.id === movie.id ? { ...movie } : prevMovie

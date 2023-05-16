@@ -36,10 +36,6 @@ function App(): JSX.Element {
 
         return movieCounts;
     }
-    function setMovieCounts() {
-        const counts = getMovieCounts();
-    }
-
     const [movies, setMovies] = useState<Movie[]>([...INITIAL_MOVIES]);
 
     //counts how many times a movie appears in the user lists

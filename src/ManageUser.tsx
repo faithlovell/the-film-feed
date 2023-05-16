@@ -16,7 +16,7 @@ export function ManageUser({
     setMembers
 }: ManageUserProps) {
     const [editUsers, setEditUsers] = useState(false);
-
+    const [showMovies, setShowMovies] = useState(false);
     //used to keep track of site users, when super is in edit mode
     function handleUserClick() {
         setEditUsers(true);
@@ -37,17 +37,21 @@ export function ManageUser({
         );
         handleUserDone();
     }
+    function showUserMovieCount(){
+        setShowMovies(true);
+    }
 
     return (
         <>
             <div>
-                {editUsers &&
+                {editUsers && showMovies &&
                 user !== "Movie Master" &&
                 user !== "Movie Mentor" ? (
                         <UserEdit
                             user={user}
                             userDone={handleUserDone}
                             removeOption={removeOption}
+                            movieCount={showUserMovieCount}
                         />
                     ) : (
                         <span

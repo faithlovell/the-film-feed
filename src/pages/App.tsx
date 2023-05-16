@@ -115,6 +115,10 @@ function App(): JSX.Element {
                 setAdminMovies={setAdminMovies}
                 handleAdminOnSave={handleAdminOnSave}
                 handleUserOnSave={handleUserOnSave}
+                movieCounts={{}}
+                setMovieCounts={function (): void {
+                    throw new Error("Function not implemented.");
+                }}
             ></DragLists>
 
             <hr></hr>

@@ -1,19 +1,23 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from "react";
 
+
 interface ManageUserProps {
     user: string;
     options: string[];
     setOptions: (newOptions: string[]) => void;
     members: string[];
     setMembers: (newMembers: string[]) => void;
+    movieCount: number; // Add movieCount property
+    setMovieCount: (count: number) => void;
 }
 export function ManageUser({
     user,
     options,
     setOptions,
     members,
-    setMembers
+    setMembers,
+    movieCount
 }: ManageUserProps) {
     const [editUsers, setEditUsers] = useState(false);
 
@@ -55,8 +59,7 @@ export function ManageUser({
                             key={user}
                             onClick={handleUserClick}
                         >
-                            {" "}
-                            {user}{" "}
+                            {user} {members.includes(user) && <>Movie Count: {movieCount}</>}
                         </span>
                     )}
             </div>
@@ -87,3 +90,4 @@ export function UserEdit({ user, userDone, removeOption }: userEditProps) {
         </div>
     );
 }
+

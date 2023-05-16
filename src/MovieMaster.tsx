@@ -25,6 +25,21 @@ export interface MovieProps {
 //controls movie display and user interactions with movies (ie editing)
 export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
     const [editing, setEditing] = useState(false);
+    const [cast, setCast] = useState(movie.cast.join(", "));
+    function handleCastSaveClick() {
+        onSave({
+            ...movie,
+            cast: cast.split(", ")
+        });
+        handleCancel();
+    }
+    function handleDeleteClick() {
+        onDelete(movie);
+    }
+
+    function handleCastChange(event: React.ChangeEvent<HTMLInputElement>) {
+        setCast(event.target.value);
+    }
 
     //allows user to edit movie if clicked
     function handleImageClick() {
@@ -55,12 +70,50 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
                         onCancel={handleCancel}
                         onDelete={onDelete}
                     />
+                ) : role === "User Editor" ? (
+                    <div className="movie-editor">
+                        <p className="movie-info">
+                            <strong>Title:</strong> {movie.title}
+                        </p>
+
+                        <>
+                            <label className="labels">
+                                Cast:
+                                <input
+                                    type="text"
+                                    value={cast}
+                                    onChange={handleCastChange}
+                                />
+                            </label>
+                            <p className="movie-info">
+                                <strong>Rating:</strong> {movie.rating}
+                            </p>
+                            <p className="movie-info">
+                                <strong>Description:</strong>{" "}
+                                {movie.description}
+                            </p>
+                            <p className="movie-info">
+                                <strong>In Theaters:</strong>{" "}
+                                {movie.inTheaters ? "Yes" : "No"}
+                            </p>
+                        </>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "row"
+                            }}
+                        >
+                            <button onClick={handleCastSaveClick}>Save</button>
+                            <button onClick={handleCancel}>Cancel</button>
+                            <button onClick={handleDeleteClick}>Delete</button>
+                        </div>
+                    </div>
                 ) : (
                     <div className="movie-editor">
+                        <p className="movie-info">
+                            <strong>Title:</strong> {movie.title}
+                        </p>
                         <>
-                            <p className="movie-info">
-                                <strong>Title:</strong> {movie.title}
-                            </p>
                             <p className="movie-info">
                                 <strong>Cast:</strong> {movie.cast.join(", ")}
                             </p>
@@ -75,8 +128,8 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
                                 <strong>In Theaters:</strong>{" "}
                                 {movie.inTheaters ? "Yes" : "No"}
                             </p>
+                            <button onClick={handleCancel}>Cancel</button>
                         </>
-                        <button onClick={handleCancel}>Cancel</button>
                     </div>
                 )
             ) : (
@@ -165,6 +218,7 @@ export function MovieEdit({
             title,
             cast: cast.split(", "),
             rating,
+            audienceRating,
             inTheaters,
             image
         });

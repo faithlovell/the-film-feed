@@ -51,7 +51,7 @@ export function ManageUser({
                             user={user}
                             userDone={handleUserDone}
                             removeOption={removeOption}
-                            movieCount={showUserMovieCount}
+                            // movieCount={showUserMovieCount}
                         />
                     ) : (
                         <span

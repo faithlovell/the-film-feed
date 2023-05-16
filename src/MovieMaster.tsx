@@ -230,7 +230,7 @@ export function MovieEdit({
                 inTheaters,
                 image
             },
-            (user = user)
+            user
         );
         onCancel();
     }

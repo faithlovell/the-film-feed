@@ -16,6 +16,7 @@ export interface DragListsProps {
     onDelete: (movieToDelete: Movie) => void;
     handleAdminOnSave: (movie: Movie) => void;
     user: string;
+    handleUserOnSave: (movie: Movie, user: string) => void;
 }
 
 export function DragLists({

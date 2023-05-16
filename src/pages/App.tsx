@@ -27,6 +27,19 @@ function App(): JSX.Element {
 
     const [movies, setMovies] = useState<Movie[]>([...INITIAL_MOVIES]);
 
+    //counts how many times a movie appears in the user lists
+    const countMovieOccurrence = (movieId: number): number => {
+        let count = 0;
+        Object.values(userMovies).forEach((movies) => {
+            movies.forEach((movie) => {
+                if (movie.id === movieId) {
+                    count++;
+                }
+            });
+        });
+        return count;
+    };
+
     //when any change to a movie list or movie is made, all of the movie lists are saved with the edits.
     function handleSave(movie: Movie) {
         setMovies((prevMovies) =>
@@ -132,6 +145,7 @@ function App(): JSX.Element {
                 setMovieCounts={function (): void {
                     throw new Error("Function not implemented.");
                 }}
+                countMovieOccurrences={countMovieOccurrence}
             ></DragLists>
 
             <hr></hr>
@@ -145,6 +159,7 @@ function App(): JSX.Element {
                     throw new Error("Function not implemented.");
                 }}
                 user={role}
+                countMovieOccurrences={countMovieOccurrence}
             ></AllMoviesList>
             <SliderParent movies={movies}></SliderParent>
             <MovieForm

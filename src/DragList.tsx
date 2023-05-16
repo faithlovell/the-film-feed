@@ -19,6 +19,7 @@ export interface DragListsProps {
     handleUserOnSave: (movie: Movie, user: string) => void;
     movieCounts: { [user: string]: number }; // Add movieCounts property
     setMovieCounts: (counts: { [user: string]: number }) => void; // Add setMovieCounts property
+    countMovieOccurrences: (movieId: number) => number;
 }
 
 export function DragLists({
@@ -31,7 +32,8 @@ export function DragLists({
     setUserMovies,
     onDelete,
     handleAdminOnSave,
-    user
+    user,
+    countMovieOccurrences
 }: DragListsProps) {
     const [newUser, setNewUser] = useState<string>("");
     const [members, setMembers] = useState<string[]>([
@@ -194,6 +196,9 @@ export function DragLists({
                                     }}
                                     draggable={false}
                                     user={user}
+                                    countMovieOccurrences={
+                                        countMovieOccurrences
+                                    }
                                 />
                             </div>
                         ))}
@@ -246,6 +251,9 @@ export function DragLists({
                                                         }}
                                                         role={"User Editor"}
                                                         user={user}
+                                                        countMovieOccurrences={
+                                                            countMovieOccurrences
+                                                        }
                                                     />
                                                 </div>
                                             )

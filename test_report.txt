@@ -18,25 +18,26 @@ PASS src/tests/menubar.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |    6.97 |     4.44 |    7.81 |    7.14 |                   
- src                 |    8.69 |     5.12 |      10 |    8.82 |                   
+All files            |    6.45 |     4.25 |    7.24 |    6.64 |                   
+ src                 |       8 |     4.87 |    9.17 |    8.18 |                   
   AllMoviesList.tsx  |       0 |        0 |       0 |       0 | 24-82             
-  DragList.tsx       |       0 |        0 |       0 |       0 | 40-308            
+  DragList.tsx       |       0 |        0 |       0 |       0 | 40-346            
   HungerGames.tsx    |       0 |      100 |       0 |       0 | 6                 
   ManageUser.tsx     |       0 |        0 |       0 |       0 | 22-80             
   MenuBar.tsx        |     100 |      100 |     100 |     100 |                   
-  MovieMaster.tsx    |       0 |        0 |       0 |       0 | 36-249            
+  MovieMaster.tsx    |       0 |        0 |       0 |       0 | 40-253            
   MovieSearchBar.tsx |       0 |        0 |       0 |       0 | 10-56             
   Movies.tsx         |       0 |      100 |     100 |       0 | 33                
-  NewMovieForm.tsx   |       0 |        0 |       0 |       0 | 12-80             
+  MoviesSearch.tsx   |       0 |      100 |       0 |       0 | 9-21              
+  NewMovieForm.tsx   |       0 |        0 |       0 |       0 | 13-81             
   ReviewBox.tsx      |       0 |      100 |       0 |       0 | 10-61             
   Scroller.tsx       |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
  src/pages           |       0 |        0 |       0 |       0 |                   
-  App.tsx            |       0 |        0 |       0 |       0 | 18-158            
+  App.tsx            |       0 |        0 |       0 |       0 | 20-170            
 ---------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        3.711 s
+Time:        4.391 s
 Ran all test suites.

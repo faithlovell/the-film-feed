@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./MovieForm.css";
 import { Movie } from "./MovieMaster";
+import "./AllMoviesList.css";
 
 interface MovieFormProps {
     addMovie: (newMovie: Movie) => void;

@@ -28,7 +28,7 @@ h1 {
 
 form {
     border-radius: 8px;
-    border: 1px solid #dedede;
+    border: 3px solid #dedede;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -47,12 +47,13 @@ input {
 }
 
 label {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 10px;
-    font-weight: bold;
+    color: white;
+    display: block;
     font-family: "Helvetica Neue", Georgia, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .error {
@@ -75,6 +76,7 @@ button {
     justify-content: center;
     display: flex;
 }
+
 
 button:hover {
     background-color: #cd5b5d;

@@ -49,6 +49,7 @@ function MovieSearchBar({
                 placeholder="Enter movie name"
                 value={searchTerm}
                 onChange={handleSearch}
+                className="search-bar"
             />
             {matchingUsers.length > 0 ? (
                 <ul>

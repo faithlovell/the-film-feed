@@ -43,7 +43,6 @@
 }
 
 .lists {
-
     flex-basis: 50%;
     border: 6px solid rgb(18, 16, 16);
     margin: 10px;
@@ -203,14 +202,20 @@ label {
     display: grid;
 }
 
-.labels{
+.labels {
     color: white;
     font-weight: bold;
 }
-.actor-filter{
+.actor-filter {
     background-color: #282c34;
     color: white;
     font-weight: bold;
     border-color: #151212;
+    width: 99%;
+    margin-bottom: 10px;
+}
 
+.search-bar {
+    width: 500px;
+    margin: 10px;
 }

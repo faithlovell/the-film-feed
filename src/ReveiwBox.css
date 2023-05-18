@@ -8,6 +8,7 @@
     max-width: 300px;
     font-weight: bold;
     color: white;
+    background-color: #1e2127;
 }
 
 .review-box label {
@@ -64,4 +65,36 @@
 
 .review-box button + button {
     margin-left: 10px;
+}
+
+.review-user {
+    color: orange;
+    font-weight: bold;
+}
+
+.review-name {
+    color: orange;
+    font-weight: bold;
+}
+
+.review-content {
+    color: white;
+}
+.review-text {
+    color:white;
+    font-weight: bold;
+}
+
+.dropdown {
+    width: 200px; /* Adjust the width as needed */
+}
+
+.dropdown option {
+    background-color: grey;
+    color: white;
+}
+
+.dropdown option:hover {
+    background-color: pink;
+    box-shadow: 0 0 5px pink;
 }

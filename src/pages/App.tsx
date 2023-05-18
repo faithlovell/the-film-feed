@@ -178,7 +178,7 @@ function App(): JSX.Element {
                 movies={movies}
                 role={role}
             ></MovieForm>
-            <ReviewApp></ReviewApp>
+            <ReviewApp role={role} movies={movies}></ReviewApp>
             <hr></hr>
             <p>
                 Created by: Katie Oates, Diya Shah, John Henry Cooper, Faith

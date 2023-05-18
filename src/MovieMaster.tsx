@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import "./App.css"; // import CSS file
-
+interface User {
+    name: string;
+    movieList: Movie[];
+}
 export interface Movie {
     id: number;
     title: string;
@@ -14,23 +18,35 @@ export interface Movie {
 
 export interface MovieProps {
     movie: Movie;
-    onSave: (movie: Movie) => void;
+    onSave: (movie: Movie, user: string) => void;
     draggable: boolean; // Add this line
     onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
     onDrag?: (e: React.DragEvent<HTMLDivElement>) => void; // add this line
     onDelete: (movieToDelete: Movie) => void;
     role: string;
+    user: string;
+    countMovieOccurrences: (movieId: number) => number;
 }
 
 //controls movie display and user interactions with movies (ie editing)
-export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
+export function MovieItem({
+    movie,
+    onSave,
+    onDelete,
+    role,
+    user,
+    countMovieOccurrences
+}: MovieProps) {
     const [editing, setEditing] = useState(false);
     const [cast, setCast] = useState(movie.cast.join(", "));
     function handleCastSaveClick() {
-        onSave({
-            ...movie,
-            cast: cast.split(", ")
-        });
+        onSave(
+            {
+                ...movie,
+                cast: cast.split(", ")
+            },
+            user
+        );
         handleCancel();
     }
     function handleDeleteClick() {
@@ -52,7 +68,7 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
     }
 
     //allows users to drag movies to lists
-    function handleOnDrag(e: React.DragEvent<HTMLDivElement>, movie: Movie) {
+    function handleOnDrag(e: React.DragEvent, movie: Movie) {
         e.dataTransfer.setData("movie", JSON.stringify(movie));
     }
 
@@ -69,6 +85,8 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
                         onSave={onSave}
                         onCancel={handleCancel}
                         onDelete={onDelete}
+                        user={user}
+                        countMovieOccurrences={countMovieOccurrences}
                     />
                 ) : role === "User Editor" ? (
                     <div className="movie-editor">
@@ -151,16 +169,20 @@ export function MovieItem({ movie, onSave, onDelete, role }: MovieProps) {
 
 interface MovieEditProps {
     movie: Movie;
-    onSave: (movie: Movie) => void;
+    onSave: (movie: Movie, user: string) => void;
     onCancel: () => void;
     onDelete: (movieToDelete: Movie) => void;
+    user: string;
+    countMovieOccurrences: (movieId: number) => number;
 }
 
 export function MovieEdit({
     movie,
     onSave,
     onCancel,
-    onDelete
+    onDelete,
+    user,
+    countMovieOccurrences
 }: MovieEditProps) {
     const [title, setTitle] = useState(movie.title);
     const [cast, setCast] = useState(movie.cast.join(", "));
@@ -169,6 +191,7 @@ export function MovieEdit({
     const [image, setImage] = useState(movie.image);
     const [description, setDescription] = useState(movie.description);
     const [audienceRating, setAudienceRating] = useState(movie.audienceRating);
+    const occurrenceCount = countMovieOccurrences(movie.id);
 
     /*
     all functions below allow for user to edit fields of the movie. each respective field has its own change function
@@ -213,15 +236,18 @@ export function MovieEdit({
     }
 
     function handleSaveClick() {
-        onSave({
-            ...movie,
-            title,
-            cast: cast.split(", "),
-            rating,
-            audienceRating,
-            inTheaters,
-            image
-        });
+        onSave(
+            {
+                ...movie,
+                title,
+                cast: cast.split(", "),
+                rating,
+                inTheaters,
+                audienceRating,
+                image
+            },
+            user
+        );
         onCancel();
     }
     return (
@@ -283,6 +309,15 @@ export function MovieEdit({
                     flexDirection: "row"
                 }}
             >
+                <div className="movie-count">
+                    {user == "Movie Master" && (
+                        <div>
+                            {" "}
+                            Movie appears {occurrenceCount} times across all
+                            user lists.
+                        </div>
+                    )}
+                </div>
                 <button onClick={handleSaveClick}>Save</button>
                 <button onClick={onCancel}>Cancel</button>
                 <button onClick={handleDeleteClick}>Delete</button>

@@ -9,13 +9,17 @@ interface AllMoviesListProps {
     role: string;
     draggable: boolean;
     onDragStart: (e: React.DragEvent<HTMLDivElement>, movie: Movie) => void;
+    user: string;
+    countMovieOccurrences: (movieId: number) => number;
 }
 
 export function AllMoviesList({
     movies,
     onSave,
     onDelete,
-    role
+    role,
+    user,
+    countMovieOccurrences
 }: AllMoviesListProps) {
     const [filter, setFilter] = useState("");
 
@@ -78,6 +82,8 @@ export function AllMoviesList({
                                 onDragStart={(e) => handleOnDrag(e, movie)}
                                 role={role}
                                 onDelete={onDelete}
+                                user={user}
+                                countMovieOccurrences={countMovieOccurrences}
                             />
                         ))}
                     </div>

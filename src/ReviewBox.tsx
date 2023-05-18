@@ -1,12 +1,20 @@
 import React from "react";
 import { useState } from "react";
+import "./ReveiwBox.css";
+import { Movie } from "./MovieMaster";
 
 interface Review {
     name: string;
     content: string;
+    user: string;
+}
+interface ReviewProps {
+    role: string;
+
+    movies: Movie[];
 }
 
-function ReviewApp() {
+function ReviewApp({ role, movies }: ReviewProps) {
     const [name, setName] = useState("");
     const [content, setContent] = useState("");
     const [reviews, setReviews] = useState<Review[]>([]);
@@ -14,7 +22,7 @@ function ReviewApp() {
     /*
     the below functions allow for a review to be inputted and displayed on the website, for viewers to see
     */
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleNameChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setName(event.target.value);
     };
 
@@ -27,6 +35,7 @@ function ReviewApp() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newReview = {
+            user: role,
             name,
             content
         };
@@ -40,12 +49,19 @@ function ReviewApp() {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Movie Name: </label>
-                    <input
-                        type="text"
+                    <select
                         id="name"
                         value={name}
                         onChange={handleNameChange}
-                    />
+                        className="dropdown"
+                    >
+                        <option value="">Select a movie</option>
+                        {movies.map((movie) => (
+                            <option key={movie.title} value={movie.title}>
+                                {movie.title}
+                            </option>
+                        ))}
+                    </select>
                 </div>
                 <div>
                     <label htmlFor="content">Review: </label>
@@ -63,11 +79,15 @@ function ReviewApp() {
                     style={{
                         border: "2px solid orange",
                         display: "inline-block",
-                        margin: "10px"
+                        margin: "10px",
+                        backgroundColor: "#353b45;"
                     }}
                 >
                     <p>
-                        {review.name}: {review.content}
+                        <span className="review-user">{review.user}</span>{" "}
+                        <span className="review-text">Reviewing</span>{" "}
+                        <span className="review-name">{review.name}:</span>{" "}
+                        <span className="review-content">{review.content}</span>
                     </p>
                 </div>
             ))}

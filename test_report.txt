@@ -30,7 +30,7 @@ All files            |    6.45 |     4.25 |    7.24 |    6.64 |
   Movies.tsx         |       0 |      100 |     100 |       0 | 33                
   MoviesSearch.tsx   |       0 |      100 |       0 |       0 | 9-21              
   NewMovieForm.tsx   |       0 |        0 |       0 |       0 | 13-81             
-  ReviewBox.tsx      |       0 |      100 |       0 |       0 | 10-61             
+  ReviewBox.tsx      |       0 |      100 |       0 |       0 | 11-62             
   Scroller.tsx       |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
  src/pages           |       0 |        0 |       0 |       0 |                   
   App.tsx            |       0 |        0 |       0 |       0 | 20-170            
@@ -39,5 +39,5 @@ All files            |    6.45 |     4.25 |    7.24 |    6.64 |
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        3.752 s
+Time:        5.387 s
 Ran all test suites.

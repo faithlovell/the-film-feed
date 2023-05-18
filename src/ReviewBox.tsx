@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "./ReveiwBox.css";
-import { DragListsProps } from "./DragList";
 import { Movie } from "./MovieMaster";
 
 interface Review {

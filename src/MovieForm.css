@@ -1,28 +1,41 @@
 section {
-    background: salmon;
-    padding: 20px;
+    display: flex;
+    flex-direction: column; /* change the flex direction to column */
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #282c34;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+
 }
 
 h1 {
-    border-bottom: 1px solid white;
-    color: #3d3d3d;
-    font-family: sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 24px;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Georgia, sans-serif;
+    margin-bottom: 1rem;
+    text-align: center; /* center the title */
+    color: white;
+    /*outline-color: #cd5b5d;*/
+    /*outline-width: 5px;*/
+    /*outline-style: inset;*/
+    text-decoration-line: blink;
     padding: 10px;
-    text-align: center;
 }
 
 form {
-    background: white;
-    border: 1px solid #dedede;
+    border-radius: 8px;
+    border: 3px solid #dedede;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin: 0 auto;
     max-width: 500px;
     padding: 30px 50px;
+    color: white;
 }
 
 input {
@@ -34,12 +47,13 @@ input {
 }
 
 label {
-    color: #3d3d3d;
+    color: white;
     display: block;
-    font-family: sans-serif;
+    font-family: "Helvetica Neue", Georgia, sans-serif;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: bold;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .error {
@@ -49,10 +63,22 @@ label {
     height: 30px;
 }
 
-.submitButton {
-    background-color: #f3987a;
-    color: white;
-    font-family: sans-serif;
-    font-size: 14px;
-    margin: 20px 0px;
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #323541;
+    cursor: pointer;
+    transition: 0.2s;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+}
+
+
+button:hover {
+    background-color: #cd5b5d;
+    transform: perspective(100px);
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import "./ReveiwBox.css";
 
 interface Review {
     name: string;
@@ -37,7 +38,7 @@ function ReviewApp() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="review-box">
                 <div>
                     <label htmlFor="name">Movie Name: </label>
                     <input

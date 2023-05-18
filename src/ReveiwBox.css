@@ -1,0 +1,67 @@
+.review-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 300px;
+    font-weight: bold;
+    color: white;
+}
+
+.review-box label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-box label input[type="text"],
+.review-box label input[type="checkbox"] {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.review-box label input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.review-box label input[type="checkbox"]:checked {
+    background-color: #cd5b5d;
+    border-color: #cd5b5d;
+}
+
+.review-box button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #323541;
+    cursor: pointer;
+    transition: 0.2s;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+}
+
+.review-box button:hover {
+    background-color: #cd5b5d;
+    transform: perspective(100px);
+}
+
+.review-box button + button {
+    margin-left: 10px;
+}

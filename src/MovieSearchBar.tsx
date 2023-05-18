@@ -33,7 +33,7 @@ function MovieSearchBar({
                             .toLowerCase()
                             .includes(searchTerm.toLowerCase())
                     ) {
-                        matchingUsers.push(user);
+                        matchingUsers = [user];
                     }
                 });
             }

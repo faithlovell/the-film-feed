@@ -25,6 +25,7 @@
     border-radius: 10px;
     margin: 5px;
     display: block;
+    cursor: pointer;
 }
 
 .plaques {
@@ -214,7 +215,6 @@ label {
     width: 99%;
     margin-bottom: 10px;
 }
-
 .search-bar {
     width: 500px;
     margin: 10px;

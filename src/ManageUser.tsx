@@ -43,6 +43,7 @@ export function ManageUser({
     }
 
     return (
+        // only allow super and admin to delete users
         <>
             <div>
                 {editUsers &&

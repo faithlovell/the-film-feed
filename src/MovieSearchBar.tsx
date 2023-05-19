@@ -45,11 +45,11 @@ function MovieSearchBar({
     return (
         <div>
             <input
-                className="actor-filter"
                 type="text"
                 placeholder="Search User Lists..."
                 value={searchTerm}
                 onChange={handleSearch}
+                className="actor-filter"
             />
             {matchingUsers.length > 0 ? (
                 <ul>

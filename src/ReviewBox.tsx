@@ -46,8 +46,9 @@ function ReviewApp({ role, movies }: ReviewProps) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="review-box">
                 <div>
+                    <h2>Review of a Movie</h2>
                     <label htmlFor="name">Movie Name: </label>
                     <select
                         id="name"
@@ -71,7 +72,9 @@ function ReviewApp({ role, movies }: ReviewProps) {
                         onChange={handleContentChange}
                     />
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" className="submit-button">
+                    Submit
+                </button>
             </form>
             {reviews.map((review, index) => (
                 <div

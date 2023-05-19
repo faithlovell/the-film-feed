@@ -14,7 +14,6 @@ import { Movie } from "../MovieMaster";
 import MovieForm from "../NewMovieForm";
 import { INITIAL_MOVIES } from "../Movies";
 import MovieSearchBar from "../MovieSearchBar";
-import SearchMovies from "../MoviesSearch";
 
 function App(): JSX.Element {
     const [role, setRole] = useState<string>("Movie Master");
@@ -27,6 +26,7 @@ function App(): JSX.Element {
         {}
     );
     const [movies, setMovies] = useState<Movie[]>([...INITIAL_MOVIES]);
+    const [filteredMovies, setFilteredMovies] = useState<Movie[]>(movies);
 
     //counts how many times a movie appears in the user lists
     const countMovieOccurrence = (movieId: number): number => {
@@ -111,12 +111,6 @@ function App(): JSX.Element {
             )
         );
     }
-
-    const [filteredMovies, setFilteredMovies] = useState<Movie[]>(movies);
-    const handleSearchMovies = (filteredMovies: Movie[]) => {
-        setFilteredMovies(filteredMovies);
-    };
-
     return (
         <div className="App">
             <header className="App-header">
@@ -155,12 +149,9 @@ function App(): JSX.Element {
                 userMovieLists={{}}
             ></DragLists>
             <MovieSearchBar movies={movies} userMovies={userMovies} />
-            <SearchMovies
-                movies={movies}
-                onSearch={handleSearchMovies}
-            ></SearchMovies>
+            <hr></hr>
             <AllMoviesList
-                movies={filteredMovies}
+                movies={movies}
                 onSave={handleSave}
                 onDelete={deleteMovie}
                 role={role}

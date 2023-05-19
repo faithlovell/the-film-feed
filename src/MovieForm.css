@@ -6,10 +6,9 @@ section {
     margin: 0 auto;
     background: #282c34;
     color: white;
-    padding-top: 20px;
     padding-bottom: 20px;
     justify-content: space-between;
-
+    margin: 0 auto;
 }
 
 h1 {
@@ -32,10 +31,12 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 0 auto;
+    margin: 20px;
     max-width: 500px;
     padding: 30px 50px;
     color: white;
+    margin: 0 auto;
+    margin-top: 25px;
 }
 
 input {
@@ -44,6 +45,10 @@ input {
     box-sizing: border-box;
     padding: 10px;
     width: 100%;
+}
+
+textarea {
+    margin-bottom: 10px;
 }
 
 label {
@@ -63,7 +68,7 @@ label {
     height: 30px;
 }
 
-button {
+.submit-button {
     margin-top: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -73,10 +78,14 @@ button {
     cursor: pointer;
     transition: 0.2s;
     flex-direction: row;
-    justify-content: center;
-    display: flex;
-}
+    width: 125px;
+    height: 45px;
+    padding: 10px;
 
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
 
 button:hover {
     background-color: #cd5b5d;

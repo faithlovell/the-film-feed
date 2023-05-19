@@ -159,7 +159,6 @@ function App(): JSX.Element {
                 movies={movies}
                 onSearch={handleSearchMovies}
             ></SearchMovies>
-            <hr></hr>
             <AllMoviesList
                 movies={filteredMovies}
                 onSave={handleSave}

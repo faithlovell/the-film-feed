@@ -37,8 +37,9 @@ function ReviewApp() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className="submit-review">
-                <div className="review-input">
+            <form onSubmit={handleSubmit} className="review-box">
+                <div>
+                    <h2>Review of a Movie</h2>
                     <label htmlFor="name">Movie Name: </label>
                     <input
                         type="text"
@@ -47,7 +48,7 @@ function ReviewApp() {
                         onChange={handleNameChange}
                     />
                 </div>
-                <div className="review-input">
+                <div>
                     <label htmlFor="content">Review: </label>
                     <textarea
                         id="content"

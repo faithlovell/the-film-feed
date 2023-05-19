@@ -223,12 +223,11 @@ label {
     display: flex;
     flex-direction: row; /* change the flex direction to column */
     align-items: center;
-    margin: 0 auto;
     color: white;
     padding-bottom: 20px;
     justify-content: space-between;
     margin-top: 20px;
 }
-.review-input {
-    margin: 10px;
+.review-box {
+    margin-top: 20px;
 }

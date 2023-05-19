@@ -35,6 +35,8 @@ form {
     max-width: 500px;
     padding: 30px 50px;
     color: white;
+    margin: 0 auto;
+    margin-top: 25px;
 }
 
 input {
@@ -43,6 +45,10 @@ input {
     box-sizing: border-box;
     padding: 10px;
     width: 100%;
+}
+
+textarea {
+    margin-bottom: 10px;
 }
 
 label {

@@ -26,18 +26,18 @@ All files            |    6.42 |     4.25 |    7.19 |    6.61 |
   ManageUser.tsx     |       0 |        0 |       0 |       0 | 22-80             
   MenuBar.tsx        |     100 |      100 |     100 |     100 |                   
   MovieMaster.tsx    |       0 |        0 |       0 |       0 | 40-253            
-  MovieSearchBar.tsx |       0 |        0 |       0 |       0 | 10-56             
+  MovieSearchBar.tsx |       0 |        0 |       0 |       0 | 10-57             
   Movies.tsx         |       0 |      100 |     100 |       0 | 33                
   MoviesSearch.tsx   |       0 |      100 |       0 |       0 | 9-21              
   NewMovieForm.tsx   |       0 |        0 |       0 |       0 | 13-81             
-  ReviewBox.tsx      |       0 |      100 |       0 |       0 | 18-77             
+  ReviewBox.tsx      |       0 |      100 |       0 |       0 | 18-80             
   Scroller.tsx       |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
  src/pages           |       0 |        0 |       0 |       0 |                   
-  App.tsx            |       0 |        0 |       0 |       0 | 20-170            
+  App.tsx            |       0 |        0 |       0 |       0 | 20-169            
 ---------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        4.469 s
+Time:        4.636 s
 Ran all test suites.

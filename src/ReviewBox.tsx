@@ -37,8 +37,8 @@ function ReviewApp() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form onSubmit={handleSubmit} className="submit-review">
+                <div className="review-input">
                     <label htmlFor="name">Movie Name: </label>
                     <input
                         type="text"
@@ -47,7 +47,7 @@ function ReviewApp() {
                         onChange={handleNameChange}
                     />
                 </div>
-                <div>
+                <div className="review-input">
                     <label htmlFor="content">Review: </label>
                     <textarea
                         id="content"
@@ -55,7 +55,9 @@ function ReviewApp() {
                         onChange={handleContentChange}
                     />
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" className="submit-button">
+                    Submit
+                </button>
             </form>
             {reviews.map((review, index) => (
                 <div

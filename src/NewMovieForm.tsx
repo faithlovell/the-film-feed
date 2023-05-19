@@ -150,7 +150,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
                                 onChange={handleInTheatersChange}
                             />
                         </section>
-                        <button type="submit" className="submit-movie">
+                        <button type="submit" className="submit-button">
                             Add Movie
                         </button>
                     </form>

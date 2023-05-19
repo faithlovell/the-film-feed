@@ -8,6 +8,7 @@ section {
     color: white;
     padding-bottom: 20px;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 h1 {
@@ -61,7 +62,7 @@ label {
     height: 30px;
 }
 
-.submit-movie {
+.submit-button {
     margin-top: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -71,20 +72,16 @@ label {
     cursor: pointer;
     transition: 0.2s;
     flex-direction: row;
-    justify-content: center;
-    display: flex;
     width: 125px;
     height: 45px;
     padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 button:hover {
     background-color: #cd5b5d;
     transform: perspective(100px);
-}
-
-.submit-movie {
-    display: flex;
-    justify-content: center;
-    margin-left: 100px;
 }

@@ -14,7 +14,6 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
-    const [cast, setCast] = useState<string[]>([]);
     const [rating, setRating] = useState("");
     const [audienceRating, setAudienceRating] = useState(0);
     const [inTheaters, setInTheaters] = useState(false);
@@ -62,14 +61,13 @@ const MovieForm: React.FC<MovieFormProps> = ({ addMovie, movies, role }) => {
         const newId = movies.length + 1;
         const newActors = newCast.split(",").map((actor) => actor.trim());
         setNewCast("");
-        setCast([...newActors]);
         const img = new Image();
         img.src = image;
         const newMovie: Movie = {
             id: newId,
             title,
             description,
-            cast,
+            cast: [...newActors],
             rating,
             audienceRating,
             inTheaters,

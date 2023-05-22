@@ -93,10 +93,12 @@ export function DragLists({
         return movie1.id == movie2.id;
     }
 
+    //filters movies by inputted actor
     function filterMoviesByActor(movies: Movie[], actor: string): Movie[] {
         return movies.filter((movie) => movie.cast.includes(actor));
     }
 
+    //filters user movies by if they are in theaters, used when box is checked
     function filterMoviesByInTheaters(movies: Movie[], inTheaters: boolean) {
         if (inTheaters) {
             return movies.filter((movie) => movie.inTheaters);
@@ -306,6 +308,7 @@ export function DragLists({
                                                     className="dropped-movie"
                                                 >
                                                     {/* Apply the filterMoviesByActor function after applying the theater filter */}
+                                                    {/* used a nested ternary I'm sorry it was the only way */}
                                                     {inTheatersFilter ? (
                                                         movie.inTheaters ? (
                                                             actorFilter ? (

@@ -18,7 +18,7 @@ PASS src/tests/menubar.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |    6.66 |     4.25 |     7.4 |    6.87 |                   
+All files            |    6.66 |     4.16 |     7.4 |    6.87 |                   
  src                 |    8.25 |     4.87 |    9.34 |    8.45 |                   
   AllMoviesList.tsx  |       0 |        0 |       0 |       0 | 24-82             
   DragList.tsx       |       0 |        0 |       0 |       0 | 40-346            
@@ -32,11 +32,11 @@ All files            |    6.66 |     4.25 |     7.4 |    6.87 |
   ReviewBox.tsx      |       0 |      100 |       0 |       0 | 18-80             
   Scroller.tsx       |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
  src/pages           |       0 |        0 |       0 |       0 |                   
-  App.tsx            |       0 |        0 |       0 |       0 | 19-160            
+  App.tsx            |       0 |        0 |       0 |       0 | 19-162            
 ---------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        3.825 s
+Time:        3.921 s
 Ran all test suites.

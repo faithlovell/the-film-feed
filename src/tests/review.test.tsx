@@ -1,6 +1,7 @@
 import React from "react";
 import ReviewApp from "../ReviewBox";
 import { Movie } from "../MovieMaster";
+import { render } from "@testing-library/react";
 
 const movies: Movie[] = [
     // Provide sample movies data

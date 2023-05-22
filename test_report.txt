@@ -9,8 +9,8 @@ PASS src/tests/review.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |   10.46 |     3.92 |    8.51 |   10.82 |                   
- src                 |   12.88 |     4.54 |   10.61 |   13.24 |                   
+All files            |   10.54 |     3.92 |    8.51 |    10.9 |                   
+ src                 |      13 |     4.54 |   10.61 |   13.36 |                   
   AllMoviesList.tsx  |   19.04 |        0 |   16.66 |   19.04 | 30-35,40-53,77-82 
   DragList.tsx       |       0 |        0 |       0 |       0 | 40-460            
   ManageUser.tsx     |       0 |        0 |       0 |       0 | 22-81             
@@ -18,7 +18,7 @@ All files            |   10.46 |     3.92 |    8.51 |   10.82 |
   MovieMaster.tsx    |       0 |        0 |       0 |       0 | 40-250            
   MovieSearchBar.tsx |       0 |        0 |       0 |       0 | 10-49             
   Movies.tsx         |       0 |      100 |     100 |       0 | 33                
-  NewMovieForm.tsx   |       0 |        0 |       0 |       0 | 13-81             
+  NewMovieForm.tsx   |       0 |        0 |       0 |       0 | 13-79             
   ReviewBox.tsx      |   43.75 |      100 |   16.66 |   43.75 | 26,32,36-44,61-80 
   Scroller.tsx       |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
  src/pages           |       0 |        0 |       0 |       0 |                   
@@ -28,5 +28,5 @@ All files            |   10.46 |     3.92 |    8.51 |   10.82 |
 Test Suites: 4 passed, 4 total
 Tests:       14 passed, 14 total
 Snapshots:   0 total
-Time:        6.563 s
+Time:        5.742 s
 Ran all test suites.

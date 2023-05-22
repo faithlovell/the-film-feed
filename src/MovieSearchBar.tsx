@@ -14,30 +14,22 @@ function MovieSearchBar({
     };
 
     const getMatchingUsers = (): string[] => {
-        let matchingUsers: string[] = [];
-        Object.entries(userMovies).forEach(([user, movies]) => {
-            if (Array.isArray(userMovies)) {
-                userMovies.forEach((movie) => {
-                    if (
-                        movie.title
-                            .toLowerCase()
-                            .includes(searchTerm.toLowerCase())
-                    ) {
-                        matchingUsers = [user];
-                    }
-                });
-            } else {
+        const matchingUsers: string[] = [];
+
+        if (searchTerm) {
+            Object.entries(userMovies).forEach(([user, movies]) => {
                 movies.forEach((movie: { title: string }) => {
                     if (
                         movie.title
                             .toLowerCase()
                             .includes(searchTerm.toLowerCase())
                     ) {
-                        matchingUsers = [user];
+                        matchingUsers.push(user);
                     }
                 });
-            }
-        });
+            });
+        }
+
         return matchingUsers;
     };
     const matchingUsers = getMatchingUsers();

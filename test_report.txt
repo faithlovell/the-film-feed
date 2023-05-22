@@ -9,10 +9,10 @@ PASS src/tests/review.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |    10.9 |     4.25 |    9.02 |   11.24 |                   
- src                 |   13.55 |        5 |   11.42 |   13.87 |                   
+All files            |   10.46 |     3.92 |    8.51 |   10.82 |                   
+ src                 |   12.88 |     4.54 |   10.61 |   13.24 |                   
   AllMoviesList.tsx  |   19.04 |        0 |   16.66 |   19.04 | 30-35,40-53,77-82 
-  DragList.tsx       |       0 |        0 |       0 |       0 | 40-346            
+  DragList.tsx       |       0 |        0 |       0 |       0 | 40-460            
   ManageUser.tsx     |       0 |        0 |       0 |       0 | 22-81             
   MenuBar.tsx        |     100 |      100 |     100 |     100 |                   
   MovieMaster.tsx    |       0 |        0 |       0 |       0 | 40-250            
@@ -28,5 +28,5 @@ All files            |    10.9 |     4.25 |    9.02 |   11.24 |
 Test Suites: 4 passed, 4 total
 Tests:       14 passed, 14 total
 Snapshots:   0 total
-Time:        4.224 s
+Time:        6.563 s
 Ran all test suites.

@@ -46,9 +46,10 @@ function MovieSearchBar({
         <div>
             <input
                 type="text"
-                placeholder="Enter movie name"
+                placeholder="Search User Lists..."
                 value={searchTerm}
                 onChange={handleSearch}
+                className="actor-filter"
             />
             {matchingUsers.length > 0 ? (
                 <ul>

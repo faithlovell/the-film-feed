@@ -193,10 +193,6 @@ export function MovieEdit({
     const [audienceRating, setAudienceRating] = useState(movie.audienceRating);
     const occurrenceCount = countMovieOccurrences(movie.id);
 
-    /*
-    all functions below allow for user to edit fields of the movie. each respective field has its own change function
-    when user enters new info, it is updated on save.
-    */
     function handleTitleChange(event: React.ChangeEvent<HTMLInputElement>) {
         setTitle(event.target.value);
     }
@@ -236,20 +232,21 @@ export function MovieEdit({
     }
 
     function handleSaveClick() {
-        onSave(
-            {
-                ...movie,
-                title,
-                cast: cast.split(", "),
-                rating,
-                inTheaters,
-                audienceRating,
-                image
-            },
-            user
-        );
+        const updatedMovie: Movie = {
+            ...movie,
+            title,
+            cast: cast.split(", "),
+            rating,
+            inTheaters,
+            audienceRating,
+            image,
+            description
+        };
+
+        onSave(updatedMovie, user);
         onCancel();
     }
+
     return (
         <div className="movie-editor">
             <label className="labels">

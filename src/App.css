@@ -25,6 +25,7 @@
     border-radius: 10px;
     margin: 5px;
     display: block;
+    cursor: pointer;
 }
 
 .plaques {
@@ -43,7 +44,6 @@
 }
 
 .lists {
-
     flex-basis: 50%;
     border: 6px solid rgb(18, 16, 16);
     margin: 10px;
@@ -203,14 +203,31 @@ label {
     display: grid;
 }
 
-.labels{
+.labels {
     color: white;
     font-weight: bold;
 }
-.actor-filter{
+.actor-filter {
     background-color: #282c34;
     color: white;
     font-weight: bold;
     border-color: #151212;
-
+    width: 99%;
+    margin-bottom: 10px;
+}
+.search-bar {
+    width: 500px;
+    margin: 10px;
+}
+.submit-review {
+    display: flex;
+    flex-direction: row; /* change the flex direction to column */
+    align-items: center;
+    color: white;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.review-box {
+    margin-top: 20px;
 }

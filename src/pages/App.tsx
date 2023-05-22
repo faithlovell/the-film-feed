@@ -148,7 +148,9 @@ function App(): JSX.Element {
                 countMovieOccurrences={countMovieOccurrence}
                 userMovieLists={{}}
             ></DragLists>
-            <MovieSearchBar movies={movies} userMovies={userMovies} />
+            {role === "Movie Master" && (
+                <MovieSearchBar movies={movies} userMovies={userMovies} />
+            )}
             <hr></hr>
             <AllMoviesList
                 movies={movies}

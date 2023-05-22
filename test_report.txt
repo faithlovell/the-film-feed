@@ -2,41 +2,31 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test --coverage
 
-FAIL src/tests/moviesList.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/react-scripts/node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/react-scripts/node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/react-scripts/node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/react-scripts/node_modules/emittery/index.js:258:23)
-
 PASS src/tests/slider.test.tsx
 PASS src/tests/menubar.test.tsx
+PASS src/tests/moviesList.test.tsx
+PASS src/tests/review.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |    6.74 |     4.25 |    7.46 |    6.94 |                   
- src                 |    8.37 |        5 |    9.43 |    8.57 |                   
-  AllMoviesList.tsx  |       0 |        0 |       0 |       0 | 24-82             
+All files            |    10.9 |     4.25 |    9.02 |   11.24 |                   
+ src                 |   13.55 |        5 |   11.42 |   13.87 |                   
+  AllMoviesList.tsx  |   19.04 |        0 |   16.66 |   19.04 | 30-35,40-53,77-82 
   DragList.tsx       |       0 |        0 |       0 |       0 | 40-346            
-  HungerGames.tsx    |       0 |      100 |       0 |       0 | 6                 
   ManageUser.tsx     |       0 |        0 |       0 |       0 | 22-81             
   MenuBar.tsx        |     100 |      100 |     100 |     100 |                   
   MovieMaster.tsx    |       0 |        0 |       0 |       0 | 40-250            
   MovieSearchBar.tsx |       0 |        0 |       0 |       0 | 10-49             
   Movies.tsx         |       0 |      100 |     100 |       0 | 33                
   NewMovieForm.tsx   |       0 |        0 |       0 |       0 | 13-81             
-  ReviewBox.tsx      |       0 |      100 |       0 |       0 | 18-80             
+  ReviewBox.tsx      |   43.75 |      100 |   16.66 |   43.75 | 26,32,36-44,61-80 
   Scroller.tsx       |   65.21 |       40 |   77.77 |   65.21 | 44-47,52-55       
  src/pages           |       0 |        0 |       0 |       0 |                   
   App.tsx            |       0 |        0 |       0 |       0 | 19-162            
 ---------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 1 failed, 2 passed, 3 total
-Tests:       12 passed, 12 total
+Test Suites: 4 passed, 4 total
+Tests:       14 passed, 14 total
 Snapshots:   0 total
-Time:        3.941 s
+Time:        4.224 s
 Ran all test suites.

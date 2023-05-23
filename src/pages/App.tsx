@@ -110,6 +110,11 @@ function App(): JSX.Element {
                 prevMovie.id === movie.id ? { ...movie } : prevMovie
             )
         );
+        setMovies((prevMovies) =>
+            prevMovies.map((prevMovie) =>
+                prevMovie.id === movie.id ? { ...movie } : prevMovie
+            )
+        );
     }
     return (
         <div className="App">

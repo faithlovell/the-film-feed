@@ -98,7 +98,7 @@ export function DragLists({
         return movies.filter((movie) => movie.cast.includes(actor));
     }
 
-    //filters user movies by if they are in theaters, used when box is checked
+    //filters user movies by if they are in theaters, used when box is
     function filterMoviesByInTheaters(movies: Movie[], inTheaters: boolean) {
         if (inTheaters) {
             return movies.filter((movie) => movie.inTheaters);
@@ -193,38 +193,39 @@ export function DragLists({
                             ))}
                         </span>
                     </div>
-                    {adminMovies.map((movie, index) => (
-                        <div key={index} className="dropped-movie">
-                            <MovieItem
-                                movie={movie}
-                                key={movie.id}
-                                onSave={handleAdminOnSave}
-                                onDelete={onDelete}
-                                role={role}
-                                onDragStart={(e, movie: Movie) => {
-                                    throw new Error(
-                                        "Function not implemented."
-                                    );
-                                }}
-                                draggable={false}
-                                user={user}
-                                countMovieOccurrences={function (
-                                    movieId: number
-                                ): number {
-                                    throw new Error(
-                                        "Function not implemented."
-                                    );
-                                }}
-                            />
-                            <div>
-                                {userMovieLists[movie.id]?.map(
-                                    (user, index) => (
-                                        <span key={index}>{user}</span>
-                                    )
-                                )}
-                            </div>
+                    <>
+                        <div className="list1-label">Movie Mentor List</div>
+                        <div
+                            className="lists"
+                            onDrop={(e) => handleOnDropAdmin(e)}
+                            onDragOver={handleDragOver}
+                        >
+                            {adminMovies.map((movie, index) => (
+                                <div key={index} className="dropped-movie">
+                                    <MovieItem
+                                        movie={movie}
+                                        key={movie.id}
+                                        onSave={handleAdminOnSave}
+                                        onDelete={onDelete}
+                                        role={"Movie Mentor"}
+                                        onDragStart={function (
+                                            e,
+                                            movie: Movie
+                                        ): void {
+                                            throw new Error(
+                                                "Function not implemented."
+                                            );
+                                        }}
+                                        draggable={false}
+                                        user={"Movie Mentor"}
+                                        countMovieOccurrences={
+                                            countMovieOccurrences
+                                        }
+                                    />
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </>
                 </>
             )}
             {role === "Movie Mentor" && (

@@ -104,18 +104,6 @@ function App(): JSX.Element {
         });
     }
 
-    function handleAdminOnSave(movie: Movie) {
-        setAdminMovies((prevAdminMovies) =>
-            prevAdminMovies.map((prevMovie) =>
-                prevMovie.id === movie.id ? { ...movie } : prevMovie
-            )
-        );
-        setMovies((prevMovies) =>
-            prevMovies.map((prevMovie) =>
-                prevMovie.id === movie.id ? { ...movie } : prevMovie
-            )
-        );
-    }
     return (
         <div className="App">
             <header className="App-header">
@@ -143,7 +131,7 @@ function App(): JSX.Element {
                 adminMovies={adminMovies}
                 setUserMovies={setUserMovies}
                 setAdminMovies={setAdminMovies}
-                handleAdminOnSave={handleAdminOnSave}
+                handleAdminOnSave={handleSave}
                 handleUserOnSave={handleUserOnSave}
                 user={role}
                 movieCounts={{}}
